@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Completo IFA</title>
+    <title>Teoria IFA - José Matheus Borges dos Santos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- ===================== Header / Menu Hamburger ===================== -->
 <header>
-    <div class="logo">Meu Site</div>
+    <div class="logo">IFA - Teoria</div>
     <div class="hamburger" id="hamburger">
         <div></div>
         <div></div>
@@ -18,36 +18,65 @@
     </div>
     <nav id="nav-menu">
         <a href="#home">Home</a>
+        <a href="#theory">Teoria</a>
         <a href="#slides">Slides</a>
-        <a href="#about">Sobre</a>
         <a href="#contact">Contato</a>
     </nav>
 </header>
 
 <!-- ===================== Título Animado ===================== -->
-<div class="title-container">
+<div class="title-container" id="home">
     <h1 id="animated-title"></h1>
 </div>
 
+<!-- ===================== Seção de Teoria ===================== -->
+<section id="theory">
+    <h2>O que é IFA?</h2>
+    <p>
+        IFA (Instrução Formal de Aprendizagem) é um método estruturado de ensino que organiza conteúdos de forma sistemática para facilitar a compreensão e memorização do aluno.  
+        O foco é integrar teoria e prática, permitindo que o estudante aprenda conceitos e depois aplique em exemplos e exercícios.
+    </p>
+    <p>
+        No contexto educacional, a metodologia IFA é usada para:  
+        <ul>
+            <li>Organizar o conhecimento em módulos sequenciais.</li>
+            <li>Proporcionar aprendizado ativo e interativo.</li>
+            <li>Garantir que o estudante compreenda antes de avançar.</li>
+        </ul>
+    </p>
+    <p>
+        Essa abordagem é especialmente eficaz em cursos técnicos, preparação para exames ou qualquer área que exija aprendizado estruturado.
+    </p>
+</section>
+
 <!-- ===================== Slides de Imagens ===================== -->
-<div class="slider" id="slides">
-    <div class="slides">
-        <img src="https://picsum.photos/id/1015/800/400" alt="Imagem 1">
-        <img src="https://picsum.photos/id/1016/800/400" alt="Imagem 2">
-        <img src="https://picsum.photos/id/1018/800/400" alt="Imagem 3">
+<section id="slides">
+    <h2>Exemplos Visuais da IFA</h2>
+    <div class="slider">
+        <div class="slides">
+            <img src="https://picsum.photos/id/1015/800/400" alt="Slide 1">
+            <img src="https://picsum.photos/id/1016/800/400" alt="Slide 2">
+            <img src="https://picsum.photos/id/1018/800/400" alt="Slide 3">
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
     </div>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-    <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-</div>
+</section>
+
+<!-- ===================== Contato ===================== -->
+<section id="contact">
+    <h2>Contato</h2>
+    <p>Para dúvidas ou mais informações sobre IFA, entre em contato via email: <a href="mailto:email@exemplo.com">email@exemplo.com</a></p>
+</section>
 
 <!-- ===================== Rodapé ===================== -->
 <footer>
-    José Matheus Borges dos Santos, I.I
+    José Matheus Borges dos Santos
 </footer>
 
 <script src="script.js"></script>
