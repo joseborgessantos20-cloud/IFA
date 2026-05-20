@@ -1,15 +1,18 @@
-/* ================= MENU HAMBURGUER ================= */
+/* MENU HAMBURGUER */
 
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
 hamburger.addEventListener("click", () => {
+
     navMenu.classList.toggle("active");
+
 });
 
-/* ================= TÍTULO ANIMADO ================= */
+/* TÍTULO ANIMADO */
 
 const texto = "IFA - Inclusão e Acessibilidade";
+
 const titulo = document.getElementById("titulo");
 
 let i = 0;
@@ -26,4 +29,4 @@ function escrever(){
     }
 }
 
-escrever();
+window.onload = escrever;
