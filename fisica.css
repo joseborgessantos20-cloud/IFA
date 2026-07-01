@@ -739,3 +739,18 @@ footer{
 
 }
 ```
+.tema-btn{
+    background:#ffffff;
+    color:#003366;
+    border:none;
+    border-radius:50%;
+    width:45px;
+    height:45px;
+    cursor:pointer;
+    font-size:20px;
+    transition:.3s;
+}
+
+.tema-btn:hover{
+    transform:rotate(20deg);
+}
