@@ -1,0 +1,314 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Movimento Uniforme</title>
+
+<link rel="stylesheet" href="fisica.css">
+
+</head>
+
+<body>
+
+<header class="topo">
+
+<a href="index.html" class="voltar">
+
+⬅ Página Inicial
+
+</a>
+
+<h1>
+
+🚗 Movimento Uniforme
+
+</h1>
+
+<button id="tema">
+
+🌙
+
+</button>
+
+</header>
+
+<section class="hero">
+
+<h2>
+
+Mapa Conceitual
+
+</h2>
+
+<p>
+
+Clique em um conceito.
+
+</p>
+
+</section>
+
+<section class="mapa">
+
+<div class="centro">
+
+MOVIMENTO UNIFORME
+
+</div>
+
+<div class="linha"></div>
+
+<div class="galhos">
+
+<button class="caixa"
+onclick="mostrar('conceito')">
+
+📚
+
+<h3>
+
+Conceito
+
+</h3>
+
+</button>
+
+<button class="caixa"
+onclick="mostrar('velocidade')">
+
+🚗
+
+<h3>
+
+Velocidade
+
+</h3>
+
+</button>
+
+<button class="caixa"
+onclick="mostrar('espaco')">
+
+📏
+
+<h3>
+
+Espaço
+
+</h3>
+
+</button>
+
+<button class="caixa"
+onclick="mostrar('tempo')">
+
+⏱
+
+<h3>
+
+Tempo
+
+</h3>
+
+</button>
+
+<button class="caixa"
+onclick="mostrar('formula')">
+
+🧮
+
+<h3>
+
+Fórmula
+
+</h3>
+
+</button>
+
+<button class="caixa"
+onclick="mostrar('grafico')">
+
+📈
+
+<h3>
+
+Gráfico
+
+</h3>
+
+</button>
+
+</div>
+
+</section>
+
+<section class="painel">
+
+<div id="conteudo">
+
+<h2>
+
+Movimento Uniforme
+
+</h2>
+
+<p>
+
+Selecione um tópico.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Física Interativa © 2026
+
+</footer>
+
+<script>
+
+const dados={
+
+conceito:`
+
+<h2>📚 Conceito</h2>
+
+<p>
+
+O Movimento Uniforme (MU) ocorre quando um corpo se move com velocidade constante.
+
+</p>
+
+`,
+
+velocidade:`
+
+<h2>🚗 Velocidade</h2>
+
+<p>
+
+A velocidade permanece constante durante todo o movimento.
+
+</p>
+
+`,
+
+espaco:`
+
+<h2>📏 Espaço</h2>
+
+<p>
+
+É a posição ocupada pelo móvel ao longo da trajetória.
+
+</p>
+
+`,
+
+tempo:`
+
+<h2>⏱ Tempo</h2>
+
+<p>
+
+É o intervalo em que ocorre o movimento.
+
+</p>
+
+`,
+
+formula:`
+
+<h2>🧮 Equação Horária</h2>
+
+<h1>
+
+S = S₀ + v·t
+
+</h1>
+
+`,
+
+grafico:`
+
+<h2>📈 Gráfico</h2>
+
+<p>
+
+No MU, o gráfico Espaço × Tempo é uma reta.
+
+</p>
+
+<canvas id="graficoMU"
+width="500"
+height="250"
+style="border:1px solid #999">
+
+</canvas>
+
+`
+
+};
+
+function mostrar(item){
+
+document.getElementById("conteudo").innerHTML=dados[item];
+
+if(item==="grafico"){
+
+setTimeout(desenhar,100);
+
+}
+
+}
+
+function desenhar(){
+
+const canvas=document.getElementById("graficoMU");
+
+if(!canvas) return;
+
+const ctx=canvas.getContext("2d");
+
+ctx.beginPath();
+
+ctx.moveTo(40,200);
+
+ctx.lineTo(450,40);
+
+ctx.lineWidth=3;
+
+ctx.strokeStyle="#1565c0";
+
+ctx.stroke();
+
+ctx.font="16px Arial";
+
+ctx.fillText("Espaço",10,20);
+
+ctx.fillText("Tempo",420,230);
+
+}
+
+document.getElementById("tema").onclick=function(){
+
+document.body.classList.toggle("escuro");
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
