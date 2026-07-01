@@ -1,0 +1,375 @@
+```css
+/*==================================
+      FÍSICA INTERATIVA
+==================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#eef4ff;
+
+    color:#222;
+
+    transition:.4s;
+
+}
+
+/*=========================
+        TOPO
+=========================*/
+
+.topo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:#003366;
+
+    color:white;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+}
+
+.topo h1{
+
+    font-size:34px;
+
+}
+
+.voltar{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+#tema{
+
+    background:white;
+
+    color:#003366;
+
+    border:none;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+}
+
+/*=========================
+        HERO
+=========================*/
+
+.hero{
+
+    text-align:center;
+
+    padding:50px;
+
+    background:linear-gradient(135deg,#1565c0,#42a5f5);
+
+    color:white;
+
+}
+
+.hero h2{
+
+    font-size:42px;
+
+}
+
+.hero p{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+}
+
+/*=========================
+      MAPA
+=========================*/
+
+.mapa{
+
+    max-width:1200px;
+
+    margin:50px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.centro{
+
+    background:#1565c0;
+
+    color:white;
+
+    padding:20px 45px;
+
+    border-radius:20px;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.linha{
+
+    width:5px;
+
+    height:50px;
+
+    background:#1565c0;
+
+}
+
+.galhos{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+    width:100%;
+
+}
+
+.caixa{
+
+    background:white;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.caixa:hover{
+
+    transform:translateY(-8px) scale(1.05);
+
+    background:#d7ebff;
+
+}
+
+.caixa h3{
+
+    margin-top:12px;
+
+    color:#003366;
+
+}
+
+/*=========================
+        PAINEL
+=========================*/
+
+.painel{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+
+}
+
+#conteudo{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+    animation:aparecer .5s;
+
+}
+
+#conteudo h2{
+
+    color:#1565c0;
+
+    margin-bottom:20px;
+
+}
+
+#conteudo ul{
+
+    margin-left:25px;
+
+    line-height:2;
+
+}
+
+/*=========================
+      RODAPÉ
+=========================*/
+
+footer{
+
+    background:#003366;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+/*=========================
+      MODO ESCURO
+=========================*/
+
+body.escuro{
+
+    background:#121212;
+
+    color:white;
+
+}
+
+body.escuro .caixa{
+
+    background:#2d2d2d;
+
+    color:white;
+
+}
+
+body.escuro .caixa h3{
+
+    color:#90caf9;
+
+}
+
+body.escuro #conteudo{
+
+    background:#222;
+
+}
+
+body.escuro footer{
+
+    background:black;
+
+}
+
+body.escuro .hero{
+
+    background:linear-gradient(135deg,#1b1b1b,#444);
+
+}
+
+/*=========================
+     ANIMAÇÃO
+=========================*/
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================
+    RESPONSIVO
+=========================*/
+
+@media(max-width:900px){
+
+.topo{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.topo h1{
+
+font-size:28px;
+
+}
+
+.hero h2{
+
+font-size:32px;
+
+}
+
+.galhos{
+
+grid-template-columns:1fr;
+
+}
+
+.caixa{
+
+width:100%;
+
+}
+
+}
+```
