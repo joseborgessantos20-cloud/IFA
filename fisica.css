@@ -1,225 +1,206 @@
 ```css
-/*==================================
-      FÍSICA INTERATIVA
-==================================*/
+/*=========================================
+            FÍSICA INTERATIVA
+=========================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+
+    --azul:#003366;
+    --azul-claro:#1976d2;
+    --azul-hover:#2196f3;
+    --branco:#ffffff;
+    --cinza:#f5f7fb;
+    --texto:#222;
+    --sombra:0 8px 20px rgba(0,0,0,.15);
+
+}
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
 
     font-family:'Poppins',sans-serif;
-
-    background:#eef4ff;
-
-    color:#222;
-
-    transition:.4s;
+    background:var(--cinza);
+    color:var(--texto);
 
 }
 
-/*=========================
-        TOPO
-=========================*/
+/*=========================================
+            CABEÇALHO
+=========================================*/
 
-.topo{
+.cabecalho{
+
+    position:sticky;
+    top:0;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     padding:18px 8%;
 
-    background:#003366;
-
-    color:white;
-
-    position:sticky;
-
-    top:0;
+    background:var(--azul);
 
     z-index:999;
 
 }
 
-.topo h1{
+.logo{
 
-    font-size:34px;
+    color:white;
+
+    font-size:30px;
+
+    font-weight:700;
 
 }
 
-.voltar{
+#menu{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+#menu a{
 
     color:white;
 
     text-decoration:none;
 
-    font-weight:bold;
+    transition:.3s;
 
 }
 
-#tema{
+#menu a:hover{
 
-    background:white;
+    color:#ffeb3b;
 
-    color:#003366;
+}
+
+.menu-btn{
+
+    display:none;
 
     border:none;
 
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-}
-
-/*=========================
-        HERO
-=========================*/
-
-.hero{
-
-    text-align:center;
-
-    padding:50px;
-
-    background:linear-gradient(135deg,#1565c0,#42a5f5);
+    background:none;
 
     color:white;
 
-}
+    font-size:34px;
 
-.hero h2{
-
-    font-size:42px;
+    cursor:pointer;
 
 }
 
-.hero p{
+/*=========================================
+                BANNER
+=========================================*/
 
-    margin-top:15px;
+.banner{
 
-    font-size:20px;
-
-}
-
-/*=========================
-      MAPA
-=========================*/
-
-.mapa{
-
-    max-width:1200px;
-
-    margin:50px auto;
+    min-height:80vh;
 
     display:flex;
 
-    flex-direction:column;
+    justify-content:center;
 
     align-items:center;
 
-}
+    text-align:center;
 
-.centro{
-
-    background:#1565c0;
+    background:linear-gradient(135deg,#0d47a1,#42a5f5);
 
     color:white;
 
-    padding:20px 45px;
+}
 
-    border-radius:20px;
+.banner h1{
 
-    font-size:32px;
-
-    font-weight:bold;
-
-    box-shadow:0 8px 18px rgba(0,0,0,.25);
+    font-size:70px;
 
 }
 
-.linha{
+.banner p{
 
-    width:5px;
+    margin-top:20px;
 
-    height:50px;
-
-    background:#1565c0;
+    font-size:22px;
 
 }
 
-.galhos{
+.botao{
 
-    display:grid;
+    display:inline-block;
 
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-    gap:25px;
-
-    width:100%;
-
-}
-
-.caixa{
+    margin-top:35px;
 
     background:white;
 
-    border:none;
-
-    border-radius:18px;
-
-    padding:25px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-
-}
-
-.caixa:hover{
-
-    transform:translateY(-8px) scale(1.05);
-
-    background:#d7ebff;
-
-}
-
-.caixa h3{
-
-    margin-top:12px;
-
     color:#003366;
 
-}
+    padding:15px 40px;
 
-/*=========================
-        PAINEL
-=========================*/
+    border-radius:40px;
 
-.painel{
+    text-decoration:none;
 
-    max-width:1000px;
+    font-weight:bold;
 
-    margin:auto;
-
-    margin-bottom:60px;
+    transition:.3s;
 
 }
 
-#conteudo{
+.botao:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*=========================================
+              CARROSSEL
+=========================================*/
+
+.carrossel{
+
+    display:flex;
+
+    gap:25px;
+
+    overflow-x:auto;
+
+    padding:40px;
+
+    scroll-behavior:smooth;
+
+}
+
+.carrossel::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.slide{
+
+    min-width:260px;
 
     background:white;
 
@@ -227,31 +208,123 @@ body{
 
     padding:35px;
 
-    box-shadow:0 10px 20px rgba(0,0,0,.18);
+    text-align:center;
 
-    animation:aparecer .5s;
+    box-shadow:var(--sombra);
 
-}
-
-#conteudo h2{
-
-    color:#1565c0;
-
-    margin-bottom:20px;
+    transition:.4s;
 
 }
 
-#conteudo ul{
+.slide:hover{
 
-    margin-left:25px;
-
-    line-height:2;
+    transform:translateY(-12px);
 
 }
 
-/*=========================
-      RODAPÉ
-=========================*/
+.slide a{
+
+    text-decoration:none;
+
+    color:#003366;
+
+}
+
+.slide h2{
+
+    margin-top:15px;
+
+}
+
+/*=========================================
+                CARDS
+=========================================*/
+
+.conteudos{
+
+    padding:70px 8%;
+
+}
+
+.conteudos h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    font-size:40px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:var(--sombra);
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.card a{
+
+    text-decoration:none;
+
+    color:#222;
+
+}
+
+.card h3{
+
+    color:#003366;
+
+    margin-bottom:15px;
+
+}
+
+/*=========================================
+                SOBRE
+=========================================*/
+
+.sobre{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+    background:white;
+
+}
+
+.sobre h2{
+
+    margin-bottom:25px;
+
+}
+
+/*=========================================
+                RODAPÉ
+=========================================*/
 
 footer{
 
@@ -261,115 +334,7 @@ footer{
 
     text-align:center;
 
-    padding:25px;
-
-}
-
-/*=========================
-      MODO ESCURO
-=========================*/
-
-body.escuro{
-
-    background:#121212;
-
-    color:white;
-
-}
-
-body.escuro .caixa{
-
-    background:#2d2d2d;
-
-    color:white;
-
-}
-
-body.escuro .caixa h3{
-
-    color:#90caf9;
-
-}
-
-body.escuro #conteudo{
-
-    background:#222;
-
-}
-
-body.escuro footer{
-
-    background:black;
-
-}
-
-body.escuro .hero{
-
-    background:linear-gradient(135deg,#1b1b1b,#444);
-
-}
-
-/*=========================
-     ANIMAÇÃO
-=========================*/
-
-@keyframes aparecer{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-/*=========================
-    RESPONSIVO
-=========================*/
-
-@media(max-width:900px){
-
-.topo{
-
-flex-direction:column;
-
-gap:15px;
-
-}
-
-.topo h1{
-
-font-size:28px;
-
-}
-
-.hero h2{
-
-font-size:32px;
-
-}
-
-.galhos{
-
-grid-template-columns:1fr;
-
-}
-
-.caixa{
-
-width:100%;
-
-}
+    padding:30px;
 
 }
 ```
