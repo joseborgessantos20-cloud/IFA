@@ -1,175 +1,45 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Óptica - Física Interativa</title>
+<title>Óptica | Física Interativa</title>
 
-<style>
+<link rel="stylesheet" href="fisica.css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-body{
-    background:#eef5ff;
-}
-
-header{
-    background:#003366;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-
-a{
-    color:white;
-    text-decoration:none;
-}
-
-.mapa{
-
-    max-width:1000px;
-
-    margin:40px auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-}
-
-.principal{
-
-    background:#1565c0;
-
-    color:white;
-
-    padding:18px 40px;
-
-    border-radius:15px;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-}
-
-.linha{
-
-    width:4px;
-
-    height:40px;
-
-    background:#1565c0;
-
-}
-
-.ramos{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:20px;
-
-}
-
-.caixa{
-
-    background:white;
-
-    width:180px;
-
-    padding:20px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-.caixa:hover{
-
-    transform:translateY(-8px);
-
-    background:#bbdefb;
-
-}
-
-.info{
-
-    max-width:900px;
-
-    margin:30px auto;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,.2);
-
-}
-
-h2{
-
-    margin-bottom:15px;
-
-    color:#003366;
-
-}
-
-@media(max-width:700px){
-
-.ramos{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.caixa{
-
-width:90%;
-
-}
-
-}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header>
+<header class="topo">
+
+<a href="index.html" class="voltar">⬅ Início</a>
 
 <h1>🔦 Óptica</h1>
 
-<p><a href="index.html">← Voltar</a></p>
+<button id="tema">🌙</button>
 
 </header>
 
-<div class="mapa">
+<section class="hero">
 
-<div class="principal">
+<h2>Mapa Conceitual</h2>
+
+<p>Clique em um conceito para aprender mais.</p>
+
+</section>
+
+<section class="mapa">
+
+<div class="centro">
 
 ÓPTICA
 
@@ -177,66 +47,102 @@ width:90%;
 
 <div class="linha"></div>
 
-<div class="ramos">
+<div class="galhos">
 
-<div class="caixa" onclick="mostrar('luz')">
+<button class="caixa" onclick="mostrar('luz')">
 
 ☀️
 
 <h3>Luz</h3>
 
-</div>
+</button>
 
-<div class="caixa" onclick="mostrar('reflexao')">
+<button class="caixa" onclick="mostrar('reflexao')">
 
 🪞
 
 <h3>Reflexão</h3>
 
-</div>
+</button>
 
-<div class="caixa" onclick="mostrar('refracao')">
+<button class="caixa" onclick="mostrar('refracao')">
 
 💧
 
 <h3>Refração</h3>
 
-</div>
+</button>
 
-<div class="caixa" onclick="mostrar('lentes')">
+<button class="caixa" onclick="mostrar('lentes')">
 
 🔍
 
 <h3>Lentes</h3>
 
-</div>
+</button>
+
+<button class="caixa" onclick="mostrar('espelhos')">
+
+🪞
+
+<h3>Espelhos</h3>
+
+</button>
+
+<button class="caixa" onclick="mostrar('instrumentos')">
+
+🔭
+
+<h3>Instrumentos</h3>
+
+</button>
 
 </div>
 
+</section>
+
+<section class="painel">
+
+<div id="conteudo">
+
+<h2>Bem-vindo!</h2>
+
+<p>
+
+Selecione um dos tópicos acima para visualizar um resumo.
+
+</p>
+
 </div>
 
-<div class="info" id="info">
+</section>
 
-<h2>Mapa Conceitual</h2>
+<footer>
 
-<p>Clique em um dos tópicos para visualizar o resumo.</p>
+<p>Física Interativa © 2026</p>
 
-</div>
+</footer>
 
 <script>
 
-const dados={
+const conteudos={
 
 luz:`
 <h2>☀️ Luz</h2>
 
+<p>
+
+É uma onda eletromagnética capaz de se propagar no vácuo.
+
+</p>
+
 <ul>
 
-<li>Propaga-se em linha reta.</li>
+<li>Natural ou artificial.</li>
 
-<li>Pode ser natural ou artificial.</li>
+<li>Propagação retilínea.</li>
 
-<li>É uma onda eletromagnética.</li>
+<li>Velocidade ≈ 3×10⁸ m/s.</li>
 
 </ul>
 `,
@@ -244,11 +150,17 @@ luz:`
 reflexao:`
 <h2>🪞 Reflexão</h2>
 
+<p>
+
+A luz retorna ao mesmo meio.
+
+</p>
+
 <ul>
 
-<li>Ocorre em espelhos.</li>
+<li>Ângulo de incidência = Ângulo de reflexão.</li>
 
-<li>Ângulo de incidência = ângulo de reflexão.</li>
+<li>Espelhos planos e esféricos.</li>
 
 </ul>
 `,
@@ -256,13 +168,19 @@ reflexao:`
 refracao:`
 <h2>💧 Refração</h2>
 
-<ul>
+<p>
 
-<li>Mudança de direção da luz.</li>
+Mudança de direção ao passar de um meio para outro.
+
+</p>
+
+<ul>
 
 <li>Lei de Snell.</li>
 
 <li>Índice de refração.</li>
+
+<li>n = c / v</li>
 
 </ul>
 `,
@@ -279,13 +197,51 @@ lentes:`
 <li>Formação de imagens.</li>
 
 </ul>
+`,
+
+espelhos:`
+<h2>🪞 Espelhos</h2>
+
+<ul>
+
+<li>Plano.</li>
+
+<li>Côncavo.</li>
+
+<li>Convexo.</li>
+
+</ul>
+`,
+
+instrumentos:`
+<h2>🔭 Instrumentos Ópticos</h2>
+
+<ul>
+
+<li>Microscópio.</li>
+
+<li>Lupa.</li>
+
+<li>Luneta.</li>
+
+<li>Telescópio.</li>
+
+</ul>
 `
 
 };
 
 function mostrar(topico){
 
-document.getElementById("info").innerHTML=dados[topico];
+document.getElementById("conteudo").innerHTML=conteudos[topico];
+
+}
+
+const botao=document.getElementById("tema");
+
+botao.onclick=function(){
+
+document.body.classList.toggle("escuro");
 
 }
 
@@ -294,3 +250,4 @@ document.getElementById("info").innerHTML=dados[topico];
 </body>
 
 </html>
+```
