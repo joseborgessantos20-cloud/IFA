@@ -4,250 +4,432 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Óptica | Física Interativa</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="fisica.css">
+    <title>Óptica | Física Interativa</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+          href="fisica.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
 
 </head>
 
 <body>
 
-<header class="topo">
+<!--====================================
+            CABEÇALHO
+=====================================-->
 
-<a href="index.html" class="voltar">⬅ Início</a>
+<header class="cabecalho">
 
-<h1>🔦 Óptica</h1>
+    <div class="logo">
 
-<button id="tema">🌙</button>
+        🔦 Física Interativa
+
+    </div>
+
+    <button
+        id="menuBtn"
+        class="menu-btn">
+
+        ☰
+
+    </button>
+
+    <nav id="menu">
+
+        <a href="index.html">Início</a>
+
+        <a href="optica.html">Óptica</a>
+
+        <a href="mu.html">MU</a>
+
+        <a href="muv.html">MUV</a>
+
+        <a href="dinamica.html">Dinâmica</a>
+
+    </nav>
+
+    <button
+        id="tema"
+        class="tema-btn">
+
+        🌙
+
+    </button>
 
 </header>
 
-<section class="hero">
+<!--====================================
+                BANNER
+=====================================-->
 
-<h2>Mapa Conceitual</h2>
+<section class="banner">
 
-<p>Clique em um conceito para aprender mais.</p>
+    <div class="banner-texto">
+
+        <h1>
+
+            ÓPTICA
+
+        </h1>
+
+        <p>
+
+            Estude a luz, os espelhos, as lentes e os fenômenos ópticos
+            por meio de um mapa conceitual interativo.
+
+        </p>
+
+    </div>
 
 </section>
+
+<!--====================================
+        MAPA CONCEITUAL
+=====================================-->
 
 <section class="mapa">
 
-<div class="centro">
+    <div class="centro">
 
-ÓPTICA
+        🔦 ÓPTICA
 
-</div>
+    </div>
 
-<div class="linha"></div>
+    <div class="linha"></div>
 
-<div class="galhos">
+    <div class="galhos">
 
-<button class="caixa" onclick="mostrar('luz')">
+        <button
+            class="caixa"
+            onclick="mostrar('luz')">
 
-☀️
+            ☀️
 
-<h3>Luz</h3>
+            <h3>Luz</h3>
 
-</button>
+        </button>
 
-<button class="caixa" onclick="mostrar('reflexao')">
+        <button
+            class="caixa"
+            onclick="mostrar('reflexao')">
 
-🪞
+            🪞
 
-<h3>Reflexão</h3>
+            <h3>Reflexão</h3>
 
-</button>
+        </button>
 
-<button class="caixa" onclick="mostrar('refracao')">
+        <button
+            class="caixa"
+            onclick="mostrar('refracao')">
 
-💧
+            💧
 
-<h3>Refração</h3>
+            <h3>Refração</h3>
 
-</button>
+        </button>
 
-<button class="caixa" onclick="mostrar('lentes')">
+        <button
+            class="caixa"
+            onclick="mostrar('espelhos')">
 
-🔍
+            🪞
 
-<h3>Lentes</h3>
+            <h3>Espelhos</h3>
 
-</button>
+        </button>
 
-<button class="caixa" onclick="mostrar('espelhos')">
+        <button
+            class="caixa"
+            onclick="mostrar('lentes')">
 
-🪞
+            🔍
 
-<h3>Espelhos</h3>
+            <h3>Lentes</h3>
 
-</button>
+        </button>
 
-<button class="caixa" onclick="mostrar('instrumentos')">
+        <button
+            class="caixa"
+            onclick="mostrar('instrumentos')">
 
-🔭
+            🔭
 
-<h3>Instrumentos</h3>
+            <h3>Instrumentos</h3>
 
-</button>
+        </button>
 
-</div>
+    </div>
 
 </section>
+
+<!--====================================
+        ÁREA DE EXPLICAÇÃO
+=====================================-->
 
 <section class="painel">
 
-<div id="conteudo">
-
-<h2>Bem-vindo!</h2>
-
-<p>
-
-Selecione um dos tópicos acima para visualizar um resumo.
-
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>Física Interativa © 2026</p>
-
-</footer>
+  ```html
+<!--====================================
+        CONTEÚDO INTERATIVO
+=====================================-->
 
 <script>
 
-const conteudos={
+const mapas = {
 
 luz:`
+
 <h2>☀️ Luz</h2>
 
 <p>
 
-É uma onda eletromagnética capaz de se propagar no vácuo.
+A luz é uma onda eletromagnética capaz de se propagar no vácuo.
 
 </p>
 
-<ul>
+<h3>Principais características</h3>
 
-<li>Natural ou artificial.</li>
+<ul>
 
 <li>Propagação retilínea.</li>
 
-<li>Velocidade ≈ 3×10⁸ m/s.</li>
+<li>Velocidade ≈ 3 × 10⁸ m/s.</li>
+
+<li>Pode ser natural ou artificial.</li>
+
+<li>Pode sofrer reflexão e refração.</li>
 
 </ul>
+
+<div class="formula">
+
+<b>Velocidade da luz:</b>
+
+<h2>c = 3 × 10⁸ m/s</h2>
+
+</div>
+
 `,
 
 reflexao:`
+
 <h2>🪞 Reflexão</h2>
 
 <p>
 
-A luz retorna ao mesmo meio.
+Na reflexão a luz retorna para o mesmo meio onde estava se propagando.
 
 </p>
 
+<h3>Leis da Reflexão</h3>
+
 <ul>
+
+<li>Raio incidente, normal e refletido pertencem ao mesmo plano.</li>
 
 <li>Ângulo de incidência = Ângulo de reflexão.</li>
 
-<li>Espelhos planos e esféricos.</li>
-
 </ul>
+
+<div class="formula">
+
+<h2>i = r</h2>
+
+</div>
+
 `,
 
 refracao:`
+
 <h2>💧 Refração</h2>
 
 <p>
 
-Mudança de direção ao passar de um meio para outro.
+Na refração a luz muda de direção ao passar de um meio para outro.
 
 </p>
 
-<ul>
+<h3>Lei de Snell</h3>
 
-<li>Lei de Snell.</li>
+<div class="formula">
 
-<li>Índice de refração.</li>
+<h2>
 
-<li>n = c / v</li>
+n₁ sen i = n₂ sen r
 
-</ul>
-`,
+</h2>
 
-lentes:`
-<h2>🔍 Lentes</h2>
+</div>
 
-<ul>
+<p>
 
-<li>Convergentes.</li>
+Quanto maior o índice de refração, menor é a velocidade da luz naquele meio.
 
-<li>Divergentes.</li>
+</p>
 
-<li>Formação de imagens.</li>
-
-</ul>
 `,
 
 espelhos:`
+
 <h2>🪞 Espelhos</h2>
+
+<h3>Tipos</h3>
 
 <ul>
 
-<li>Plano.</li>
+<li>Plano</li>
 
-<li>Côncavo.</li>
+<li>Côncavo</li>
 
-<li>Convexo.</li>
+<li>Convexo</li>
 
 </ul>
+
+<p>
+
+Espelhos formam imagens reais ou virtuais dependendo da posição do objeto.
+
+</p>
+
+`,
+
+lentes:`
+
+<h2>🔍 Lentes</h2>
+
+<h3>Classificação</h3>
+
+<ul>
+
+<li>Convergentes</li>
+
+<li>Divergentes</li>
+
+</ul>
+
+<div class="formula">
+
+<h2>
+
+1/f = 1/p + 1/p'
+
+</h2>
+
+</div>
+
+<p>
+
+As lentes podem ampliar ou reduzir imagens.
+
+</p>
+
 `,
 
 instrumentos:`
+
 <h2>🔭 Instrumentos Ópticos</h2>
 
 <ul>
 
-<li>Microscópio.</li>
+<li>Lupa</li>
 
-<li>Lupa.</li>
+<li>Microscópio</li>
 
-<li>Luneta.</li>
+<li>Luneta</li>
 
-<li>Telescópio.</li>
+<li>Telescópio</li>
+
+<li>Câmera Fotográfica</li>
 
 </ul>
+
+<p>
+
+Todos utilizam espelhos ou lentes para formar imagens.
+
+</p>
+
 `
 
 };
 
 function mostrar(topico){
 
-document.getElementById("conteudo").innerHTML=conteudos[topico];
-
-}
-
-const botao=document.getElementById("tema");
-
-botao.onclick=function(){
-
-document.body.classList.toggle("escuro");
+document.getElementById("conteudo").innerHTML = mapas[topico];
 
 }
 
 </script>
 
+<!--====================================
+            RODAPÉ
+=====================================-->
+
+<footer>
+
+<div>
+
+Equipe Alura • SEED-PR
+
+</div>
+
+<div>
+
+Física Interativa
+
+</div>
+
+<div>
+
+© 2026
+
+</div>
+
+</footer>
+
+<button id="topo">
+
+⬆
+
+</button>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>
+```
+<div id="conteudo">
+
+<h2>
+
+Bem-vindo!
+
+</h2>
+
+<p>
+
+Clique em qualquer tópico do mapa conceitual para visualizar
+um resumo, as principais fórmulas e exemplos.
+
+</p>
+
+</div>
+
+</section>
 ```
