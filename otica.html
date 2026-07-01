@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Óptica - Física Interativa</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+}
+
+.mapa{
+
+    max-width:1000px;
+
+    margin:40px auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.principal{
+
+    background:#1565c0;
+
+    color:white;
+
+    padding:18px 40px;
+
+    border-radius:15px;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.linha{
+
+    width:4px;
+
+    height:40px;
+
+    background:#1565c0;
+
+}
+
+.ramos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.caixa{
+
+    background:white;
+
+    width:180px;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.caixa:hover{
+
+    transform:translateY(-8px);
+
+    background:#bbdefb;
+
+}
+
+.info{
+
+    max-width:900px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+h2{
+
+    margin-bottom:15px;
+
+    color:#003366;
+
+}
+
+@media(max-width:700px){
+
+.ramos{
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.caixa{
+
+width:90%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🔦 Óptica</h1>
+
+<p><a href="index.html">← Voltar</a></p>
+
+</header>
+
+<div class="mapa">
+
+<div class="principal">
+
+ÓPTICA
+
+</div>
+
+<div class="linha"></div>
+
+<div class="ramos">
+
+<div class="caixa" onclick="mostrar('luz')">
+
+☀️
+
+<h3>Luz</h3>
+
+</div>
+
+<div class="caixa" onclick="mostrar('reflexao')">
+
+🪞
+
+<h3>Reflexão</h3>
+
+</div>
+
+<div class="caixa" onclick="mostrar('refracao')">
+
+💧
+
+<h3>Refração</h3>
+
+</div>
+
+<div class="caixa" onclick="mostrar('lentes')">
+
+🔍
+
+<h3>Lentes</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="info" id="info">
+
+<h2>Mapa Conceitual</h2>
+
+<p>Clique em um dos tópicos para visualizar o resumo.</p>
+
+</div>
+
+<script>
+
+const dados={
+
+luz:`
+<h2>☀️ Luz</h2>
+
+<ul>
+
+<li>Propaga-se em linha reta.</li>
+
+<li>Pode ser natural ou artificial.</li>
+
+<li>É uma onda eletromagnética.</li>
+
+</ul>
+`,
+
+reflexao:`
+<h2>🪞 Reflexão</h2>
+
+<ul>
+
+<li>Ocorre em espelhos.</li>
+
+<li>Ângulo de incidência = ângulo de reflexão.</li>
+
+</ul>
+`,
+
+refracao:`
+<h2>💧 Refração</h2>
+
+<ul>
+
+<li>Mudança de direção da luz.</li>
+
+<li>Lei de Snell.</li>
+
+<li>Índice de refração.</li>
+
+</ul>
+`,
+
+lentes:`
+<h2>🔍 Lentes</h2>
+
+<ul>
+
+<li>Convergentes.</li>
+
+<li>Divergentes.</li>
+
+<li>Formação de imagens.</li>
+
+</ul>
+`
+
+};
+
+function mostrar(topico){
+
+document.getElementById("info").innerHTML=dados[topico];
+
+}
+
+</script>
+
+</body>
+
+</html>
