@@ -1,0 +1,1039 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dinâmica | Física Interativa</title>
+
+<link rel="stylesheet" href="fisica.css">
+
+</head>
+
+<body>
+
+<!--=========================================
+                CABEÇALHO
+==========================================-->
+
+<header class="cabecalho">
+
+<div class="logo">
+
+⚖ Física Interativa
+
+</div>
+
+<button class="menu-btn" id="menuBtn">
+
+☰
+
+</button>
+
+<nav id="menu">
+
+<a href="index.html">Início</a>
+
+<a href="optica.html">Óptica</a>
+
+<a href="mu.html">MU</a>
+
+<a href="muv.html">MUV</a>
+
+<a href="dinamica.html" class="ativo">Dinâmica</a>
+
+</nav>
+
+<button id="tema" class="tema-btn">
+
+🌙
+
+</button>
+
+</header>
+
+<!--=========================================
+                    BANNER
+==========================================-->
+
+<section class="banner">
+
+<div class="banner-texto">
+
+<h1>
+
+⚖ DINÂMICA
+
+</h1>
+
+<p>
+
+Estudo das forças e das Leis de Newton.
+
+</p>
+
+</div>
+
+</section>
+
+<!--=========================================
+                CARROSSEL
+==========================================-->
+
+<section class="carrossel">
+
+<div class="slide">
+
+<h2>
+
+⚖ Força
+
+</h2>
+
+<p>
+
+Interação capaz de modificar o movimento.
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+🍎 1ª Lei
+
+</h2>
+
+<p>
+
+Princípio da Inércia.
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+🚀 2ª Lei
+
+</h2>
+
+<p>
+
+F = m · a
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+🎈 3ª Lei
+
+</h2>
+
+<p>
+
+Ação e Reação.
+
+</p>
+
+</div>
+
+</section>
+
+<!--=========================================
+            MAPA CONCEITUAL
+==========================================-->
+
+<section class="mapa">
+
+<h2>
+
+Mapa Conceitual
+
+</h2>
+
+<div class="centro">
+
+⚖ DINÂMICA
+
+</div>
+
+<div class="linha"></div>
+
+<div class="galhos">
+
+<div class="caixa">
+
+⚖
+
+<h3>
+
+Força
+
+</h3>
+
+</div>
+
+<div class="caixa">
+
+🍎
+
+<h3>
+
+1ª Lei
+
+</h3>
+
+</div>
+
+<div class="caixa">
+
+🚀
+
+<h3>
+
+2ª Lei
+
+</h3>
+
+</div>
+
+<div class="caixa">
+
+🎈
+
+<h3>
+
+3ª Lei
+
+</h3>
+
+</div>
+
+<div class="caixa">
+
+🌍
+
+<h3>
+
+Peso
+
+</h3>
+
+</div>
+
+<div class="caixa">
+
+🧲
+
+<h3>
+
+Atrito
+
+</h3>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+                RESUMO
+==========================================-->
+
+<section class="resumo">
+
+<h2>
+
+📚 Resumo
+
+</h2>
+
+<p>
+
+A Dinâmica é o ramo da Física que estuda as causas dos movimentos, analisando as forças que atuam sobre os corpos.
+
+</p>
+
+<p>
+
+Seu principal estudo baseia-se nas três Leis de Newton.
+
+</p>
+
+</section>
+
+<!--=========================================
+            LEIS DE NEWTON
+==========================================-->
+
+<section class="conteudos">
+
+<h2>
+
+🍎 Leis de Newton
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+
+1ª Lei
+
+</h3>
+
+<p>
+
+Todo corpo tende a permanecer em repouso ou em movimento uniforme até que uma força resultante atue sobre ele.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+2ª Lei
+
+</h3>
+
+<p>
+
+A aceleração é diretamente proporcional à força resultante e inversamente proporcional à massa.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+3ª Lei
+
+</h3>
+
+<p>
+
+Para toda ação existe uma reação de mesma intensidade e direção, porém em sentido oposto.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+```
+```html
+<!--=========================================
+            TIPOS DE FORÇAS
+==========================================-->
+
+<section class="conteudos">
+
+<h2>⚖ Tipos de Forças</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🌍 Peso (P)</h3>
+
+<p>
+Força de atração gravitacional exercida pela Terra sobre um corpo.
+</p>
+
+<p><strong>Fórmula:</strong> P = m · g</p>
+
+</div>
+
+<div class="card">
+
+<h3>⬜ Força Normal (N)</h3>
+
+<p>
+Força exercida pela superfície em contato com o corpo.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🧲 Atrito (Fat)</h3>
+
+<p>
+Força que se opõe ao movimento entre duas superfícies.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🪢 Tração (T)</h3>
+
+<p>
+Força transmitida por cordas, cabos e fios.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌬 Resistência do Ar</h3>
+
+<p>
+Força que dificulta o movimento de objetos no ar.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🚀 Força Resultante</h3>
+
+<p>
+É a soma vetorial de todas as forças que atuam no corpo.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+            FÓRMULAS
+==========================================-->
+
+<section class="formulas">
+
+<h2>🧮 Fórmulas Principais</h2>
+
+<div class="cards-formulas">
+
+<div class="formula">
+
+<h3>2ª Lei de Newton</h3>
+
+<h2>F = m · a</h2>
+
+</div>
+
+<div class="formula">
+
+<h3>Peso</h3>
+
+<h2>P = m · g</h2>
+
+</div>
+
+<div class="formula">
+
+<h3>Atrito</h3>
+
+<h2>Fat = μ · N</h2>
+
+</div>
+
+<div class="formula">
+
+<h3>Resultante</h3>
+
+<h2>ΣF = m · a</h2>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+            APLICAÇÕES
+==========================================-->
+
+<section class="aplicacoes">
+
+<h2>🚗 Dinâmica no Cotidiano</h2>
+
+<div class="cards">
+
+<div class="card">
+
+🚗
+
+<h3>Automóvel</h3>
+
+<p>
+A força do motor acelera o veículo.
+</p>
+
+</div>
+
+<div class="card">
+
+🚲
+
+<h3>Bicicleta</h3>
+
+<p>
+O atrito entre pneus e solo permite o movimento.
+</p>
+
+</div>
+
+<div class="card">
+
+🚀
+
+<h3>Foguete</h3>
+
+<p>
+Funciona pela terceira Lei de Newton.
+</p>
+
+</div>
+
+<div class="card">
+
+🏀
+
+<h3>Bola</h3>
+
+<p>
+A trajetória depende da força aplicada.
+</p>
+
+</div>
+
+<div class="card">
+
+🪂
+
+<h3>Paraquedas</h3>
+
+<p>
+A resistência do ar reduz a velocidade.
+</p>
+
+</div>
+
+<div class="card">
+
+🏗
+
+<h3>Guindaste</h3>
+
+<p>
+A tração do cabo sustenta a carga.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+            MAPA RESUMIDO
+==========================================-->
+
+<section class="mapa-conceitual">
+
+<h2>🧠 Resumo Conceitual</h2>
+
+<div class="cards">
+
+<div class="card">
+
+⚖ Dinâmica
+
+</div>
+
+<div class="card">
+
+↓
+
+</div>
+
+<div class="card">
+
+Forças
+
+</div>
+
+<div class="card">
+
+↓
+
+</div>
+
+<div class="card">
+
+Leis de Newton
+
+</div>
+
+<div class="card">
+
+↓
+
+</div>
+
+<div class="card">
+
+Movimento
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+            CURIOSIDADES
+==========================================-->
+
+<section class="curiosidades">
+
+<h2>💡 Curiosidades</h2>
+
+<ul>
+
+<li>🍎 A história da maçã tornou Isaac Newton um dos cientistas mais conhecidos.</li>
+
+<li>🌍 O peso varia conforme a gravidade do planeta.</li>
+
+<li>🌕 Na Lua o peso é aproximadamente 6 vezes menor que na Terra.</li>
+
+<li>🚀 Foguetes conseguem se mover até no espaço, onde não existe ar.</li>
+
+<li>🚗 O cinto de segurança é uma aplicação da 1ª Lei de Newton.</li>
+
+</ul>
+
+</section>
+```
+```html
+<!--=========================================
+            EXERCÍCIOS
+==========================================-->
+
+<section class="exercicios">
+
+    <h2>📝 Exercícios</h2>
+
+    <ol>
+
+        <li>
+            Um corpo de 10 kg recebe uma força de 50 N.
+            Qual é sua aceleração?
+        </li>
+
+        <li>
+            Calcule o peso de um corpo de 5 kg.
+            Considere g = 10 m/s².
+        </li>
+
+        <li>
+            Explique a Primeira Lei de Newton.
+        </li>
+
+        <li>
+            Cite três tipos de forças estudadas na Dinâmica.
+        </li>
+
+    </ol>
+
+</section>
+
+<!--=========================================
+        RESPOSTAS
+==========================================-->
+
+<section class="resolucao">
+
+<h2>
+
+✅ Respostas
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>1)</h3>
+
+<p>
+
+F = m·a
+
+<br>
+
+50 = 10·a
+
+<br>
+
+<b>a = 5 m/s²</b>
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>2)</h3>
+
+<p>
+
+P = m·g
+
+<br>
+
+P = 5 × 10
+
+<br>
+
+<b>P = 50 N</b>
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>3)</h3>
+
+<p>
+
+Um corpo tende a permanecer em repouso ou em movimento uniforme
+até que uma força resultante atue sobre ele.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>4)</h3>
+
+<p>
+
+Peso, Normal, Atrito, Tração ou Resistência do Ar.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+                QUIZ
+==========================================-->
+
+<section class="quiz">
+
+<h2>
+
+🧠 Quiz
+
+</h2>
+
+<div class="pergunta">
+
+<h3>
+
+1. Qual é a equação da Segunda Lei de Newton?
+
+</h3>
+
+<label>
+
+<input type="radio" name="q1">
+
+P = m·g
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio"
+name="q1"
+data-correta="true">
+
+F = m·a
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio" name="q1">
+
+v = ΔS/Δt
+
+</label>
+
+</div>
+
+<div class="pergunta">
+
+<h3>
+
+2. O peso depende de:
+
+</h3>
+
+<label>
+
+<input type="radio" name="q2">
+
+Velocidade
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio"
+name="q2"
+data-correta="true">
+
+Massa e gravidade
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio" name="q2">
+
+Tempo
+
+</label>
+
+</div>
+
+<div class="pergunta">
+
+<h3>
+
+3. A Terceira Lei de Newton afirma que:
+
+</h3>
+
+<label>
+
+<input type="radio"
+name="q3"
+data-correta="true">
+
+Toda ação possui uma reação.
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio" name="q3">
+
+Toda força gera velocidade.
+
+</label>
+
+<br>
+
+<label>
+
+<input type="radio" name="q3">
+
+Peso é igual à massa.
+
+</label>
+
+</div>
+
+<button onclick="corrigirQuiz()">
+
+Corrigir
+
+</button>
+
+<h2 id="resultadoQuiz"></h2>
+
+</section>
+
+<script>
+
+function corrigirQuiz(){
+
+let pontos = 0;
+
+const corretas = document.querySelectorAll("input[data-correta='true']");
+
+corretas.forEach(opcao=>{
+
+if(opcao.checked){
+
+pontos++;
+
+}
+
+});
+
+document.getElementById("resultadoQuiz").innerHTML=
+
+"Você acertou " + pontos + " de 3 questões.";
+
+}
+
+</script>
+
+<!--=========================================
+            RESUMO GERAL
+==========================================-->
+
+<section class="resumo-final">
+
+<h2>
+
+📚 Resumo Geral
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Conceito</th>
+
+<th>Resumo</th>
+
+</tr>
+
+<tr>
+
+<td>Dinâmica</td>
+
+<td>Estuda as forças que produzem movimentos.</td>
+
+</tr>
+
+<tr>
+
+<td>1ª Lei</td>
+
+<td>Princípio da Inércia.</td>
+
+</tr>
+
+<tr>
+
+<td>2ª Lei</td>
+
+<td>F = m · a.</td>
+
+</tr>
+
+<tr>
+
+<td>3ª Lei</td>
+
+<td>Ação e Reação.</td>
+
+</tr>
+
+<tr>
+
+<td>Peso</td>
+
+<td>P = m · g.</td>
+
+</tr>
+
+<tr>
+
+<td>Atrito</td>
+
+<td>Oposição ao movimento.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!--=========================================
+                RODAPÉ
+==========================================-->
+
+<footer>
+
+<div class="rodapepadrao">
+
+<p>
+
+Projeto Física Interativa
+
+</p>
+
+<p>
+
+Equipe Alura • SEED-PR
+
+</p>
+
+<p>
+
+© Copyright José Matheus.
+
+</p>
+
+<p>
+
+Ed. 01 - 2026
+
+</p>
+
+</div>
+
+</footer>
+
+<button id="topo">
+
+⬆
+
+</button>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+```
