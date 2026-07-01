@@ -1,179 +1,307 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>IFA - Inclusão e Acessibilidade</title>
+    <title>Física Interativa</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="fisica.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
+<!--=====================================
+            CABEÇALHO
+======================================-->
 
-    <header>
+<header>
 
-        <div class="logo">
-            IFA Inclusão
-        </div>
+<div class="logo">
 
-        <div class="hamburger" id="hamburger">
+<i class="fa-solid fa-atom"></i>
 
-            <span></span>
-            <span></span>
-            <span></span>
+<span>Física Interativa</span>
 
-        </div>
+</div>
 
-        <nav id="nav-menu">
+<nav id="menu">
 
-            <a href="#home">Home</a>
-            <a href="#ifa">IFA</a>
-            <a href="#acessibilidade">Acessibilidade</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#contato">Contato</a>
+<a href="#inicio">Início</a>
 
-        </nav>
+<a href="#conteudos">Conteúdos</a>
 
-    </header>
+<a href="#mapas">Mapas</a>
 
-    <!-- HOME -->
+<a href="#sobre">Sobre</a>
 
-    <section class="home" id="home">
+</nav>
 
-        <div class="overlay"></div>
+<div class="hamburger" id="hamburger">
 
-        <div class="home-content">
+<span></span>
 
-            <h1 id="titulo"></h1>
+<span></span>
 
-            <p>
-                Inclusão, acessibilidade e tecnologia assistiva
-                aplicadas à metodologia IFA.
-            </p>
+<span></span>
 
-        </div>
+</div>
 
-    </section>
+</header>
 
-    <!-- IFA -->
+<!--=====================================
+            BANNER
+======================================-->
 
-    <section id="ifa">
+<section class="banner" id="inicio">
 
-        <h2>O que é IFA?</h2>
+<div class="banner-texto">
 
-        <div class="card">
+<h1>
 
-            <p>
-                A IFA (Instrução Formal de Aprendizagem)
-                organiza conteúdos de maneira estruturada,
-                facilitando o aprendizado e a compreensão.
-            </p>
+Aprenda Física de forma simples.
 
-            <br>
+</h1>
 
-            <p>
-                Essa metodologia integra teoria e prática,
-                promovendo um ensino acessível e eficiente.
-            </p>
+<p>
 
-        </div>
+Mapas conceituais, animações e resumos.
 
-    </section>
+</p>
 
-    <!-- ACESSIBILIDADE -->
+<a href="#conteudos" class="botao">
 
-    <section id="acessibilidade">
+Começar
 
-        <h2>Acessibilidade</h2>
+</a>
 
-        <div class="grid">
+</div>
 
-            <div class="box">
+</section>
 
-                <h3>Inclusão Social</h3>
+<!--=====================================
+            CONTEÚDOS
+======================================-->
 
-                <p>
-                    Garantir acesso à educação
-                    e informação para todos.
-                </p>
+<section id="conteudos">
 
-            </div>
+<h2 class="titulo">
 
-            <div class="box">
+Conteúdos
 
-                <h3>Tecnologia Assistiva</h3>
+</h2>
 
-                <p>
-                    Ferramentas digitais auxiliam
-                    pessoas com deficiência.
-                </p>
+<div class="cards">
 
-            </div>
+<div class="card"
+onclick="abrirMapa('optica')">
 
-            <div class="box">
+<i class="fa-solid fa-lightbulb"></i>
 
-                <h3>Educação</h3>
+<h3>
 
-                <p>
-                    O aprendizado acessível fortalece
-                    a inclusão social.
-                </p>
+Óptica
 
-            </div>
+</h3>
 
-        </div>
+<p>
 
-    </section>
+Estudo da luz e dos fenômenos luminosos.
 
-    <!-- TECNOLOGIA -->
+</p>
 
-    <section id="tecnologia">
+</div>
 
-        <h2>Tecnologia Assistiva</h2>
+<div class="card"
+onclick="abrirMapa('mu')">
 
-        <div class="card">
+<i class="fa-solid fa-road"></i>
 
-            <p>
-                Recursos tecnológicos ajudam pessoas
-                com deficiência a terem mais autonomia,
-                acessibilidade e inclusão digital.
-            </p>
+<h3>
 
-        </div>
+Movimento Uniforme
 
-    </section>
+</h3>
 
-    <!-- CONTATO -->
+<p>
 
-    <section id="contato">
+Velocidade constante.
 
-        <h2>Contato</h2>
+</p>
 
-        <p>
-            Email:
-            <a href="mailto:email@exemplo.com">
-                email@exemplo.com
-            </a>
-        </p>
+</div>
 
-    </section>
+<div class="card"
+onclick="abrirMapa('muv')">
 
-    <!-- FOOTER -->
+<i class="fa-solid fa-gauge-high"></i>
 
-    <footer>
+<h3>
 
-        José Matheus Borges dos Santos © 2025
+Movimento Uniformemente Variado
 
-    </footer>
+</h3>
 
-    <script src="./script.js"></script>
+<p>
+
+Aceleração constante.
+
+</p>
+
+</div>
+
+<div class="card"
+onclick="abrirMapa('dinamica')">
+
+<i class="fa-solid fa-weight-hanging"></i>
+
+<h3>
+
+Dinâmica
+
+</h3>
+
+<p>
+
+Leis de Newton e forças.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=====================================
+        MAPAS CONCEITUAIS
+======================================-->
+
+<section
+class="areaMapa"
+id="mapas">
+
+<h2 id="tituloMapa">
+
+Selecione um conteúdo
+
+</h2>
+
+<div id="conteudoMapa">
+
+<p>
+
+Clique em um dos cartões acima.
+
+</p>
+
+</div>
+
+<div class="botoes">
+
+<button
+id="fullscreen">
+
+<i class="fa-solid fa-expand"></i>
+
+Tela Cheia
+
+</button>
+
+<button
+id="modoEscuro">
+
+<i class="fa-solid fa-moon"></i>
+
+Modo Escuro
+
+</button>
+
+</div>
+
+</section>
+
+<!--=====================================
+            SOBRE
+======================================-->
+
+<section id="sobre">
+
+<h2>
+
+Sobre o Projeto
+
+</h2>
+
+<p>
+
+Projeto desenvolvido para auxiliar estudantes do Ensino Médio
+na aprendizagem dos principais conteúdos de Física utilizando
+mapas conceituais interativos.
+
+</p>
+
+</section>
+
+<!--=====================================
+            TOPO
+======================================-->
+
+<button
+id="topo">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+<!--=====================================
+            RODAPÉ
+======================================-->
+
+<footer>
+
+<div>
+
+Equipe Alura / SEED-PR
+
+</div>
+
+<div>
+
+Projeto de Física Interativa
+
+</div>
+
+<div>
+
+© 2026
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
+```
