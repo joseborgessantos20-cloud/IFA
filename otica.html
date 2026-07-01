@@ -1090,6 +1090,126 @@ Você consegue identificar quais fenômenos ópticos estão presentes em:
 
 </section>
 ```
+```html
+<!--==================================================
+                    QUIZ
+===================================================-->
+
+<section class="quiz">
+
+    <h2>🧠 Quiz de Óptica</h2>
+
+    <div class="pergunta">
+
+        <h3>1. A luz no vácuo possui velocidade de:</h3>
+
+        <label><input type="radio" name="q1"> 3 × 10⁶ m/s</label><br>
+
+        <label><input type="radio" name="q1" data-correta="true"> 3 × 10⁸ m/s</label><br>
+
+        <label><input type="radio" name="q1"> 3 × 10¹⁰ m/s</label>
+
+    </div>
+
+    <div class="pergunta">
+
+        <h3>2. A reflexão ocorre quando:</h3>
+
+        <label><input type="radio" name="q2" data-correta="true"> A luz retorna ao mesmo meio.</label><br>
+
+        <label><input type="radio" name="q2"> A luz muda de meio.</label><br>
+
+        <label><input type="radio" name="q2"> A luz desaparece.</label>
+
+    </div>
+
+    <div class="pergunta">
+
+        <h3>3. Qual fenômeno explica o arco-íris?</h3>
+
+        <label><input type="radio" name="q3"> Apenas reflexão.</label><br>
+
+        <label><input type="radio" name="q3" data-correta="true"> Refração, reflexão interna e dispersão.</label><br>
+
+        <label><input type="radio" name="q3"> Somente difração.</label>
+
+    </div>
+
+    <button onclick="corrigirQuiz()">
+
+        Corrigir
+
+    </button>
+
+    <h2 id="resultadoQuiz"></h2>
+
+</section>
+
+<!--==================================================
+                REFERÊNCIAS
+===================================================-->
+
+<section class="referencias">
+
+    <h2>📚 Referências</h2>
+
+    <ul>
+
+        <li>Livro didático de Física – Ensino Médio.</li>
+
+        <li>Material SEED-PR.</li>
+
+        <li>Notas de aula.</li>
+
+        <li>Conteúdos educacionais de domínio público.</li>
+
+    </ul>
+
+</section>
+
+<!--==================================================
+                    CRÉDITOS
+===================================================-->
+
+<footer>
+
+    <p>Projeto Física Interativa</p>
+
+    <p>Equipe Alura • SEED-PR</p>
+
+    <p>© José Matheus 2026</p>
+
+</footer>
+
+<script>
+
+function corrigirQuiz(){
+
+    let pontos = 0;
+
+    const corretas = document.querySelectorAll("input[data-correta='true']");
+
+    corretas.forEach(opcao => {
+
+        if(opcao.checked){
+
+            pontos++;
+
+        }
+
+    });
+
+    document.getElementById("resultadoQuiz").innerHTML =
+        "Você acertou " + pontos + " de 3 questões.";
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
 
 </footer>
 
