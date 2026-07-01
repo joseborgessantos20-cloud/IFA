@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,16 +13,17 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<!--======================
-        CABEÇALHO
-=======================-->
+<!--=========================================
+                CABEÇALHO
+==========================================-->
 
 <header class="cabecalho">
 
@@ -31,23 +33,19 @@
 
     </div>
 
-    <button id="menuBtn" class="menu-btn">
+    <button class="menu-btn" id="menuBtn">
 
         ☰
 
     </button>
 
-    <button id="tema" class="tema-btn">🌙
-    
-    </button>
-    
     <nav id="menu">
 
-        <a href="#inicio">Início</a>
+        <a href="index.html" class="ativo">Início</a>
 
         <a href="optica.html">Óptica</a>
 
-        <a href="mu.html">MU</a>
+        <a href="mu.html">Movimento Uniforme</a>
 
         <a href="muv.html">MUV</a>
 
@@ -55,111 +53,125 @@
 
     </nav>
 
+    <button id="tema" class="tema-btn">
+
+        🌙
+
+    </button>
+
 </header>
 
-<!--======================
-        BANNER
-=======================-->
+<!--=========================================
+                    BANNER
+==========================================-->
 
-<section class="banner" id="inicio">
+<section class="banner">
 
-    <div class="banner-texto">
+<div class="banner-texto">
 
-        <h1>
+<h1>
 
-            Física Interativa
+Bem-vindo ao Física Interativa
 
-        </h1>
+</h1>
 
-        <p>
+<p>
 
-            Aprenda Física através de mapas conceituais, animações e exemplos.
+Aprenda Física de maneira simples, visual e interativa.
 
-        </p>
+</p>
 
-        <a href="#conteudos" class="botao">
+<a href="optica.html" class="botao">
 
-            Começar
+Começar os Estudos
 
-        </a>
+</a>
 
-    </div>
+</div>
 
 </section>
 
-<!--======================
-        CARROSSEL
-=======================-->
+<!--=========================================
+            CARROSSEL
+==========================================-->
 
 <section class="carrossel">
 
-    <div class="slide">
-
-        <a href="optica.html">
-
-            🔦
-
-            <h2>Óptica</h2>
-
-            <p>Luz, espelhos e lentes.</p>
-
-        </a>
-
-    </div>
-
-    <div class="slide">
-
-        <a href="mu.html">
-
-            🚗
-
-            <h2>Movimento Uniforme</h2>
-
-            <p>Velocidade constante.</p>
-
-        </a>
-
-    </div>
-
-    <div class="slide">
-
-        <a href="muv.html">
-
-            🚙
-
-            <h2>MUV</h2>
-
-            <p>Aceleração constante.</p>
-
-        </a>
-
-    </div>
-
-    <div class="slide">
-
-        <a href="dinamica.html">
-
-            ⚖
-
-            <h2>Dinâmica</h2>
-
-            <p>Leis de Newton.</p>
-
-        </a>
-
-    </div>
-
-</section>
-
-<!--======================
-        CONTEÚDOS
-=======================-->
-
-<section id="conteudos" class="conteudos">
+<div class="slide">
 
 <h2>
 
-Escolha um conteúdo
+🔬 Óptica
+
+</h2>
+
+<p>
+
+Estude luz, espelhos, lentes e fenômenos ópticos.
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+🚗 Movimento Uniforme
+
+</h2>
+
+<p>
+
+Velocidade constante durante todo o percurso.
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+🏎 Movimento Uniformemente Variado
+
+</h2>
+
+<p>
+
+Movimento com aceleração constante.
+
+</p>
+
+</div>
+
+<div class="slide">
+
+<h2>
+
+⚖ Dinâmica
+
+</h2>
+
+<p>
+
+Forças e as Leis de Newton.
+
+</p>
+
+</div>
+
+</section>
+
+<!--=========================================
+            ÁREAS DA FÍSICA
+==========================================-->
+
+<section class="conteudos">
+
+<h2>
+
+📚 Conteúdos
 
 </h2>
 
@@ -167,19 +179,17 @@ Escolha um conteúdo
 
 <div class="card">
 
-<a href="optica.html">
-
-<h3>
-
-🔦 Óptica
-
-</h3>
+<h3>🔬 Óptica</h3>
 
 <p>
 
-Reflexão, refração, lentes e espelhos.
+Estuda a luz e seus fenômenos.
 
 </p>
+
+<a href="optica.html" class="botao-card">
+
+Abrir
 
 </a>
 
@@ -187,19 +197,17 @@ Reflexão, refração, lentes e espelhos.
 
 <div class="card">
 
-<a href="mu.html">
-
-<h3>
-
-🚗 Movimento Uniforme
-
-</h3>
+<h3>🚗 MU</h3>
 
 <p>
 
-Velocidade constante e gráficos.
+Movimento com velocidade constante.
 
 </p>
+
+<a href="mu.html" class="botao-card">
+
+Abrir
 
 </a>
 
@@ -207,19 +215,17 @@ Velocidade constante e gráficos.
 
 <div class="card">
 
-<a href="muv.html">
-
-<h3>
-
-🚙 Movimento Uniformemente Variado
-
-</h3>
+<h3>🏎 MUV</h3>
 
 <p>
 
-Equações e aceleração.
+Movimento com aceleração constante.
 
 </p>
+
+<a href="muv.html" class="botao-card">
+
+Abrir
 
 </a>
 
@@ -227,19 +233,17 @@ Equações e aceleração.
 
 <div class="card">
 
-<a href="dinamica.html">
-
-<h3>
-
-⚖ Dinâmica
-
-</h3>
+<h3>⚖ Dinâmica</h3>
 
 <p>
 
-Leis de Newton e forças.
+Estudo das forças e das Leis de Newton.
 
 </p>
+
+<a href="dinamica.html" class="botao-card">
+
+Abrir
 
 </a>
 
@@ -249,51 +253,214 @@ Leis de Newton e forças.
 
 </section>
 
-<!--======================
-        SOBRE
-=======================-->
+<!--=========================================
+            MAPA GERAL
+==========================================-->
 
-<section class="sobre">
+<section class="mapa-conceitual">
 
 <h2>
 
-Sobre o Projeto
+🧠 Mapa Conceitual Geral
 
 </h2>
 
+<div class="mapa">
+
+<div class="nivel">
+
+<div class="no principal">
+
+⚛ FÍSICA
+
+</div>
+
+</div>
+
+<div class="linha"></div>
+
+<div class="nivel">
+
+<div class="no">🔬 Óptica</div>
+
+<div class="no">🚗 MU</div>
+
+<div class="no">🏎 MUV</div>
+
+<div class="no">⚖ Dinâmica</div>
+
+</div>
+
+</div>
+
+</section>
+```
+```html
+<!--=========================================
+            DESTAQUES
+==========================================-->
+
+<section class="conteudos">
+
+<h2>⭐ Destaques do Site</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🎠 Aulas Interativas</h3>
+
+<p>
+Conteúdo organizado em páginas temáticas com navegação simples.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🧠 Mapas Conceituais</h3>
+
+<p>
+Visualize as relações entre os principais conceitos da Física.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Exercícios</h3>
+
+<p>
+Teste seus conhecimentos ao final de cada conteúdo.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Quiz</h3>
+
+<p>
+Responda perguntas e confira sua pontuação instantaneamente.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--=========================================
+            OBJETIVOS
+==========================================-->
+
+<section class="resumo">
+
+<h2>🎯 Objetivos</h2>
+
 <p>
 
-Este site foi desenvolvido para auxiliar estudantes do Ensino Médio
-na aprendizagem dos principais conteúdos de Física através de mapas
-conceituais interativos.
+✔ Compreender os principais conceitos da Física.
+
+</p>
+
+<p>
+
+✔ Relacionar teoria e aplicações do cotidiano.
+
+</p>
+
+<p>
+
+✔ Resolver exercícios de forma prática.
+
+</p>
+
+<p>
+
+✔ Aprender utilizando mapas conceituais e animações.
 
 </p>
 
 </section>
 
-<!--======================
-        RODAPÉ
-=======================-->
+<!--=========================================
+            CURIOSIDADES
+==========================================-->
+
+<section class="curiosidades">
+
+<h2>💡 Curiosidades</h2>
+
+<ul>
+
+<li>⚛ A Física está presente em praticamente tudo ao nosso redor.</li>
+
+<li>🌈 O arco-íris é explicado pela Óptica.</li>
+
+<li>🚗 O estudo dos movimentos ajuda na construção de veículos mais seguros.</li>
+
+<li>🚀 As Leis de Newton são fundamentais para a exploração espacial.</li>
+
+</ul>
+
+</section>
+
+<!--=========================================
+            SOBRE O PROJETO
+==========================================-->
+
+<section class="painel">
+
+<h2>📚 Sobre o Projeto</h2>
+
+<p>
+
+O projeto <strong>Física Interativa</strong> foi desenvolvido para facilitar o aprendizado dos conteúdos de Física do Ensino Médio.
+
+</p>
+
+<p>
+
+O site reúne mapas conceituais, resumos, fórmulas, exemplos do cotidiano, exercícios e quizzes interativos em um único ambiente.
+
+</p>
+
+</section>
+
+<!--=========================================
+                RODAPÉ
+==========================================-->
 
 <footer>
 
+<div class="rodapepadrao">
+
 <p>
 
-Equipe Alura / SEED-PR
+Projeto Física Interativa
 
 </p>
 
 <p>
 
-Projeto de Física Interativa
+Equipe Alura • SEED-PR
 
 </p>
 
 <p>
 
-©José Matheus 2026
+© Copyright José Matheus
 
 </p>
+
+<p>
+
+Edição 2026
+
+</p>
+
+</div>
 
 </footer>
 
