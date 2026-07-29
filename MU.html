@@ -3,134 +3,408 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<title>Movimento Uniforme | Física Interativa</title>
 
-    <title>Movimento Uniforme | Física Interativa</title>
+<style>
 
-    <link rel="stylesheet" href="fisica.css">
+/* ==========================
+        CONFIGURAÇÕES
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+:root{
+
+    --principal:#2563eb;
+    --secundaria:#38bdf8;
+    --fundo:#f1f5f9;
+    --card:#ffffff;
+    --texto:#1e293b;
+    --sombra:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+
+body{
+
+    background:var(--fundo);
+    color:var(--texto);
+    line-height:1.6;
+
+}
+
+
+/* ==========================
+        CABEÇALHO
+========================== */
+
+
+header{
+
+    position:sticky;
+    top:0;
+    z-index:10;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:
+    linear-gradient(135deg,
+    #2563eb,
+    #38bdf8);
+
+    color:white;
+
+    box-shadow:var(--sombra);
+
+}
+
+
+.logo{
+
+    font-size:1.5rem;
+    font-weight:bold;
+
+}
+
+
+nav{
+
+    display:flex;
+    gap:20px;
+
+}
+
+
+nav a{
+
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+
+    padding:8px 14px;
+    border-radius:20px;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover,
+nav .ativo{
+
+    background:white;
+    color:#2563eb;
+
+}
+
+
+.tema-btn{
+
+    border:none;
+    background:white;
+
+    padding:10px;
+    border-radius:50%;
+
+    cursor:pointer;
+
+}
+
+
+
+/* ==========================
+        BANNER
+========================== */
+
+
+.banner{
+
+    min-height:420px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:
+
+    linear-gradient(
+    rgba(37,99,235,.85),
+    rgba(56,189,248,.85)
+    );
+
+    color:white;
+
+}
+
+
+.banner h1{
+
+    font-size:3rem;
+    margin-bottom:20px;
+
+}
+
+
+.banner p{
+
+    font-size:1.2rem;
+
+}
+
+
+
+/* ==========================
+        SEÇÕES
+========================== */
+
+
+section{
+
+    padding:60px 8%;
+
+}
+
+
+h2{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    color:#2563eb;
+
+    font-size:2rem;
+
+}
+
+
+
+/* ==========================
+        CARDS
+========================== */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+}
+
+
+.card{
+
+    background:var(--card);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+/* ==========================
+        MAPA CONCEITUAL
+========================== */
+
+
+.mapa{
+
+    text-align:center;
+
+}
+
+
+.centro{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:25px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    box-shadow:var(--sombra);
+
+}
+
+
+
+.galhos{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(160px,1fr));
+
+    gap:20px;
+
+}
+
+
+
+.caixa{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+    font-size:2rem;
+
+    transition:.3s;
+
+}
+
+
+.caixa:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+    transform:scale(1.05);
+
+}
+
+
+
+/* ==========================
+        RESPONSIVO
+========================== */
+
+
+@media(max-width:700px){
+
+
+nav{
+
+    display:none;
+
+}
+
+
+.banner h1{
+
+    font-size:2rem;
+
+}
+
+
+}
+
+</style>
 
 </head>
 
+
 <body>
 
-<!--==========================================
-                CABEÇALHO
-===========================================-->
 
-<header class="cabecalho">
 
-    <div class="logo">
+<header>
 
-        🚗 Física Interativa
 
-    </div>
+<div class="logo">
+🚗 Física Interativa
+</div>
 
-    <button class="menu-btn" id="menuBtn">
 
-        ☰
+<nav>
 
-    </button>
+<a href="#">Início</a>
+<a href="#" class="ativo">MU</a>
+<a href="#">MUV</a>
+<a href="#">Dinâmica</a>
 
-    <nav id="menu">
+</nav>
 
-        <a href="index.html">Início</a>
 
-        <a href="optica.html">Óptica</a>
+<button class="tema-btn">
+🌙
+</button>
 
-        <a href="mu.html" class="ativo">MU</a>
-
-        <a href="muv.html">MUV</a>
-
-        <a href="dinamica.html">Dinâmica</a>
-
-    </nav>
-
-    <button id="tema" class="tema-btn">
-
-        🌙
-
-    </button>
 
 </header>
 
-<!--==========================================
-                    BANNER
-===========================================-->
+
+
 
 <section class="banner">
 
-    <div class="banner-texto">
 
-        <h1>
+<div>
 
-            🚗 Movimento Uniforme
+<h1>
+🚗 Movimento Uniforme
+</h1>
 
-        </h1>
 
-        <p>
+<p>
+Aprenda como funciona o movimento com velocidade constante.
+</p>
 
-            Estude o movimento com velocidade constante por meio de mapas conceituais.
 
-        </p>
+</div>
 
-    </div>
-
-</section>
-
-<!--==========================================
-                CARROSSEL
-===========================================-->
-
-<section class="carrossel">
-
-    <div class="slide">
-
-        <h2>📚 Conceito</h2>
-
-        <p>O móvel percorre espaços iguais em tempos iguais.</p>
-
-    </div>
-
-    <div class="slide">
-
-        <h2>🚗 Velocidade</h2>
-
-        <p>Permanece constante durante todo o movimento.</p>
-
-    </div>
-
-    <div class="slide">
-
-        <h2>📈 Gráfico</h2>
-
-        <p>O gráfico S × t é uma reta.</p>
-
-    </div>
-
-    <div class="slide">
-
-        <h2>🧮 Fórmula</h2>
-
-        <p>S = S₀ + v·t</p>
-
-    </div>
 
 </section>
 
-<!--==========================================
-            MAPA CONCEITUAL
-===========================================-->
+
+
 
 <section class="mapa">
 
+
 <h2>
-
-Mapa Conceitual
-
+🧠 Mapa Conceitual
 </h2>
+
+
 
 <div class="centro">
 
@@ -138,1229 +412,893 @@ Mapa Conceitual
 
 </div>
 
-<div class="linha"></div>
+
 
 <div class="galhos">
+
 
 <div class="caixa">
 
 📚
-
-<h3>
-
-Conceito
-
-</h3>
+<h3>Conceito</h3>
 
 </div>
+
 
 <div class="caixa">
 
 🚗
-
-<h3>
-
-Velocidade
-
-</h3>
+<h3>Velocidade</h3>
 
 </div>
+
 
 <div class="caixa">
 
 📏
-
-<h3>
-
-Espaço
-
-</h3>
+<h3>Espaço</h3>
 
 </div>
+
 
 <div class="caixa">
 
 ⏱
-
-<h3>
-
-Tempo
-
-</h3>
+<h3>Tempo</h3>
 
 </div>
+
 
 <div class="caixa">
 
 🧮
-
-<h3>
-
-Equação
-
-</h3>
+<h3>Equação</h3>
 
 </div>
+
 
 <div class="caixa">
 
 📈
-
-<h3>
-
-Gráfico
-
-</h3>
+<h3>Gráficos</h3>
 
 </div>
 
+
 </div>
 
-</section>
 
-<!--==========================================
-            RESUMO
-===========================================-->
+</section> <!-- ==========================
+        EXERCÍCIOS
+========================== -->
 
-<section class="resumo">
+
+<section>
+
 
 <h2>
-
-Resumo
-
+📝 Exercícios
 </h2>
+
+
+<div class="cards">
+
+
+<div class="card exercicio">
+
+<h3>
+01 🚗
+</h3>
 
 <p>
-
-No Movimento Uniforme (MU), a velocidade permanece constante e a aceleração é igual a zero.
-
+Um carro percorre 240 km em 3 horas.
+Qual sua velocidade média?
 </p>
 
-<p>
+<button onclick="mostrarResposta(1)">
+Ver resposta
+</button>
 
-O móvel percorre distâncias iguais em intervalos de tempo iguais.
-
+<p id="resp1" class="resposta">
+v = 240 ÷ 3 = <strong>80 km/h</strong>
 </p>
-
-</section>
-```
-```html
-<!--==========================================
-        GRANDEZAS DO MU
-===========================================-->
-
-<section class="conteudos">
-
-    <h2>📚 Grandezas Fundamentais</h2>
-
-    <div class="cards">
-
-        <div class="card">
-
-            <h3>📏 Espaço (S)</h3>
-
-            <p>
-                É a posição ocupada pelo móvel durante o movimento.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>⏱ Tempo (t)</h3>
-
-            <p>
-                Intervalo necessário para ocorrer o deslocamento.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>🚗 Velocidade (v)</h3>
-
-            <p>
-                Permanece constante durante todo o movimento.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!--==========================================
-            FÓRMULAS
-===========================================-->
-
-<section class="formulas">
-
-<h2>
-
-🧮 Fórmulas
-
-</h2>
-
-<div class="cards-formulas">
-
-<div class="formula">
-
-<h3>
-
-Velocidade Média
-
-</h3>
-
-<h2>
-
-v = ΔS / Δt
-
-</h2>
 
 </div>
 
-<div class="formula">
+
+
+
+<div class="card exercicio">
 
 <h3>
-
-Equação Horária
-
+02 🚴
 </h3>
 
-<h2>
+<p>
+Um ciclista percorre 480 m em 40 segundos.
+Qual sua velocidade?
+</p>
 
+<button onclick="mostrarResposta(2)">
+Ver resposta
+</button>
+
+<p id="resp2" class="resposta">
+v = 480 ÷ 40 = <strong>12 m/s</strong>
+</p>
+
+</div>
+
+
+
+
+
+<div class="card exercicio">
+
+<h3>
+03 🚄
+</h3>
+
+<p>
+Um trem percorre 900 m em 30 segundos.
+Determine a velocidade.
+</p>
+
+<button onclick="mostrarResposta(3)">
+Ver resposta
+</button>
+
+<p id="resp3" class="resposta">
+v = 900 ÷ 30 = <strong>30 m/s</strong>
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+            QUIZ
+========================== -->
+
+
+<section class="quiz">
+
+
+<h2>
+🧠 Quiz Interativo
+</h2>
+
+
+
+<div class="card">
+
+
+<h3>
+1) No Movimento Uniforme a velocidade:
+</h3>
+
+
+<label>
+<input type="radio" name="q1" value="errado">
+Varia com o tempo
+</label>
+
+
+<br>
+
+
+<label>
+<input type="radio" name="q1" value="certo">
+Permanece constante
+</label>
+
+
+
+<br><br>
+
+
+<h3>
+2) A aceleração no MU é:
+</h3>
+
+
+<label>
+<input type="radio" name="q2" value="certo">
+Zero
+</label>
+
+
+<br>
+
+
+<label>
+<input type="radio" name="q2" value="errado">
+Diferente de zero
+</label>
+
+
+
+<br><br>
+
+
+<button onclick="corrigirQuiz()">
+Corrigir Quiz
+</button>
+
+
+
+<h3 id="resultadoQuiz"></h3>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+        RESUMO FINAL
+========================== -->
+
+
+<section>
+
+
+<h2>
+📚 Resumo Geral
+</h2>
+
+
+
+<div class="tabela">
+
+
+<table>
+
+
+<tr>
+
+<th>
+Grandeza
+</th>
+
+<th>
+Características
+</th>
+
+</tr>
+
+
+<tr>
+
+<td>
+Velocidade
+</td>
+
+<td>
+Constante
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Aceleração
+</td>
+
+<td>
+Igual a zero
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Gráfico S × t
+</td>
+
+<td>
+Reta inclinada
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Gráfico V × t
+</td>
+
+<td>
+Linha horizontal
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+Equação
+</td>
+
+<td>
 S = S₀ + v·t
-
-</h2>
-
-</div>
-
-<div class="formula">
-
-<h3>
-
-Aceleração
-
-</h3>
-
-<h2>
-
-a = 0
-
-</h2>
-
-<p>
-
-No MU não existe aceleração.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================================
-            EXEMPLOS
-===========================================-->
-
-<section class="aplicacoes">
-
-<h2>
-
-🚦 Exemplos do Cotidiano
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-🚗
-
-<h3>
-
-Automóvel
-
-</h3>
-
-<p>
-
-Carro em rodovia mantendo velocidade constante.
-
-</p>
-
-</div>
-
-<div class="card">
-
-🚄
-
-<h3>
-
-Trem
-
-</h3>
-
-<p>
-
-Movimento constante em trecho reto.
-
-</p>
-
-</div>
-
-<div class="card">
-
-✈
-
-<h3>
-
-Avião
-
-</h3>
-
-<p>
-
-Durante o voo de cruzeiro.
-
-</p>
-
-</div>
-
-<div class="card">
-
-🚢
-
-<h3>
-
-Navio
-
-</h3>
-
-<p>
-
-Movimento uniforme em mar calmo.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================================
-            CURIOSIDADES
-===========================================-->
-
-<section class="curiosidades">
-
-<h2>
-
-💡 Curiosidades
-
-</h2>
-
-<ul>
-
-<li>✔ A aceleração é sempre zero.</li>
-
-<li>✔ O gráfico Espaço × Tempo é uma reta crescente ou decrescente.</li>
-
-<li>✔ O gráfico Velocidade × Tempo é uma linha horizontal.</li>
-
-<li>✔ A velocidade nunca varia durante o movimento.</li>
-
-</ul>
-
-</section>
-
-<!--==========================================
-            GRÁFICOS
-===========================================-->
-
-<section class="graficos">
-
-<h2>
-
-📈 Gráficos do MU
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>
-
-Espaço × Tempo
-
-</h3>
-
-<pre>
-
-S
-│
-│      /
-│    /
-│  /
-│/
-└────────── t
-
-</pre>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-Velocidade × Tempo
-
-</h3>
-
-<pre>
-
-V
-│────────────
-│
-│
-│
-└────────── t
-
-</pre>
-
-</div>
-
-</div>
-
-</section>
-```
-```html id="5v3n2r"
-<!--==========================================
-            EXERCÍCIOS
-===========================================-->
-
-<section class="exercicios">
-
-    <h2>📝 Exercícios</h2>
-
-    <ol>
-
-        <li>
-            Um carro percorre 240 km em 3 horas.
-            Qual é a velocidade média?
-        </li>
-
-        <li>
-            Um ciclista mantém velocidade constante de
-            12 m/s durante 40 s.
-            Qual a distância percorrida?
-        </li>
-
-        <li>
-            Um trem percorre 900 m em 30 s.
-            Determine sua velocidade.
-        </li>
-
-        <li>
-            Explique por que a aceleração no MU é igual a zero.
-        </li>
-
-    </ol>
-
-</section>
-
-<!--==========================================
-            EXERCÍCIOS RESOLVIDOS
-===========================================-->
-
-<section class="resolucao">
-
-<h2>
-
-✅ Respostas
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>
-
-1)
-
-</h3>
-
-<p>
-
-v = 240 ÷ 3 =
-
-<b>80 km/h</b>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-2)
-
-</h3>
-
-<p>
-
-S = 12 × 40
-
-=
-
-<b>480 m</b>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-3)
-
-</h3>
-
-<p>
-
-v = 900 ÷ 30
-
-=
-
-<b>30 m/s</b>
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>
-
-4)
-
-</h3>
-
-<p>
-
-A velocidade permanece constante.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================================
-                QUIZ
-===========================================-->
-
-<section class="quiz">
-
-<h2>
-
-🧠 Quiz
-
-</h2>
-
-<div class="pergunta">
-
-<h3>
-
-No Movimento Uniforme a velocidade é:
-
-</h3>
-
-<label>
-
-<input type="radio"
-name="q1">
-
-Variável
-
-</label>
-
-<br>
-
-<label>
-
-<input
-type="radio"
-name="q1"
-data-correta="true">
-
-Constante
-
-</label>
-
-<br>
-
-<label>
-
-<input type="radio"
-name="q1">
-
-Nula
-
-</label>
-
-</div>
-
-<div class="pergunta">
-
-<h3>
-
-A aceleração é:
-
-</h3>
-
-<label>
-
-<input
-type="radio"
-name="q2"
-data-correta="true">
-
-Zero
-
-</label>
-
-<br>
-
-<label>
-
-<input type="radio"
-name="q2">
-
-Constante e diferente de zero
-
-</label>
-
-<br>
-
-<label>
-
-<input type="radio"
-name="q2">
-
-Infinita
-
-</label>
-
-</div>
-
-<button onclick="corrigirQuiz()">
-
-Corrigir
-
-</button>
-
-<h2 id="resultadoQuiz"></h2>
-
-</section>
-
-<script>
-
-function corrigirQuiz(){
-
-let pontos=0;
-
-const corretas=document.querySelectorAll("input[data-correta='true']");
-
-corretas.forEach(item=>{
-
-if(item.checked){
-
-pontos++;
-
-}
-
-});
-
-document.getElementById("resultadoQuiz").innerHTML=
-
-"Você acertou "+pontos+" de 2 questões.";
-
-}
-
-</script>
-
-<!--==========================================
-            RESUMÃO
-===========================================-->
-
-<section class="resumo-final">
-
-<h2>
-
-📚 Resumo Geral
-
-</h2>
-
-<table>
-
-<tr>
-
-<th>
-
-Grandeza
-
-</th>
-
-<th>
-
-Descrição
-
-</th>
-
-</tr>
-
-<tr>
-
-<td>
-
-Velocidade
-
-</td>
-
-<td>
-
-Constante.
-
 </td>
 
 </tr>
 
-<tr>
 
-<td>
-
-Aceleração
-
-</td>
-
-<td>
-
-Igual a zero.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Gráfico S × t
-
-</td>
-
-<td>
-
-Reta inclinada.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Gráfico V × t
-
-</td>
-
-<td>
-
-Linha horizontal.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Equação
-
-</td>
-
-<td>
-
-S = S₀ + vt
-
-</td>
-
-</tr>
 
 </table>
 
+
+</div>
+
+
 </section>
 
-<!--==========================================
-                RODAPÉ
-===========================================-->
+
+
+
+
+<!-- ==========================
+            RODAPÉ
+========================== -->
+
 
 <footer>
 
-<p>
 
-Projeto Física Interativa
+<h2>
+🚗 Física Interativa
+</h2>
 
-</p>
-
-<p>
-
-Equipe Alura • SEED-PR
-
-</p>
 
 <p>
-
-© 2026
-
+Aprendendo física de forma simples e interativa.
 </p>
+
+
+<p>
+Projeto educacional • 2026
+</p>
+
 
 </footer>
 
+
+
+
 <button id="topo">
-
 ⬆
-
 </button>
 
-<script src="script.js"></script>
 
-</body>
 
-</html>
-```
-```html id="5v3n2r"
-<!--==========================================
-            EXERCÍCIOS
-===========================================-->
 
-<section class="exercicios">
 
-    <h2>📝 Exercícios</h2>
+<style>
 
-    <ol>
 
-        <li>
-            Um carro percorre 240 km em 3 horas.
-            Qual é a velocidade média?
-        </li>
+/* ==========================
+        EXERCÍCIOS
+========================== */
 
-        <li>
-            Um ciclista mantém velocidade constante de
-            12 m/s durante 40 s.
-            Qual a distância percorrida?
-        </li>
 
-        <li>
-            Um trem percorre 900 m em 30 s.
-            Determine sua velocidade.
-        </li>
+.exercicio button,
+.quiz button{
 
-        <li>
-            Explique por que a aceleração no MU é igual a zero.
-        </li>
 
-    </ol>
+background:#2563eb;
 
-</section>
+color:white;
 
-<!--==========================================
-            EXERCÍCIOS RESOLVIDOS
-===========================================-->
+border:none;
 
-<section class="resolucao">
+padding:12px 20px;
 
-<h2>
+border-radius:25px;
 
-✅ Respostas
+cursor:pointer;
 
-</h2>
+font-weight:bold;
 
-<div class="cards">
+transition:.3s;
 
-<div class="card">
 
-<h3>
+}
 
-1)
 
-</h3>
+.exercicio button:hover,
+.quiz button:hover{
 
-<p>
 
-v = 240 ÷ 3 =
+background:#1d4ed8;
 
-<b>80 km/h</b>
+transform:scale(1.05);
 
-</p>
 
-</div>
+}
 
-<div class="card">
 
-<h3>
 
-2)
+.resposta{
 
-</h3>
 
-<p>
+display:none;
 
-S = 12 × 40
+margin-top:15px;
 
-=
+padding:15px;
 
-<b>480 m</b>
+background:#dcfce7;
 
-</p>
+border-radius:15px;
 
-</div>
+color:#166534;
 
-<div class="card">
 
-<h3>
+}
 
-3)
 
-</h3>
 
-<p>
 
-v = 900 ÷ 30
 
-=
+/* ==========================
+        QUIZ
+========================== */
 
-<b>30 m/s</b>
 
-</p>
+.quiz label{
 
-</div>
 
-<div class="card">
+display:block;
 
-<h3>
+padding:10px;
 
-4)
+margin:8px 0;
 
-</h3>
+background:#f1f5f9;
 
-<p>
+border-radius:12px;
 
-A velocidade permanece constante.
+cursor:pointer;
 
-</p>
 
-</div>
+}
 
-</div>
 
-</section>
 
-<!--==========================================
-                QUIZ
-===========================================-->
+.quiz label:hover{
 
-<section class="quiz">
 
-<h2>
+background:#dbeafe;
 
-🧠 Quiz
 
-</h2>
+}
 
-<div class="pergunta">
 
-<h3>
 
-No Movimento Uniforme a velocidade é:
+#resultadoQuiz{
 
-</h3>
 
-<label>
+margin-top:20px;
 
-<input type="radio"
-name="q1">
+color:#2563eb;
 
-Variável
 
-</label>
+}
 
-<br>
 
-<label>
 
-<input
-type="radio"
-name="q1"
-data-correta="true">
 
-Constante
 
-</label>
+/* ==========================
+        TABELA
+========================== */
 
-<br>
 
-<label>
+.tabela{
 
-<input type="radio"
-name="q1">
 
-Nula
+overflow-x:auto;
 
-</label>
+}
 
-</div>
 
-<div class="pergunta">
 
-<h3>
+table{
 
-A aceleração é:
 
-</h3>
+width:100%;
 
-<label>
+border-collapse:collapse;
 
-<input
-type="radio"
-name="q2"
-data-correta="true">
+background:white;
 
-Zero
+border-radius:20px;
 
-</label>
+overflow:hidden;
 
-<br>
+box-shadow:var(--sombra);
 
-<label>
 
-<input type="radio"
-name="q2">
+}
 
-Constante e diferente de zero
 
-</label>
 
-<br>
+th{
 
-<label>
 
-<input type="radio"
-name="q2">
+background:#2563eb;
 
-Infinita
+color:white;
 
-</label>
+padding:18px;
 
-</div>
 
-<button onclick="corrigirQuiz()">
+}
 
-Corrigir
 
-</button>
 
-<h2 id="resultadoQuiz"></h2>
+td{
 
-</section>
+
+padding:15px;
+
+text-align:center;
+
+border-bottom:1px solid #e2e8f0;
+
+
+}
+
+
+
+
+tr:hover{
+
+
+background:#eff6ff;
+
+
+}
+
+
+
+
+/* ==========================
+        RODAPÉ
+========================== */
+
+
+footer{
+
+
+background:
+
+linear-gradient(
+135deg,
+#1e3a8a,
+#2563eb
+);
+
+
+color:white;
+
+text-align:center;
+
+padding:50px 20px;
+
+margin-top:40px;
+
+
+}
+
+
+
+footer h2{
+
+
+color:white;
+
+
+}
+
+
+
+
+
+/* ==========================
+        BOTÃO TOPO
+========================== */
+
+
+#topo{
+
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+
+width:55px;
+
+height:55px;
+
+
+border:none;
+
+border-radius:50%;
+
+
+background:#2563eb;
+
+color:white;
+
+
+font-size:25px;
+
+
+cursor:pointer;
+
+
+box-shadow:var(--sombra);
+
+
+display:none;
+
+
+}
+
+
+
+#topo:hover{
+
+
+transform:scale(1.1);
+
+
+}
+
+
+
+
+
+/* ==========================
+        MODO ESCURO
+========================== */
+
+
+.dark{
+
+
+--fundo:#020617;
+
+--card:#0f172a;
+
+--texto:#e2e8f0;
+
+
+}
+
+
+
+.dark .card,
+.dark table,
+.dark .grafico-box,
+.dark .quiz label{
+
+
+background:#0f172a;
+
+color:white;
+
+
+}
+
+
+
+.dark .formula{
+
+
+background:#172554;
+
+color:#93c5fd;
+
+
+}
+
+
+
+</style>
+
+
+
+
 
 <script>
 
+
+// RESPOSTAS DOS EXERCÍCIOS
+
+
+function mostrarResposta(numero){
+
+
+let resposta =
+document.getElementById("resp"+numero);
+
+
+
+if(resposta.style.display==="block"){
+
+
+resposta.style.display="none";
+
+
+}
+
+else{
+
+
+resposta.style.display="block";
+
+
+}
+
+
+}
+
+
+
+
+// QUIZ
+
+
 function corrigirQuiz(){
+
 
 let pontos=0;
 
-const corretas=document.querySelectorAll("input[data-correta='true']");
 
-corretas.forEach(item=>{
 
-if(item.checked){
+document
+.querySelectorAll(
+'input[value="certo"]:checked'
+)
+.forEach(()=>{
+
 
 pontos++;
 
-}
 
 });
 
-document.getElementById("resultadoQuiz").innerHTML=
 
-"Você acertou "+pontos+" de 2 questões.";
+
+let resultado =
+document.getElementById(
+"resultadoQuiz"
+);
+
+
+
+if(pontos===2){
+
+
+resultado.innerHTML=
+"🎉 Excelente! Você acertou tudo!";
+
 
 }
 
+
+else{
+
+
+resultado.innerHTML=
+"Você acertou "+pontos+" de 2 questões.";
+
+
+}
+
+
+}
+
+
+
+
+
+// MODO ESCURO
+
+
+document
+.querySelector(".tema-btn")
+.onclick=function(){
+
+
+document.body.classList.toggle("dark");
+
+
+};
+
+
+
+
+
+// BOTÃO TOPO
+
+
+let botao =
+document.getElementById("topo");
+
+
+
+window.onscroll=function(){
+
+
+if(
+document.documentElement.scrollTop > 400
+){
+
+
+botao.style.display="block";
+
+
+}
+
+else{
+
+
+botao.style.display="none";
+
+
+}
+
+
+};
+
+
+
+botao.onclick=function(){
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+};
+
+
+
 </script>
-
-<!--==========================================
-            RESUMÃO
-===========================================-->
-
-<section class="resumo-final">
-
-<h2>
-
-📚 Resumo Geral
-
-</h2>
-
-<table>
-
-<tr>
-
-<th>
-
-Grandeza
-
-</th>
-
-<th>
-
-Descrição
-
-</th>
-
-</tr>
-
-<tr>
-
-<td>
-
-Velocidade
-
-</td>
-
-<td>
-
-Constante.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Aceleração
-
-</td>
-
-<td>
-
-Igual a zero.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Gráfico S × t
-
-</td>
-
-<td>
-
-Reta inclinada.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Gráfico V × t
-
-</td>
-
-<td>
-
-Linha horizontal.
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-Equação
-
-</td>
-
-<td>
-
-S = S₀ + vt
-
-</td>
-
-</tr>
-
-</table>
-
-</section>
-
-<!--==========================================
-                RODAPÉ
-===========================================-->
-
-<footer>
-
-<p>
-
-Projeto Física Interativa
-
-</p>
-
-<p>
-
-Equipe Alura • SEED-PR
-
-</p>
-
-<p>
-
-©José Matheus 2026
-
-</p>
-
-</footer>
-
-<button id="topo">
-
-⬆
-
-</button>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
-```
