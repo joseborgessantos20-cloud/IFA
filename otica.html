@@ -1,157 +1,613 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Óptica | Física Interativa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="fisica.css">
+<title>Óptica | Física Interativa</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="fisica.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+/* ==========================
+      ESTILO EXCLUSIVO ÓPTICA
+========================== */
+
+
+:root{
+
+--cor-principal:#7c3aed;
+
+--cor-secundaria:#ec4899;
+
+--claro:#f5f3ff;
+
+--texto:#1e293b;
+
+}
+
+
+
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+color:var(--texto);
+
+}
+
+
+
+
+/* ACESSIBILIDADE */
+
+
+.acessibilidade{
+
+position:fixed;
+
+top:15px;
+
+right:20px;
+
+z-index:1000;
+
+display:flex;
+
+gap:8px;
+
+}
+
+
+
+.acessibilidade button{
+
+border:none;
+
+background:white;
+
+color:#7c3aed;
+
+font-weight:bold;
+
+padding:10px;
+
+border-radius:50%;
+
+cursor:pointer;
+
+box-shadow:0 5px 15px #0002;
+
+}
+
+
+
+
+/* BANNER */
+
+
+.optica-banner{
+
+
+background:
+
+linear-gradient(
+135deg,
+#7c3aed,
+#ec4899
+);
+
+
+padding:90px 10%;
+
+
+text-align:center;
+
+
+color:white;
+
+
+}
+
+
+
+.optica-banner h1{
+
+
+font-size:3.2rem;
+
+
+}
+
+
+
+.optica-banner p{
+
+
+font-size:1.2rem;
+
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.card-optica{
+
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.12);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.card-optica:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+/* MAPA */
+
+
+.no{
+
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+
+box-shadow:
+
+0 8px 20px #0002;
+
+
+transition:.3s;
+
+
+font-weight:600;
+
+
+}
+
+
+
+.no:hover{
+
+
+background:var(--cor-principal);
+
+color:white;
+
+transform:scale(1.05);
+
+
+}
+
+
+
+.principal{
+
+
+background:
+
+linear-gradient(
+135deg,
+#7c3aed,
+#ec4899
+);
+
+
+color:white;
+
+
+font-size:22px;
+
+
+}
+
+
+
+
+
+/* SIMULADOR */
+
+
+.simulador{
+
+
+background:var(--claro);
+
+
+padding:35px;
+
+border-radius:30px;
+
+text-align:center;
+
+
+}
+
+
+
+.raio{
+
+
+width:280px;
+
+height:6px;
+
+background:#facc15;
+
+border-radius:20px;
+
+
+margin:30px auto;
+
+
+animation:luz 2s infinite;
+
+
+}
+
+
+
+@keyframes luz{
+
+
+0%{
+
+transform:translateX(-80px);
+
+opacity:.3;
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:translateX(80px);
+
+opacity:.3;
+
+}
+
+
+}
+
+
+
+
+
+/* CONTRASTE */
+
+
+.contraste{
+
+
+background:black!important;
+
+color:white!important;
+
+
+}
+
+
+.contraste .card-optica,
+
+.contraste .no{
+
+
+background:#111;
+
+color:white;
+
+
+}
+
+
+
+
+</style>
+
 
 </head>
 
+
 <body>
 
-<!--==========================================
-                CABEÇALHO
-===========================================-->
+
+
+<!-- ==========================
+       ACESSIBILIDADE
+========================== -->
+
+
+<div class="acessibilidade">
+
+
+<button onclick="aumentarFonte()" aria-label="Aumentar fonte">
+
+A+
+
+</button>
+
+
+
+<button onclick="diminuirFonte()" aria-label="Diminuir fonte">
+
+A-
+
+</button>
+
+
+
+<button onclick="modoContraste()" aria-label="Ativar contraste">
+
+◐
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ==========================
+          CABEÇALHO
+========================== -->
+
 
 <header class="cabecalho">
 
-    <div class="logo">
 
-        🔬 Física Interativa
+<div class="logo">
 
-    </div>
+🔬 Física Interativa
 
-    <button class="menu-btn" id="menuBtn">
+</div>
 
-        ☰
 
-    </button>
 
-    <nav id="menu">
+<button class="menu-btn" id="menuBtn">
 
-        <a href="index.html">Início</a>
+☰
 
-        <a href="optica.html" class="ativo">Óptica</a>
+</button>
 
-        <a href="mu.html">MU</a>
 
-        <a href="muv.html">MUV</a>
 
-        <a href="dinamica.html">Dinâmica</a>
+<nav id="menu">
 
-    </nav>
 
-    <button id="tema" class="tema-btn">
+<a href="index.html">
 
-        🌙
+Início
 
-    </button>
+</a>
+
+
+<a href="optica.html" class="ativo">
+
+Óptica
+
+</a>
+
+
+<a href="mu.html">
+
+MU
+
+</a>
+
+
+<a href="muv.html">
+
+MUV
+
+</a>
+
+
+<a href="dinamica.html">
+
+Dinâmica
+
+</a>
+
+
+
+</nav>
+
+
+
+<button class="tema-btn" id="tema">
+
+🌙
+
+</button>
+
 
 </header>
 
-<!--==========================================
-                    BANNER
-===========================================-->
 
-<section class="banner">
 
-    <div class="banner-texto">
 
-        <h1>
 
-            🔬 ÓPTICA
 
-        </h1>
 
-        <p>
+<!-- ==========================
+            BANNER
+========================== -->
 
-            Estudo da luz, dos espelhos, das lentes e dos fenômenos luminosos.
 
-        </p>
+<section class="optica-banner">
 
-    </div>
 
-</section>
+<h1>
 
-<!--==========================================
-                CARROSSEL
-===========================================-->
+🌈 Óptica
 
-<section class="carrossel">
+</h1>
 
-    <div class="slide">
 
-        <h2>💡 Luz</h2>
+<p>
 
-        <p>A luz é uma forma de energia que possibilita a visão.</p>
+Entenda como a luz funciona através de conceitos, experiências e interações.
 
-    </div>
+</p>
 
-    <div class="slide">
 
-        <h2>🪞 Espelhos</h2>
-
-        <p>Refletem a luz e formam imagens.</p>
-
-    </div>
-
-    <div class="slide">
-
-        <h2>🔍 Lentes</h2>
-
-        <p>Convergem ou divergem os raios luminosos.</p>
-
-    </div>
-
-    <div class="slide">
-
-        <h2>🌈 Fenômenos</h2>
-
-        <p>Reflexão, refração, dispersão e difração.</p>
-
-    </div>
 
 </section>
 
-<!--==========================================
-            MAPA CONCEITUAL
-===========================================-->
 
-<section class="mapa-conceitual">
+
+
+
+
+
+<!-- ==========================
+          INTRODUÇÃO
+========================== -->
+
+
+<section class="resumo">
+
 
 <h2>
 
-🧠 Mapa Conceitual
+💡 O que é Óptica?
 
 </h2>
 
+
+
+<div class="card-optica">
+
+
+<p>
+
+A Óptica é o ramo da Física responsável pelo estudo da luz e dos fenômenos relacionados a ela.
+
+</p>
+
+
+
+<p>
+
+Ela explica acontecimentos como espelhos, lentes, arco-íris, visão humana e instrumentos ópticos.
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================
+       MAPA CONCEITUAL
+========================== -->
+
+
+<section class="mapa-conceitual">
+
+
+<h2>
+
+🧠 Mapa Conceitual da Óptica
+
+</h2>
+
+
+
+
 <div class="mapa">
 
+
 <div class="nivel">
+
 
 <div class="no principal">
 
-🔬 ÓPTICA
+🌈 ÓPTICA
 
 </div>
 
+
 </div>
+
+
+
 
 <div class="linha"></div>
 
+
+
+
 <div class="nivel">
+
 
 <div class="no">
 
@@ -159,11 +615,23 @@
 
 </div>
 
+
+
 <div class="no">
 
-🪞 Espelhos
+🪞 Reflexão
 
 </div>
+
+
+
+<div class="no">
+
+🌊 Refração
+
+</div>
+
+
 
 <div class="no">
 
@@ -171,697 +639,1134 @@
 
 </div>
 
-<div class="no">
 
-🌈 Fenômenos
-
-</div>
-
-</div>
-
-<div class="linha"></div>
-
-<div class="nivel">
 
 <div class="no">
 
-Reflexão
+🌈 Cores
 
 </div>
 
-<div class="no">
-
-Refração
 
 </div>
 
-<div class="no">
-
-Dispersão
 
 </div>
 
-<div class="no">
-
-Difração
-
-</div>
-
-</div>
-
-</div>
 
 </section>
+<!-- ==========================
+        CONCEITOS PRINCIPAIS
+========================== -->
 
-<!--==========================================
-                RESUMO
-===========================================-->
 
-<section class="resumo">
+<section class="conteudos">
+
 
 <h2>
 
-📚 Introdução
+📚 Conceitos Fundamentais
 
 </h2>
 
+
+
+<div class="cards">
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+💡 Luz
+
+</h3>
+
+
 <p>
 
-A Óptica é o ramo da Física que estuda a luz, sua propagação e as interações com diferentes materiais.
+A luz é uma forma de energia que se propaga em ondas e permite a visão dos objetos.
 
 </p>
 
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🪞 Reflexão
+
+</h3>
+
+
 <p>
 
-Graças à Óptica é possível compreender o funcionamento de espelhos, lentes, microscópios, telescópios, câmeras e diversos equipamentos tecnológicos.
+É o fenômeno em que a luz bate em uma superfície e retorna ao meio de origem.
 
 </p>
+
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🌊 Refração
+
+</h3>
+
+
+<p>
+
+É a mudança de direção da luz quando passa de um meio para outro.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🔍 Lentes
+
+</h3>
+
+
+<p>
+
+São dispositivos ópticos que podem ampliar, reduzir ou corrigir imagens.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 </section>
-```
-```html
-<!--==========================================
-            FONTES DE LUZ
-===========================================-->
+
+
+
+
+
+
+
+
+<!-- ==========================
+          ESPELHOS
+========================== -->
+
 
 <section class="conteudos">
 
-<h2>💡 Fontes de Luz</h2>
+
+<h2>
+
+🪞 Espelhos
+
+</h2>
+
+
 
 <div class="cards">
 
-<div class="card">
 
-<h3>☀ Fonte Primária</h3>
+
+<div class="card-optica">
+
+
+<h3>
+
+Espelho Plano
+
+</h3>
+
 
 <p>
-Emite luz própria.
+
+Forma imagens virtuais, direitas e do mesmo tamanho do objeto.
+
 </p>
 
-<p>
-Exemplos: Sol, estrelas, lâmpadas acesas.
-</p>
 
 </div>
 
-<div class="card">
 
-<h3>🌙 Fonte Secundária</h3>
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+Espelho Côncavo
+
+</h3>
+
 
 <p>
-Não produz luz própria, apenas reflete a luz recebida.
+
+Pode ampliar imagens e é utilizado em telescópios e refletores.
+
 </p>
 
-<p>
-Exemplos: Lua, planetas e objetos iluminados.
-</p>
 
 </div>
 
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+Espelho Convexo
+
+</h3>
+
+
+<p>
+
+Aumenta o campo de visão, sendo usado em retrovisores.
+
+</p>
+
+
 </div>
+
+
+
+</div>
+
 
 </section>
 
-<!--==========================================
-        MEIOS DE PROPAGAÇÃO
-===========================================-->
+
+
+
+
+
+
+
+
+<!-- ==========================
+          LENTES
+========================== -->
+
 
 <section class="conteudos">
 
-<h2>🌍 Meios de Propagação da Luz</h2>
+
+<h2>
+
+🔎 Tipos de Lentes
+
+</h2>
+
+
 
 <div class="cards">
 
-<div class="card">
 
-<h3>🟢 Transparente</h3>
+
+<div class="card-optica">
+
+
+<h3>
+
+🔵 Lente Convergente
+
+</h3>
+
 
 <p>
 
-Permite a passagem quase total da luz.
+Concentra os raios de luz em um ponto chamado foco.
 
 </p>
 
-<p>
-
-Exemplos: vidro limpo e água.
-
-</p>
 
 </div>
 
-<div class="card">
 
-<h3>🟡 Translúcido</h3>
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🟣 Lente Divergente
+
+</h3>
+
 
 <p>
 
-Permite apenas parte da passagem da luz.
+Afasta os raios luminosos e espalha a luz.
 
 </p>
 
-<p>
-
-Exemplos: vidro fosco e papel vegetal.
-
-</p>
 
 </div>
 
-<div class="card">
 
-<h3>⚫ Opaco</h3>
-
-<p>
-
-Não permite a passagem da luz.
-
-</p>
-
-<p>
-
-Exemplos: madeira, concreto e metais.
-
-</p>
 
 </div>
 
-</div>
 
 </section>
 
-<!--==========================================
-            ESPELHOS
-===========================================-->
+
+
+
+
+
+
+
+
+<!-- ==========================
+        SIMULADOR DE LUZ
+========================== -->
+
 
 <section class="conteudos">
 
-<h2>🪞 Espelhos</h2>
 
-<div class="cards">
+<h2>
 
-<div class="card">
+🔦 Simulador de Reflexão da Luz
 
-<h3>Espelho Plano</h3>
+</h2>
 
-<p>
 
-Forma imagem direita.
 
-</p>
+<div class="simulador">
 
-<p>
 
-Mesmo tamanho do objeto.
 
-</p>
+<h3>
 
-<p>
+Observe a propagação da luz
 
-Imagem virtual.
+</h3>
 
-</p>
 
-</div>
 
-<div class="card">
+<div class="luz">
 
-<h3>Espelho Côncavo</h3>
-
-<p>
-
-Pode ampliar ou inverter a imagem.
-
-</p>
-
-<p>
-
-Utilizado em telescópios e refletores.
-
-</p>
+☀️
 
 </div>
 
-<div class="card">
 
-<h3>Espelho Convexo</h3>
 
-<p>
-
-Campo de visão maior.
-
-</p>
-
-<p>
-
-Imagem reduzida.
-
-</p>
-
-<p>
-
-Muito usado em retrovisores.
-
-</p>
+<div class="raio">
 
 </div>
 
+
+
+<p id="resultadoLuz">
+
+A luz está se propagando.
+
+</p>
+
+
+
+
+<button 
+class="botao"
+onclick="simularLuz()">
+
+Alterar fenômeno
+
+</button>
+
+
+
 </div>
+
 
 </section>
 
-<!--==========================================
-                LENTES
-===========================================-->
+
+
+
+
+
+
+
+<!-- ==========================
+      FENÔMENOS ÓPTICOS
+========================== -->
+
 
 <section class="conteudos">
 
-<h2>🔍 Lentes</h2>
+
+<h2>
+
+🌈 Fenômenos da Óptica no Cotidiano
+
+</h2>
+
+
+
 
 <div class="cards">
 
-<div class="card">
 
-<h3>Lente Convergente</h3>
 
-<p>
+<div class="card-optica">
 
-Concentra os raios luminosos.
 
-</p>
+<h3>
 
-<p>
+🌈 Arco-íris
 
-Mais espessa no centro.
+</h3>
 
-</p>
 
 <p>
 
-Usada em lupas.
+Acontece pela refração e reflexão da luz nas gotas de água.
 
 </p>
+
 
 </div>
 
-<div class="card">
 
-<h3>Lente Divergente</h3>
 
-<p>
 
-Espalha os raios luminosos.
 
-</p>
+<div class="card-optica">
 
-<p>
 
-Mais fina no centro.
+<h3>
 
-</p>
+👓 Óculos
+
+</h3>
+
 
 <p>
 
-Usada para correção da miopia.
+As lentes corrigem problemas de visão através da refração.
 
 </p>
+
 
 </div>
 
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+📷 Câmeras
+
+</h3>
+
+
+<p>
+
+Utilizam lentes para formar imagens através da luz.
+
+</p>
+
+
 </div>
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🔭 Telescópios
+
+</h3>
+
+
+<p>
+
+Usam lentes e espelhos para observar objetos distantes.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 </section>
 
-<!--==========================================
-                FÓRMULAS
-===========================================-->
 
-<section class="formulas">
 
-<h2>🧮 Fórmulas Importantes</h2>
 
-<div class="cards-formulas">
 
-<div class="formula">
 
-<h3>Velocidade da Luz</h3>
 
-<h2>c = 3 × 10⁸ m/s</h2>
 
-</div>
+<!-- ==========================
+          CURIOSIDADES
+========================== -->
 
-<div class="formula">
-
-<h3>Índice de Refração</h3>
-
-<h2>n = c / v</h2>
-
-</div>
-
-<div class="formula">
-
-<h3>Equação dos Espelhos</h3>
-
-<h2>1/f = 1/p + 1/p'</h2>
-
-</div>
-
-<div class="formula">
-
-<h3>Aumento Linear</h3>
-
-<h2>A = i / o</h2>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================================
-            APLICAÇÕES
-===========================================-->
-
-<section class="aplicacoes">
-
-<h2>🔬 Aplicações da Óptica</h2>
-
-<div class="cards">
-
-<div class="card">
-
-📷
-
-<h3>Câmeras</h3>
-
-<p>
-
-Utilizam lentes para formar imagens.
-
-</p>
-
-</div>
-
-<div class="card">
-
-🔭
-
-<h3>Telescópios</h3>
-
-<p>
-
-Permitem observar objetos muito distantes.
-
-</p>
-
-</div>
-
-<div class="card">
-
-🔬
-
-<h3>Microscópios</h3>
-
-<p>
-
-Ampliam objetos muito pequenos.
-
-</p>
-
-</div>
-
-<div class="card">
-
-👓
-
-<h3>Óculos</h3>
-
-<p>
-
-Corrigem problemas de visão.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-```
-```html
-<!--==========================================
-        FENÔMENOS ÓPTICOS
-===========================================-->
-
-<section class="conteudos">
-
-<h2>🌈 Fenômenos Ópticos</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>🪞 Reflexão</h3>
-
-<p>
-A luz retorna ao atingir uma superfície refletora.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>💧 Refração</h3>
-
-<p>
-A luz muda de direção ao passar de um meio para outro.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🌈 Dispersão</h3>
-
-<p>
-Separação da luz branca em várias cores.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🌊 Difração</h3>
-
-<p>
-Curvatura da luz ao passar por pequenos obstáculos.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!--==========================================
-            CURIOSIDADES
-===========================================-->
 
 <section class="curiosidades">
 
-<h2>💡 Curiosidades</h2>
+
+<h2>
+
+💡 Curiosidades
+
+</h2>
+
+
 
 <ul>
 
-<li>☀ A luz do Sol leva aproximadamente <strong>8 minutos e 20 segundos</strong> para chegar à Terra.</li>
 
-<li>🌈 O arco-íris é formado pela refração, reflexão e dispersão da luz nas gotas de chuva.</li>
+<li>
 
-<li>🔭 Os telescópios permitem observar galáxias localizadas a milhões de anos-luz.</li>
+🌞 A luz do Sol demora cerca de 8 minutos para chegar à Terra.
 
-<li>👓 As lentes dos óculos corrigem problemas de visão como miopia e hipermetropia.</li>
+</li>
+
+
+<li>
+
+🌈 A luz branca é formada por várias cores diferentes.
+
+</li>
+
+
+<li>
+
+🪞 A reflexão permite enxergar nossa imagem nos espelhos.
+
+</li>
+
+
+<li>
+
+👁 A visão humana depende da entrada de luz nos olhos.
+
+</li>
+
 
 </ul>
 
-</section>
-
-<!--==========================================
-            EXERCÍCIOS
-===========================================-->
-
-<section class="exercicios">
-
-<h2>📝 Exercícios</h2>
-
-<ol>
-
-<li>Qual é a velocidade da luz no vácuo?</li>
-
-<li>Qual fenômeno forma o arco-íris?</li>
-
-<li>Qual a diferença entre espelho plano e espelho convexo?</li>
-
-<li>O que acontece quando a luz passa do ar para a água?</li>
-
-</ol>
 
 </section>
 
-<!--==========================================
-            QUIZ
-===========================================-->
 
-<section class="quiz">
 
-<h2>🧠 Quiz</h2>
 
-<div class="pergunta">
 
-<h3>1. Qual fenômeno faz a luz mudar de direção ao entrar na água?</h3>
 
-<label><input type="radio" name="q1"> Reflexão</label><br>
 
-<label><input type="radio" name="q1" data-correta="true"> Refração</label><br>
 
-<label><input type="radio" name="q1"> Difração</label>
+
+<script>
+
+
+function simularLuz(){
+
+
+let texto =
+document.getElementById("resultadoLuz");
+
+
+
+if(texto.innerHTML.includes("propagando")){
+
+
+texto.innerHTML =
+
+"🪞 A luz encontrou uma superfície e sofreu reflexão.";
+
+
+}
+
+else{
+
+
+texto.innerHTML =
+
+"🌊 A luz mudou de meio e sofreu refração.";
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+// ACESSIBILIDADE
+
+
+
+let tamanhoFonte = 100;
+
+
+
+function aumentarFonte(){
+
+
+if(tamanhoFonte < 140){
+
+
+tamanhoFonte +=10;
+
+
+document.body.style.fontSize = tamanhoFonte+"%";
+
+
+}
+
+
+}
+
+
+
+
+
+function diminuirFonte(){
+
+
+if(tamanhoFonte > 80){
+
+
+tamanhoFonte -=10;
+
+
+document.body.style.fontSize = tamanhoFonte+"%";
+
+
+}
+
+
+}
+
+
+
+
+
+function modoContraste(){
+
+
+document.body.classList.toggle("contraste");
+
+
+}
+
+
+</script>
+<!-- ==========================
+          EXERCÍCIOS
+========================== -->
+
+
+<section class="conteudos">
+
+
+<h2>
+
+📝 Exercícios de Óptica
+
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🔦 Questão 1
+
+</h3>
+
+
+<p>
+
+Qual fenômeno acontece quando a luz retorna ao encontrar um espelho?
+
+</p>
+
+
+
+<button 
+class="botao-card"
+onclick="mostrarResposta1()">
+
+Ver resposta
+
+</button>
+
+
+
+<p id="resposta1"></p>
+
 
 </div>
 
-<div class="pergunta">
 
-<h3>2. Qual equipamento utiliza lentes convergentes?</h3>
 
-<label><input type="radio" name="q2"> Espelho</label><br>
 
-<label><input type="radio" name="q2" data-correta="true"> Lupa</label><br>
 
-<label><input type="radio" name="q2"> Retrovisor</label>
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🌊 Questão 2
+
+</h3>
+
+
+<p>
+
+O que acontece quando a luz passa do ar para a água?
+
+</p>
+
+
+
+<button 
+class="botao-card"
+onclick="mostrarResposta2()">
+
+Ver resposta
+
+</button>
+
+
+
+<p id="resposta2"></p>
+
 
 </div>
 
-<div class="pergunta">
 
-<h3>3. O arco-íris é consequência de:</h3>
 
-<label><input type="radio" name="q3"> Apenas reflexão</label><br>
 
-<label><input type="radio" name="q3" data-correta="true"> Dispersão da luz</label><br>
 
-<label><input type="radio" name="q3"> Somente absorção</label>
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🔍 Questão 3
+
+</h3>
+
+
+<p>
+
+Qual instrumento utiliza lentes para ampliar objetos pequenos?
+
+</p>
+
+
+
+<button 
+class="botao-card"
+onclick="mostrarResposta3()">
+
+Ver resposta
+
+</button>
+
+
+
+<p id="resposta3"></p>
+
 
 </div>
 
-<button onclick="corrigirQuiz()">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+             QUIZ
+========================== -->
+
+
+<section class="resumo">
+
+
+<h2>
+
+🧠 Quiz da Óptica
+
+</h2>
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+1) A reflexão da luz acontece quando:
+
+</h3>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q1"
+value="0">
+
+A luz desaparece.
+
+</label>
+
+
+
+<br>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q1"
+value="1">
+
+A luz retorna ao meio de origem.
+
+</label>
+
+
+
+
+<hr>
+
+
+
+
+<h3>
+
+2) A refração ocorre quando:
+
+</h3>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q2"
+value="1">
+
+A luz muda de meio de propagação.
+
+</label>
+
+
+
+<br>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q2"
+value="0">
+
+A luz fica sem energia.
+
+</label>
+
+
+
+
+<hr>
+
+
+
+
+<h3>
+
+3) As lentes são usadas para:
+
+</h3>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q3"
+value="1">
+
+Modificar e formar imagens.
+
+</label>
+
+
+
+<br>
+
+
+
+<label>
+
+<input 
+type="radio"
+name="q3"
+value="0">
+
+Produzir eletricidade.
+
+</label>
+
+
+
+
+<br><br>
+
+
+
+
+<button 
+class="botao"
+onclick="corrigirQuiz()">
 
 Corrigir Quiz
 
 </button>
 
+
+
 <h2 id="resultadoQuiz"></h2>
 
-</section>
 
-<script>
 
-function corrigirQuiz(){
+</div>
 
-let pontos=0;
 
-document.querySelectorAll("input[data-correta='true']").forEach(item=>{
-
-if(item.checked){
-
-pontos++;
-
-}
-
-});
-
-document.getElementById("resultadoQuiz").innerHTML=
-
-"Você acertou "+pontos+" de 3 questões.";
-
-}
-
-</script>
-
-<!--==========================================
-            RESUMO FINAL
-===========================================-->
-
-<section class="resumo-final">
-
-<h2>📚 Resumo Geral</h2>
-
-<table>
-
-<tr>
-
-<th>Tema</th>
-
-<th>Resumo</th>
-
-</tr>
-
-<tr>
-
-<td>Luz</td>
-
-<td>Forma de energia que possibilita a visão.</td>
-
-</tr>
-
-<tr>
-
-<td>Espelhos</td>
-
-<td>Produzem imagens por reflexão.</td>
-
-</tr>
-
-<tr>
-
-<td>Lentes</td>
-
-<td>Convergem ou divergem a luz.</td>
-
-</tr>
-
-<tr>
-
-<td>Refração</td>
-
-<td>Mudança de direção da luz.</td>
-
-</tr>
-
-<tr>
-
-<td>Dispersão</td>
-
-<td>Separa a luz branca em cores.</td>
-
-</tr>
-
-<tr>
-
-<td>Velocidade da luz</td>
-
-<td>3 × 10⁸ m/s.</td>
-
-</tr>
-
-</table>
 
 </section>
 
-<!--==========================================
-                RODAPÉ
-===========================================-->
+
+
+
+
+
+
+
+
+<!-- ==========================
+        RESUMO FINAL
+========================== -->
+
+
+<section class="conteudos">
+
+
+<h2>
+
+📚 Resumo Geral da Óptica
+
+</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+💡 Luz
+
+</h3>
+
+
+<p>
+
+Forma de energia responsável pela visão.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🪞 Reflexão
+
+</h3>
+
+
+<p>
+
+A luz retorna ao meio de origem.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🌊 Refração
+
+</h3>
+
+
+<p>
+
+A luz muda sua velocidade e direção ao trocar de meio.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card-optica">
+
+
+<h3>
+
+🔍 Lentes
+
+</h3>
+
+
+<p>
+
+Formam e modificam imagens através da luz.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+            RODAPÉ
+========================== -->
+
 
 <footer>
 
+
 <div class="rodapepadrao">
+
 
 <p>
 
@@ -869,17 +1774,23 @@ Projeto Física Interativa
 
 </p>
 
+
+
 <p>
 
 Equipe Alura • SEED-PR
 
 </p>
 
+
+
 <p>
 
-© Copyright José Matheus.
+© Copyright José Matheus
 
 </p>
+
+
 
 <p>
 
@@ -887,9 +1798,19 @@ Edição 2026
 
 </p>
 
+
+
 </div>
 
+
 </footer>
+
+
+
+
+
+
+
 
 <button id="topo">
 
@@ -897,9 +1818,138 @@ Edição 2026
 
 </button>
 
+
+
+
+
+
+
+
 <script src="script.js"></script>
+
+
+
+
+
+
+<script>
+
+
+// ==========================
+// RESPOSTAS
+// ==========================
+
+
+
+function mostrarResposta1(){
+
+
+document.getElementById("resposta1").innerHTML =
+
+"✅ Reflexão da luz.";
+
+
+}
+
+
+
+function mostrarResposta2(){
+
+
+document.getElementById("resposta2").innerHTML =
+
+"✅ A luz sofre refração ao mudar de meio.";
+
+
+}
+
+
+
+function mostrarResposta3(){
+
+
+document.getElementById("resposta3").innerHTML =
+
+"✅ Microscópio utiliza lentes para ampliar objetos.";
+
+
+}
+
+
+
+
+
+
+
+// ==========================
+// QUIZ
+// ==========================
+
+
+
+function corrigirQuiz(){
+
+
+let pontos = 0;
+
+
+
+let perguntas = [
+
+"q1",
+
+"q2",
+
+"q3"
+
+];
+
+
+
+perguntas.forEach(function(pergunta){
+
+
+let resposta = document.querySelector(
+'input[name="'+pergunta+'"]:checked'
+);
+
+
+
+if(resposta && resposta.value === "1"){
+
+pontos++;
+
+}
+
+
+});
+
+
+
+
+document.getElementById("resultadoQuiz").innerHTML =
+
+
+"🏆 Você acertou "
+
++
+
+pontos
+
++
+
+" de 3 questões!";
+
+
+
+}
+
+
+
+</script>
+
+
 
 </body>
 
 </html>
-```
