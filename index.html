@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -22,7 +21,6 @@
     >
 
     <style>
-
         /* =====================================================
            VARIÁVEIS
         ===================================================== */
@@ -45,15 +43,11 @@
 
             --borda: #e2e8f0;
 
-            --sombra:
-                0 8px 25px rgba(0, 0, 0, 0.08);
-
-            --sombra-forte:
-                0 18px 45px rgba(7, 87, 160, 0.15);
+            --sombra: 0 8px 25px rgba(0, 0, 0, 0.08);
+            --sombra-forte: 0 18px 45px rgba(7, 87, 160, 0.15);
 
             --raio: 20px;
         }
-
 
         /* =====================================================
            RESET
@@ -75,9 +69,7 @@
             background: var(--fundo);
             color: var(--texto);
             line-height: 1.6;
-            transition:
-                background .3s,
-                color .3s;
+            transition: background .3s, color .3s;
         }
 
         button,
@@ -94,7 +86,6 @@
             text-decoration: none;
             color: inherit;
         }
-
 
         /* =====================================================
            HEADER
@@ -186,7 +177,6 @@
         .tema-btn:hover {
             transform: rotate(15deg) scale(1.05);
         }
-
 
         /* =====================================================
            HERO
@@ -324,7 +314,6 @@
             border: 2px solid rgba(255,255,255,.7);
         }
 
-
         /* =====================================================
            SEÇÕES
         ===================================================== */
@@ -354,7 +343,8 @@
         }
 
         .section-tag {
-            display: inline-block;
+            display: block;
+            text-align: center;
 
             color: var(--azul2);
 
@@ -364,9 +354,8 @@
             letter-spacing: 1.5px;
         }
 
-
         /* =====================================================
-           CARDS DE CONTEÚDO
+           CARDS
         ===================================================== */
 
         .cards {
@@ -453,9 +442,8 @@
             font-weight: 700;
         }
 
-
         /* =====================================================
-           VISÃO E ACESSIBILIDADE
+           ACESSIBILIDADE
         ===================================================== */
 
         .acessibilidade {
@@ -519,9 +507,8 @@
             transform: translateY(-2px);
         }
 
-
         /* =====================================================
-           NOVA ÁREA DE VISÃO
+           VISÃO
         ===================================================== */
 
         .visao-interativa {
@@ -530,10 +517,7 @@
 
         .visao-grid {
             display: grid;
-
-            grid-template-columns:
-                1.35fr .75fr;
-
+            grid-template-columns: 1.35fr .75fr;
             gap: 25px;
         }
 
@@ -594,11 +578,6 @@
             white-space: nowrap;
         }
 
-
-        /* =====================================================
-           SIMULAÇÃO DO OLHO
-        ===================================================== */
-
         .olho-simulacao {
             height: 330px;
 
@@ -645,14 +624,11 @@
 
             border: 8px solid #dbeafe;
 
-            border-radius:
-                65% 45% 45% 65%;
+            border-radius: 65% 45% 45% 65%;
 
             box-shadow:
                 inset -25px 0 35px rgba(30,64,175,.12),
                 0 15px 30px rgba(15,23,42,.15);
-
-            transition: .4s;
         }
 
         .iris {
@@ -688,8 +664,7 @@
             left: 50%;
             top: 50%;
 
-            transform:
-                translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 
             background: #020617;
 
@@ -716,9 +691,6 @@
                 );
 
             border: 2px solid #38bdf8;
-
-            box-shadow:
-                0 0 15px rgba(14,165,233,.35);
         }
 
         .retina {
@@ -733,9 +705,6 @@
             border-radius: 50%;
 
             background: #f43f5e;
-
-            box-shadow:
-                0 0 15px rgba(244,63,94,.4);
         }
 
         .raio {
@@ -756,10 +725,7 @@
                     #fde047
                 );
 
-            transform-origin: left center;
-
-            animation:
-                luz 2.3s infinite linear;
+            animation: luz 2.3s infinite linear;
         }
 
         .raio-1 {
@@ -781,9 +747,7 @@
         @keyframes luz {
             0% {
                 opacity: 0;
-                transform:
-                    translateX(-20px)
-                    scaleX(.5);
+                transform: translateX(-20px) scaleX(.5);
             }
 
             35% {
@@ -792,16 +756,9 @@
 
             100% {
                 opacity: 0;
-                transform:
-                    translateX(150px)
-                    scaleX(1);
+                transform: translateX(150px) scaleX(1);
             }
         }
-
-
-        /* =====================================================
-           LABELS DO OLHO
-        ===================================================== */
 
         .parte-olho {
             position: absolute;
@@ -866,11 +823,6 @@
             margin-top: 5px;
         }
 
-
-        /* =====================================================
-           CONTROLE DE VISÃO
-        ===================================================== */
-
         .controle-visao > p {
             color: var(--texto-suave);
             margin: 10px 0 20px;
@@ -897,8 +849,6 @@
             color: #334155;
 
             font-weight: 600;
-
-            transition: .2s;
         }
 
         .condicao:hover {
@@ -939,11 +889,6 @@
             color: var(--texto-suave);
         }
 
-
-        /* =====================================================
-           ANATOMIA
-        ===================================================== */
-
         .anatomia {
             margin-top: 45px;
         }
@@ -960,10 +905,7 @@
 
         .partes-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 18px;
         }
 
@@ -981,7 +923,6 @@
 
         .parte-card:hover {
             transform: translateY(-6px);
-
             box-shadow: var(--sombra);
         }
 
@@ -1001,11 +942,6 @@
             font-size: 14px;
         }
 
-
-        /* =====================================================
-           CORES
-        ===================================================== */
-
         .cores-visao {
             margin-top: 55px;
         }
@@ -1019,10 +955,7 @@
 
         .cores-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
@@ -1046,38 +979,20 @@
 
         .cor-card span {
             display: block;
-
             font-size: 40px;
-
             margin-bottom: 8px;
         }
 
         .cor-card strong {
             display: block;
-
             color: #0f172a;
-
             font-size: 18px;
         }
 
         .cor-card small {
             display: block;
-
             color: var(--texto-suave);
-
             margin-top: 7px;
-        }
-
-        .cor-card.vermelho:hover {
-            border-color: #ef4444;
-        }
-
-        .cor-card.verde:hover {
-            border-color: #22c55e;
-        }
-
-        .cor-card.azul:hover {
-            border-color: #3b82f6;
         }
 
         .cor-info {
@@ -1096,6 +1011,469 @@
             text-align: center;
         }
 
+        /* =====================================================
+           MOBILIDADE
+        ===================================================== */
+
+        .mobilidade {
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef8ff,
+                    #f8fbff
+                );
+        }
+
+        .mobilidade-box {
+            max-width: 1100px;
+            margin: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            box-shadow: var(--sombra-forte);
+
+            border: 1px solid var(--borda);
+        }
+
+        .mobilidade-intro {
+            max-width: 760px;
+            margin: 0 auto 30px;
+            text-align: center;
+            color: var(--texto-suave);
+        }
+
+        .mobilidade-grid {
+            display: grid;
+            grid-template-columns: 1.5fr .8fr;
+            gap: 25px;
+        }
+
+        .pista-area {
+            position: relative;
+
+            height: 390px;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #dff3ff 0 62%,
+                    #b7e4b5 62% 100%
+                );
+
+            border: 2px solid #bfdbfe;
+        }
+
+        .ceu-sol {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            width: 60px;
+            height: 60px;
+
+            border-radius: 50%;
+
+            background: #fde047;
+
+            box-shadow:
+                0 0 35px rgba(250,204,21,.55);
+        }
+
+        .predio {
+            position: absolute;
+
+            bottom: 38%;
+
+            width: 90px;
+            height: 120px;
+
+            background: #cbd5e1;
+
+            border: 4px solid #94a3b8;
+
+            border-bottom: 0;
+        }
+
+        .predio::before {
+            content: "▦";
+
+            position: absolute;
+
+            inset: 12px;
+
+            color: #2563eb;
+
+            font-size: 55px;
+
+            line-height: 1.3;
+
+            opacity: .65;
+        }
+
+        .predio-1 {
+            left: 40px;
+        }
+
+        .predio-2 {
+            left: 145px;
+
+            height: 155px;
+        }
+
+        .pista {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 38%;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #64748b 0 55px,
+                    #708090 55px 110px
+                );
+
+            border-top: 8px solid #475569;
+        }
+
+        .faixa {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            top: 50%;
+
+            height: 6px;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    #f8fafc 0 45px,
+                    transparent 45px 80px
+                );
+        }
+
+        .rampa {
+            position: absolute;
+
+            left: 42%;
+            bottom: 38%;
+
+            width: 150px;
+            height: 75px;
+
+            background: #94a3b8;
+
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+
+            border: 3px solid #64748b;
+        }
+
+        .rampa-label {
+            position: absolute;
+
+            left: 46%;
+            bottom: calc(38% + 12px);
+
+            padding: 4px 8px;
+
+            background: white;
+
+            border-radius: 8px;
+
+            color: #334155;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .obstaculo {
+            position: absolute;
+
+            bottom: 19%;
+
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            border: 0;
+
+            background: #f97316;
+            color: white;
+
+            font-size: 25px;
+
+            box-shadow: 0 6px 12px rgba(0,0,0,.18);
+
+            transition: transform .2s;
+        }
+
+        .obstaculo:hover {
+            transform: scale(1.1);
+        }
+
+        .obstaculo-1 {
+            left: 68%;
+        }
+
+        .obstaculo-2 {
+            left: 82%;
+            background: #ef4444;
+        }
+
+        .cadeira {
+            position: absolute;
+
+            left: 25px;
+            bottom: 19%;
+
+            width: 75px;
+            height: 70px;
+
+            z-index: 10;
+
+            transition:
+                left .08s linear,
+                transform .2s;
+        }
+
+        .pessoa {
+            position: absolute;
+
+            left: 27px;
+            top: 0;
+
+            font-size: 34px;
+        }
+
+        .assento {
+            position: absolute;
+
+            left: 25px;
+            top: 35px;
+
+            width: 42px;
+            height: 22px;
+
+            border-radius: 5px;
+
+            background: #0757a0;
+        }
+
+        .roda {
+            position: absolute;
+
+            bottom: 0;
+
+            width: 28px;
+            height: 28px;
+
+            border: 5px solid #1e293b;
+
+            border-radius: 50%;
+
+            background: #94a3b8;
+        }
+
+        .roda::after {
+            content: "";
+
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: white;
+
+            border-radius: 50%;
+        }
+
+        .roda-1 {
+            left: 10px;
+        }
+
+        .roda-2 {
+            left: 48px;
+            width: 18px;
+            height: 18px;
+            border-width: 4px;
+        }
+
+        .controle-mobilidade {
+            padding: 25px;
+
+            border-radius: 20px;
+
+            background: #f8fafc;
+
+            border: 1px solid var(--borda);
+        }
+
+        .controle-mobilidade h3 {
+            color: var(--azul);
+            margin-bottom: 8px;
+        }
+
+        .controle-mobilidade p {
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
+
+        .controle-item {
+            margin-top: 20px;
+        }
+
+        .controle-item label {
+            display: flex;
+            justify-content: space-between;
+
+            color: var(--azul);
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .controle-item input[type="range"] {
+            width: 100%;
+            accent-color: var(--azul2);
+        }
+
+        .botoes-mobilidade {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .botoes-mobilidade button {
+            padding: 10px 7px;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            background: var(--azul);
+
+            color: white;
+
+            font-weight: 700;
+        }
+
+        .botoes-mobilidade button:hover {
+            background: var(--azul2);
+        }
+
+        .dados-mobilidade {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .dado {
+            padding: 13px;
+
+            background: white;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--borda);
+        }
+
+        .dado span {
+            display: block;
+
+            color: var(--texto-suave);
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+        }
+
+        .dado strong {
+            display: block;
+
+            color: var(--azul);
+
+            font-size: 19px;
+        }
+
+        .mobilidade-info {
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border-left: 5px solid var(--azul2);
+
+            background: var(--suave);
+
+            border-radius: 12px;
+
+            color: #334155;
+        }
+
+        .mobilidade-info strong {
+            color: var(--azul);
+        }
+
+        .acessibilidade-cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .acess-card {
+            padding: 20px;
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 16px;
+        }
+
+        .acess-card span {
+            font-size: 30px;
+        }
+
+        .acess-card h4 {
+            color: var(--azul);
+            margin: 8px 0;
+        }
+
+        .acess-card p {
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
 
         /* =====================================================
            LABORATÓRIO
@@ -1195,7 +1573,6 @@
             border-radius: 8px;
         }
 
-
         /* =====================================================
            MAPA
         ===================================================== */
@@ -1259,7 +1636,6 @@
             color: #334155;
         }
 
-
         /* =====================================================
            QUIZ
         ===================================================== */
@@ -1319,7 +1695,6 @@
             color: #9b1c1c;
         }
 
-
         /* =====================================================
            SOBRE
         ===================================================== */
@@ -1339,7 +1714,6 @@
 
             box-shadow: var(--sombra);
         }
-
 
         /* =====================================================
            FOOTER
@@ -1368,7 +1742,6 @@
             color: #ffeb3b;
         }
 
-
         /* =====================================================
            MODO ESCURO
         ===================================================== */
@@ -1381,7 +1754,9 @@
             --borda: #334155;
         }
 
-        body.dark .acessibilidade {
+        body.dark .acessibilidade,
+        body.dark .mobilidade,
+        body.dark .laboratorio {
             background: #111c35;
         }
 
@@ -1394,9 +1769,17 @@
         body.dark .simulador,
         body.dark .quiz,
         body.dark .mapa-box,
-        body.dark .sobre-box {
+        body.dark .sobre-box,
+        body.dark .mobilidade-box {
             background: #1e293b;
             color: var(--texto);
+            border-color: #334155;
+        }
+
+        body.dark .controle-mobilidade,
+        body.dark .dado,
+        body.dark .acess-card {
+            background: #0f172a;
             border-color: #334155;
         }
 
@@ -1433,6 +1816,9 @@
             color: #bbf7d0;
         }
 
+        body.dark .mobilidade-info {
+            color: #cbd5e1;
+        }
 
         /* =====================================================
            ALTO CONTRASTE
@@ -1452,10 +1838,12 @@
         body.contraste .simulador,
         body.contraste .quiz,
         body.contraste .mapa-box,
-        body.contraste .sobre-box {
+        body.contraste .sobre-box,
+        body.contraste .mobilidade-box,
+        body.contraste .controle-mobilidade,
+        body.contraste .acess-card {
             background: #000;
             color: white;
-
             border: 2px solid white;
         }
 
@@ -1468,19 +1856,19 @@
         body.contraste .descricao,
         body.contraste .parte-card p,
         body.contraste .cor-card small,
-        body.contraste .controle-visao > p {
+        body.contraste .controle-visao > p,
+        body.contraste .mobilidade-intro,
+        body.contraste .controle-mobilidade p,
+        body.contraste .acess-card p {
             color: white;
         }
 
-
         /* =====================================================
-           SIMULADOR DE PERCEPÇÃO DE CORES
+           SIMULAÇÃO DE CORES
         ===================================================== */
 
         body.protanopia .visao-area {
-            filter:
-                sepia(.55)
-                saturate(.65);
+            filter: sepia(.55) saturate(.65);
         }
 
         body.deuteranopia .visao-area {
@@ -1496,7 +1884,6 @@
                 saturate(.8);
         }
 
-
         /* =====================================================
            FONTE
         ===================================================== */
@@ -1509,13 +1896,25 @@
             font-size: 130%;
         }
 
+        /* =====================================================
+           REDUÇÃO DE MOVIMENTO
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
 
         /* =====================================================
            MOBILE
         ===================================================== */
 
         @media (max-width: 900px) {
-
             nav {
                 display: none;
 
@@ -1533,8 +1932,7 @@
 
                 background: var(--azul);
 
-                border-radius:
-                    0 0 15px 15px;
+                border-radius: 0 0 15px 15px;
 
                 overflow: hidden;
 
@@ -1547,29 +1945,24 @@
 
             nav a {
                 padding: 14px 18px;
-
-                border-bottom:
-                    1px solid #ffffff22;
+                border-bottom: 1px solid #ffffff22;
             }
 
             .menu-btn {
                 display: block;
             }
 
-            .visao-grid {
+            .visao-grid,
+            .mobilidade-grid {
                 grid-template-columns: 1fr;
             }
 
             .partes-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
-
         }
 
-
         @media (max-width: 600px) {
-
             header {
                 padding: 12px 4%;
             }
@@ -1603,12 +1996,14 @@
             .olho-card,
             .controle-visao,
             .simulador,
-            .quiz {
+            .quiz,
+            .mobilidade-box {
                 padding: 20px;
             }
 
             .partes-grid,
-            .cores-grid {
+            .cores-grid,
+            .acessibilidade-cards {
                 grid-template-columns: 1fr;
             }
 
@@ -1645,11 +2040,16 @@
                 flex-direction: column;
             }
 
-        }
+            .pista-area {
+                height: 330px;
+            }
 
+            .botoes-mobilidade {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-
 
 <body>
 
@@ -1658,7 +2058,6 @@
     ===================================================== -->
 
     <header>
-
         <a href="#inicio" class="logo">
             ⚛️ Física Interativa
         </a>
@@ -1672,15 +2071,14 @@
         </button>
 
         <nav id="menu">
-
             <a href="#inicio">Início</a>
             <a href="#conteudos">Conteúdos</a>
             <a href="#visao">👁️ Visão</a>
+            <a href="#mobilidade">♿ Mobilidade</a>
             <a href="#laboratorio">Laboratório</a>
             <a href="#mapa">Mapa</a>
             <a href="#quiz">Quiz</a>
             <a href="#sobre">Sobre</a>
-
         </nav>
 
         <button
@@ -1689,9 +2087,7 @@
             aria-label="Ativar modo escuro">
             🌙
         </button>
-
     </header>
-
 
     <main>
 
@@ -1717,10 +2113,9 @@
                 </p>
 
                 <p>
-                    Explore movimentos, forças,
-                    luz, óptica e descubra como
-                    nossos olhos transformam luz
-                    em percepção.
+                    Explore movimentos, forças, luz,
+                    óptica, visão e descubra como a Física
+                    também está presente na mobilidade.
                 </p>
 
                 <div class="hero-buttons">
@@ -1729,18 +2124,13 @@
                         Começar 🚀
                     </a>
 
-                    <a
-                        href="#visao"
-                        class="btn btn-outline">
-                        Explorar visão 👁️
+                    <a href="#mobilidade" class="btn btn-outline">
+                        Explorar mobilidade ♿
                     </a>
 
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- =================================================
              CONTEÚDOS
@@ -1757,14 +2147,12 @@
             </h2>
 
             <p class="descricao">
-                Conheça alguns dos principais
-                temas da Física.
+                Conheça alguns dos principais temas da Física.
             </p>
 
             <div class="cards">
 
                 <article class="card">
-
                     <span class="icone">🚗</span>
 
                     <h3>
@@ -1772,20 +2160,16 @@
                     </h3>
 
                     <p>
-                        Movimento com velocidade
-                        constante e aceleração igual
-                        a zero.
+                        Movimento com velocidade constante
+                        e aceleração igual a zero.
                     </p>
 
                     <div class="formula">
                         S = S₀ + v · t
                     </div>
-
                 </article>
 
-
                 <article class="card">
-
                     <span class="icone">🏎️</span>
 
                     <h3>
@@ -1800,12 +2184,9 @@
                     <div class="formula">
                         v = v₀ + a · t
                     </div>
-
                 </article>
 
-
                 <article class="card">
-
                     <span class="icone">⚙️</span>
 
                     <h3>
@@ -1820,12 +2201,9 @@
                     <div class="formula">
                         F = m · a
                     </div>
-
                 </article>
 
-
                 <article class="card">
-
                     <span class="icone">🔦</span>
 
                     <h3>
@@ -1840,21 +2218,34 @@
                     <div class="formula">
                         i = r
                     </div>
+                </article>
 
+                <article class="card">
+                    <span class="icone">♿</span>
+
+                    <h3>
+                        Física e Mobilidade
+                    </h3>
+
+                    <p>
+                        A Física ajuda a compreender rampas,
+                        movimento, força, equilíbrio e
+                        acessibilidade.
+                    </p>
+
+                    <div class="formula">
+                        F = m · a
+                    </div>
                 </article>
 
             </div>
-
         </section>
-
 
         <!-- =================================================
              VISÃO E ACESSIBILIDADE
         ================================================= -->
 
-        <section
-            class="acessibilidade"
-            id="visao">
+        <section class="acessibilidade" id="visao">
 
             <span class="section-tag">
                 ÓPTICA + ACESSIBILIDADE
@@ -1865,30 +2256,30 @@
             </h2>
 
             <p class="descricao">
-                Explore como o olho humano funciona,
-                como a luz forma imagens e como
-                diferentes condições visuais alteram
-                nossa percepção.
+                Explore como o olho humano funciona e como
+                diferentes condições visuais alteram nossa
+                percepção.
             </p>
 
-
             <div class="acessibilidade-box">
-
-                <!-- CONTROLES -->
 
                 <h3>
                     🔎 Personalize sua experiência
                 </h3>
 
                 <p>
-                    Ajuste o site para tornar a
-                    experiência mais confortável.
+                    Ajuste o site para tornar a experiência
+                    mais confortável.
                 </p>
 
                 <div class="botoes-acessibilidade">
 
                     <button id="fonteMais">
                         A+ Aumentar fonte
+                    </button>
+
+                    <button id="fonteMaior">
+                        A++ Fonte maior
                     </button>
 
                     <button id="fonteMenos">
@@ -1905,16 +2296,13 @@
 
                 </div>
 
-
-                <!-- SIMULADOR DE CORES -->
-
                 <h3>
                     🎨 Percepção das cores
                 </h3>
 
                 <p>
-                    Experimente diferentes formas de
-                    percepção das cores.
+                    Experimente diferentes formas de percepção
+                    das cores.
                 </p>
 
                 <div class="botoes-acessibilidade">
@@ -1937,23 +2325,15 @@
 
                 </div>
 
-
-                <!-- =================================================
-                     EXPERIÊNCIA DO OLHO
-                ================================================= -->
-
                 <div class="visao-interativa">
 
                     <div class="visao-grid">
-
-                        <!-- OLHO -->
 
                         <div class="olho-card">
 
                             <div class="card-top">
 
                                 <div>
-
                                     <span class="mini-label">
                                         SIMULAÇÃO
                                     </span>
@@ -1961,7 +2341,6 @@
                                     <h3>
                                         Como a luz entra no olho?
                                     </h3>
-
                                 </div>
 
                                 <span class="status">
@@ -1970,7 +2349,6 @@
 
                             </div>
 
-
                             <div
                                 class="olho-simulacao"
                                 id="visaoArea">
@@ -1978,7 +2356,6 @@
                                 <div class="raio raio-1"></div>
                                 <div class="raio raio-2"></div>
                                 <div class="raio raio-3"></div>
-
 
                                 <div class="olho-real">
 
@@ -1991,7 +2368,6 @@
                                     <div class="retina"></div>
 
                                 </div>
-
 
                                 <button
                                     class="parte-olho label-cornea"
@@ -2013,7 +2389,6 @@
 
                             </div>
 
-
                             <div
                                 class="explicacao-olho"
                                 id="explicacaoOlho">
@@ -2031,9 +2406,6 @@
 
                         </div>
 
-
-                        <!-- CONDIÇÕES VISUAIS -->
-
                         <div class="controle-visao">
 
                             <span class="mini-label">
@@ -2045,11 +2417,10 @@
                             </h3>
 
                             <p>
-                                Escolha uma condição visual
-                                e veja onde os raios de luz
-                                tendem a se concentrar.
+                                Escolha uma condição visual e veja
+                                onde os raios de luz tendem a se
+                                concentrar.
                             </p>
-
 
                             <div class="condicoes">
 
@@ -2073,7 +2444,6 @@
 
                             </div>
 
-
                             <div
                                 class="resultado-visao"
                                 id="resultadoVisao">
@@ -2083,7 +2453,6 @@
                                 </div>
 
                                 <div>
-
                                     <strong>
                                         Visão normal
                                     </strong>
@@ -2093,17 +2462,12 @@
                                         diretamente sobre a retina,
                                         formando uma imagem nítida.
                                     </p>
-
                                 </div>
 
                             </div>
 
                         </div>
-
                     </div>
-
-
-                    <!-- ANATOMIA -->
 
                     <div class="anatomia">
 
@@ -2114,89 +2478,63 @@
                         <div class="partes-grid">
 
                             <article class="parte-card">
-
-                                <div class="parte-icon">
-                                    🔵
-                                </div>
+                                <div class="parte-icon">🔵</div>
 
                                 <h4>
                                     Córnea
                                 </h4>
 
                                 <p>
-                                    Primeira estrutura transparente
-                                    que recebe a luz. Ela contribui
-                                    bastante para a refração dos
-                                    raios luminosos.
+                                    Estrutura transparente que recebe
+                                    a luz e contribui bastante para
+                                    a refração.
                                 </p>
-
                             </article>
 
-
                             <article class="parte-card">
-
-                                <div class="parte-icon">
-                                    🟣
-                                </div>
+                                <div class="parte-icon">🟣</div>
 
                                 <h4>
                                     Cristalino
                                 </h4>
 
                                 <p>
-                                    Atua como uma lente natural.
-                                    Sua curvatura pode mudar para
-                                    ajudar o olho a focalizar
-                                    diferentes distâncias.
+                                    Funciona como uma lente natural
+                                    que ajuda a focalizar diferentes
+                                    distâncias.
                                 </p>
-
                             </article>
 
-
                             <article class="parte-card">
-
-                                <div class="parte-icon">
-                                    🔴
-                                </div>
+                                <div class="parte-icon">🔴</div>
 
                                 <h4>
                                     Retina
                                 </h4>
 
                                 <p>
-                                    Camada sensível à luz onde
-                                    ocorre a conversão da informação
-                                    luminosa em sinais nervosos.
+                                    Camada sensível à luz onde a
+                                    informação luminosa é transformada
+                                    em sinais nervosos.
                                 </p>
-
                             </article>
 
-
                             <article class="parte-card">
-
-                                <div class="parte-icon">
-                                    🧠
-                                </div>
+                                <div class="parte-icon">🧠</div>
 
                                 <h4>
                                     Cérebro
                                 </h4>
 
                                 <p>
-                                    O cérebro interpreta os sinais
-                                    enviados pelo sistema visual
-                                    e produz nossa percepção
-                                    do ambiente.
+                                    Interpreta os sinais enviados pelo
+                                    sistema visual e produz nossa
+                                    percepção.
                                 </p>
-
                             </article>
 
                         </div>
-
                     </div>
-
-
-                    <!-- CORES -->
 
                     <div class="cores-visao">
 
@@ -2205,21 +2543,17 @@
                         </h3>
 
                         <p class="cores-intro">
-                            A retina possui células chamadas
-                            cones, que participam da percepção
-                            das cores. Clique para explorar.
+                            A retina possui células chamadas cones,
+                            que participam da percepção das cores.
                         </p>
-
 
                         <div class="cores-grid">
 
                             <button
-                                class="cor-card vermelho"
+                                class="cor-card"
                                 data-cor="vermelho">
 
-                                <span>
-                                    🔴
-                                </span>
+                                <span>🔴</span>
 
                                 <strong>
                                     Vermelho
@@ -2229,52 +2563,41 @@
                                     Associado a regiões de maior
                                     comprimento de onda da luz visível.
                                 </small>
-
                             </button>
 
-
                             <button
-                                class="cor-card verde"
+                                class="cor-card"
                                 data-cor="verde">
 
-                                <span>
-                                    🟢
-                                </span>
+                                <span>🟢</span>
 
                                 <strong>
                                     Verde
                                 </strong>
 
                                 <small>
-                                    A percepção das cores resulta
-                                    da combinação das respostas
-                                    dos diferentes cones.
+                                    A percepção depende da combinação
+                                    das respostas dos diferentes cones.
                                 </small>
-
                             </button>
 
-
                             <button
-                                class="cor-card azul"
+                                class="cor-card"
                                 data-cor="azul">
 
-                                <span>
-                                    🔵
-                                </span>
+                                <span>🔵</span>
 
                                 <strong>
                                     Azul
                                 </strong>
 
                                 <small>
-                                    Está associado a regiões de menor
+                                    Associado a regiões de menor
                                     comprimento de onda da luz visível.
                                 </small>
-
                             </button>
 
                         </div>
-
 
                         <div
                             class="cor-info"
@@ -2286,12 +2609,9 @@
                         </div>
 
                     </div>
-
                 </div>
 
-
                 <br>
-
 
                 <h3>
                     💡 Por que acessibilidade é importante?
@@ -2305,9 +2625,288 @@
                 </p>
 
             </div>
-
         </section>
 
+        <!-- =================================================
+             MOBILIDADE
+        ================================================= -->
+
+        <section
+            class="mobilidade"
+            id="mobilidade">
+
+            <span class="section-tag">
+                FÍSICA + ACESSIBILIDADE
+            </span>
+
+            <h2 class="titulo">
+                ♿ Física e Mobilidade
+            </h2>
+
+            <p class="descricao">
+                Descubra como velocidade, aceleração, força e
+                inclinação aparecem em situações relacionadas
+                à mobilidade.
+            </p>
+
+            <div class="mobilidade-box">
+
+                <p class="mobilidade-intro">
+                    Controle a cadeira de rodas usando os comandos
+                    abaixo. Altere a velocidade e a inclinação da
+                    rampa e observe como os valores físicos mudam.
+                </p>
+
+                <div class="mobilidade-grid">
+
+                    <!-- PISTA -->
+
+                    <div class="pista-area" id="pistaArea">
+
+                        <div class="ceu-sol"></div>
+
+                        <div class="predio predio-1"></div>
+                        <div class="predio predio-2"></div>
+
+                        <div class="rampa"></div>
+
+                        <div class="rampa-label">
+                            Rampa
+                        </div>
+
+                        <div class="pista">
+                            <div class="faixa"></div>
+                        </div>
+
+                        <button
+                            class="obstaculo obstaculo-1"
+                            data-obstaculo="calcada">
+                            🚧
+                        </button>
+
+                        <button
+                            class="obstaculo obstaculo-2"
+                            data-obstaculo="acessibilidade">
+                            ♿
+                        </button>
+
+                        <div
+                            class="cadeira"
+                            id="cadeira"
+                            aria-label="Pessoa utilizando cadeira de rodas">
+
+                            <div class="pessoa">
+                                🧑
+                            </div>
+
+                            <div class="assento"></div>
+
+                            <div class="roda roda-1"></div>
+                            <div class="roda roda-2"></div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CONTROLES -->
+
+                    <div class="controle-mobilidade">
+
+                        <span class="mini-label">
+                            SIMULADOR
+                        </span>
+
+                        <h3>
+                            🎮 Controle o movimento
+                        </h3>
+
+                        <p>
+                            Ajuste os parâmetros e observe
+                            os efeitos no movimento.
+                        </p>
+
+                        <div class="controle-item">
+
+                            <label for="velocidade">
+                                <span>Velocidade</span>
+
+                                <span>
+                                    <output id="valorVelocidade">
+                                        2
+                                    </output>
+                                    m/s
+                                </span>
+                            </label>
+
+                            <input
+                                type="range"
+                                id="velocidade"
+                                min="0"
+                                max="10"
+                                step="0.5"
+                                value="2"
+                            >
+
+                        </div>
+
+                        <div class="controle-item">
+
+                            <label for="inclinacao">
+                                <span>Inclinação</span>
+
+                                <span>
+                                    <output id="valorInclinacao">
+                                        0
+                                    </output>
+                                    °
+                                </span>
+                            </label>
+
+                            <input
+                                type="range"
+                                id="inclinacao"
+                                min="0"
+                                max="20"
+                                step="1"
+                                value="0"
+                            >
+
+                        </div>
+
+                        <div class="botoes-mobilidade">
+
+                            <button id="iniciarMobilidade">
+                                ▶ Iniciar
+                            </button>
+
+                            <button id="pausarMobilidade">
+                                ⏸ Pausar
+                            </button>
+
+                            <button id="resetMobilidade">
+                                ↺ Reiniciar
+                            </button>
+
+                        </div>
+
+                        <div class="dados-mobilidade">
+
+                            <div class="dado">
+                                <span>Tempo</span>
+
+                                <strong>
+                                    <output id="tempoMobilidade">
+                                        0.0
+                                    </output>
+                                    s
+                                </strong>
+                            </div>
+
+                            <div class="dado">
+                                <span>Distância</span>
+
+                                <strong>
+                                    <output id="distanciaMobilidade">
+                                        0.0
+                                    </output>
+                                    m
+                                </strong>
+                            </div>
+
+                            <div class="dado">
+                                <span>Velocidade</span>
+
+                                <strong>
+                                    <output id="velocidadeAtual">
+                                        2.0
+                                    </output>
+                                    m/s
+                                </strong>
+                            </div>
+
+                            <div class="dado">
+                                <span>Aceleração</span>
+
+                                <strong>
+                                    <output id="aceleracaoMobilidade">
+                                        0.0
+                                    </output>
+                                    m/s²
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="mobilidade-info"
+                    id="mobilidadeInfo">
+
+                    <strong>
+                        💡 O que está acontecendo?
+                    </strong>
+
+                    <p>
+                        Em uma superfície plana, manter uma velocidade
+                        constante significa aceleração aproximadamente
+                        igual a zero. A situação muda quando forças
+                        externas, como uma inclinação, entram em ação.
+                    </p>
+
+                </div>
+
+                <div class="acessibilidade-cards">
+
+                    <article class="acess-card">
+                        <span>🛣️</span>
+
+                        <h4>
+                            Rampas
+                        </h4>
+
+                        <p>
+                            Rampas reduzem a necessidade de vencer
+                            um degrau vertical de uma só vez,
+                            facilitando o deslocamento.
+                        </p>
+                    </article>
+
+                    <article class="acess-card">
+                        <span>📐</span>
+
+                        <h4>
+                            Inclinação
+                        </h4>
+
+                        <p>
+                            Quanto maior a inclinação, maior pode
+                            ser a componente da força associada
+                            à gravidade ao longo da rampa.
+                        </p>
+                    </article>
+
+                    <article class="acess-card">
+                        <span>♿</span>
+
+                        <h4>
+                            Acessibilidade
+                        </h4>
+
+                        <p>
+                            Acessibilidade significa projetar
+                            espaços para que diferentes pessoas
+                            possam utilizá-los com segurança
+                            e autonomia.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
 
         <!-- =================================================
              LABORATÓRIO
@@ -2353,7 +2952,6 @@
 
                     </div>
 
-
                     <div class="campo">
 
                         <label for="s0">
@@ -2363,10 +2961,10 @@
                         <input
                             id="s0"
                             type="number"
-                            value="0">
+                            value="0"
+                        >
 
                     </div>
-
 
                     <div class="campo">
 
@@ -2377,10 +2975,10 @@
                         <input
                             id="v0"
                             type="number"
-                            value="10">
+                            value="10"
+                        >
 
                     </div>
-
 
                     <div
                         class="campo"
@@ -2393,10 +2991,10 @@
                         <input
                             id="a"
                             type="number"
-                            value="2">
+                            value="2"
+                        >
 
                     </div>
-
 
                     <div class="campo">
 
@@ -2408,19 +3006,18 @@
                             id="t"
                             type="number"
                             value="5"
-                            min="0">
+                            min="0"
+                        >
 
                     </div>
 
                 </div>
-
 
                 <button
                     class="btn-azul"
                     id="calcular">
                     ▶ Calcular
                 </button>
-
 
                 <div
                     class="resultado"
@@ -2432,9 +3029,7 @@
                 </div>
 
             </div>
-
         </section>
-
 
         <!-- =================================================
              MAPA
@@ -2484,19 +3079,14 @@
 
                 </div>
 
-
                 <div id="resumo">
-
                     <strong>
                         Escolha um tema.
                     </strong>
-
                 </div>
 
             </div>
-
         </section>
-
 
         <!-- =================================================
              QUIZ
@@ -2523,25 +3113,21 @@
                     class="pergunta">
                 </div>
 
-
                 <div
                     id="opcoes"
                     class="opcoes">
                 </div>
-
 
                 <div
                     id="feedback"
                     class="feedback">
                 </div>
 
-
                 <button
                     class="btn-azul"
                     id="verificar">
                     ✓ Verificar
                 </button>
-
 
                 <button
                     class="btn-azul"
@@ -2551,9 +3137,7 @@
                 </button>
 
             </div>
-
         </section>
-
 
         <!-- =================================================
              SOBRE
@@ -2582,17 +3166,15 @@
 
                 <p>
                     Aqui você pode aprender sobre movimento,
-                    forças, óptica e visão por meio de
-                    simuladores, explicações e atividades
+                    forças, óptica, visão e mobilidade por meio
+                    de simuladores, explicações e atividades
                     interativas.
                 </p>
 
             </div>
-
         </section>
 
     </main>
-
 
     <!-- =====================================================
          FOOTER
@@ -2616,55 +3198,42 @@
 
     </footer>
 
-
     <script>
 
         /* =====================================================
            MENU
         ===================================================== */
 
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-        const menu =
-            document.getElementById("menu");
-
+        const menuBtn = document.getElementById("menuBtn");
+        const menu = document.getElementById("menu");
 
         menuBtn.addEventListener("click", () => {
 
-            const aberto =
-                menu.classList.toggle("ativo");
+            const aberto = menu.classList.toggle("ativo");
 
             menuBtn.setAttribute(
                 "aria-expanded",
                 aberto
             );
 
-            menuBtn.textContent =
-                aberto ? "✕" : "☰";
-
+            menuBtn.textContent = aberto ? "✕" : "☰";
         });
 
+        document.querySelectorAll("#menu a").forEach(link => {
 
-        document
-            .querySelectorAll("#menu a")
-            .forEach(link => {
+            link.addEventListener("click", () => {
 
-                link.addEventListener("click", () => {
+                menu.classList.remove("ativo");
 
-                    menu.classList.remove("ativo");
+                menuBtn.textContent = "☰";
 
-                    menuBtn.textContent = "☰";
-
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                });
-
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
             });
 
+        });
 
         document.addEventListener("click", evento => {
 
@@ -2681,22 +3250,16 @@
                     "aria-expanded",
                     "false"
                 );
-
             }
 
         });
-
 
         /* =====================================================
            MODO ESCURO
         ===================================================== */
 
-        const temaBtn =
-            document.getElementById("temaBtn");
-
-        const escuro =
-            document.getElementById("escuro");
-
+        const temaBtn = document.getElementById("temaBtn");
+        const escuro = document.getElementById("escuro");
 
         function alternarEscuro() {
 
@@ -2714,9 +3277,7 @@
                     ? "Desativar modo escuro"
                     : "Ativar modo escuro"
             );
-
         }
-
 
         temaBtn.addEventListener(
             "click",
@@ -2728,25 +3289,27 @@
             alternarEscuro
         );
 
-
         /* =====================================================
-           TAMANHO DA FONTE
+           FONTES
         ===================================================== */
 
         document
             .getElementById("fonteMais")
             .addEventListener("click", () => {
 
-                document.body.classList.remove(
-                    "fonte-maior"
-                );
-
-                document.body.classList.add(
-                    "fonte-grande"
-                );
+                document.body.classList.remove("fonte-maior");
+                document.body.classList.add("fonte-grande");
 
             });
 
+        document
+            .getElementById("fonteMaior")
+            .addEventListener("click", () => {
+
+                document.body.classList.remove("fonte-grande");
+                document.body.classList.add("fonte-maior");
+
+            });
 
         document
             .getElementById("fonteMenos")
@@ -2759,9 +3322,8 @@
 
             });
 
-
         /* =====================================================
-           ALTO CONTRASTE
+           CONTRASTE
         ===================================================== */
 
         document
@@ -2774,22 +3336,17 @@
 
             });
 
-
         /* =====================================================
-           SIMULADOR DE PERCEPÇÃO DE CORES
+           SIMULADOR DE CORES
         ===================================================== */
 
         const explicacaoVisao =
-            document.getElementById(
-                "explicacaoOlho"
-            );
-
+            document.getElementById("explicacaoOlho");
 
         const explicacoesVisao = {
 
             normal: `
                 <strong>👁️ Visão normal</strong>
-
                 <p>
                     Esta é uma representação simplificada
                     da percepção normal das cores.
@@ -2798,92 +3355,74 @@
 
             protanopia: `
                 <strong>🔴 Protanopia</strong>
-
                 <p>
-                    A protanopia é uma alteração na percepção
-                    das cores associada principalmente à ausência
-                    ou funcionamento reduzido dos cones relacionados
-                    à faixa do vermelho.
+                    A protanopia está associada à ausência
+                    ou funcionamento reduzido dos cones
+                    relacionados principalmente à faixa
+                    do vermelho.
                 </p>
             `,
 
             deuteranopia: `
                 <strong>🟢 Deuteranopia</strong>
-
                 <p>
                     A deuteranopia está relacionada à ausência
-                    ou funcionamento reduzido dos cones associados
-                    principalmente à percepção do verde.
+                    ou funcionamento reduzido dos cones
+                    associados principalmente à percepção
+                    do verde.
                 </p>
             `,
 
             tritanopia: `
                 <strong>🔵 Tritanopia</strong>
-
                 <p>
-                    A tritanopia está relacionada à percepção
-                    alterada das regiões azul e amarelo do
-                    espectro de cores.
+                    A tritanopia está relacionada a uma alteração
+                    na percepção das regiões azul e amarelo
+                    do espectro de cores.
                 </p>
             `
-
         };
-
 
         document
             .querySelectorAll("[data-visao]")
             .forEach(botao => {
 
-                botao.addEventListener(
-                    "click",
-                    () => {
+                botao.addEventListener("click", () => {
 
-                        document.body.classList.remove(
-                            "protanopia",
-                            "deuteranopia",
-                            "tritanopia"
+                    document.body.classList.remove(
+                        "protanopia",
+                        "deuteranopia",
+                        "tritanopia"
+                    );
+
+                    const visao = botao.dataset.visao;
+
+                    if (visao !== "normal") {
+
+                        document.body.classList.add(
+                            visao
                         );
-
-
-                        const visao =
-                            botao.dataset.visao;
-
-
-                        if (visao !== "normal") {
-
-                            document.body.classList.add(
-                                visao
-                            );
-
-                        }
-
-
-                        document
-                            .querySelectorAll(
-                                "[data-visao]"
-                            )
-                            .forEach(item => {
-
-                                item.classList.remove(
-                                    "ativo"
-                                );
-
-                            });
-
-
-                        botao.classList.add(
-                            "ativo"
-                        );
-
-
-                        explicacaoVisao.innerHTML =
-                            explicacoesVisao[visao];
 
                     }
-                );
+
+                    document
+                        .querySelectorAll("[data-visao]")
+                        .forEach(item => {
+
+                            item.classList.remove(
+                                "ativo"
+                            );
+
+                        });
+
+                    botao.classList.add("ativo");
+
+                    explicacaoVisao.innerHTML =
+                        explicacoesVisao[visao];
+
+                });
 
             });
-
 
         /* =====================================================
            PARTES DO OLHO
@@ -2893,7 +3432,6 @@
 
             cornea: `
                 <strong>🔵 Córnea</strong>
-
                 <p>
                     A córnea é a superfície transparente
                     na parte frontal do olho. Ela recebe
@@ -2904,7 +3442,6 @@
 
             cristalino: `
                 <strong>🟣 Cristalino</strong>
-
                 <p>
                     O cristalino funciona como uma lente
                     natural. Ele altera sua curvatura para
@@ -2915,7 +3452,6 @@
 
             retina: `
                 <strong>🔴 Retina</strong>
-
                 <p>
                     A retina contém células sensíveis à luz.
                     Ela transforma a informação luminosa
@@ -2923,29 +3459,23 @@
                     ao sistema nervoso.
                 </p>
             `
-
         };
-
 
         document
             .querySelectorAll(".parte-olho")
             .forEach(botao => {
 
-                botao.addEventListener(
-                    "click",
-                    () => {
+                botao.addEventListener("click", () => {
 
-                        const parte =
-                            botao.dataset.parte;
+                    const parte =
+                        botao.dataset.parte;
 
-                        explicacaoVisao.innerHTML =
-                            explicacoesOlho[parte];
+                    explicacaoVisao.innerHTML =
+                        explicacoesOlho[parte];
 
-                    }
-                );
+                });
 
             });
-
 
         /* =====================================================
            CONDIÇÕES VISUAIS
@@ -2954,112 +3484,77 @@
         const condicoes = {
 
             normal: {
-
-                titulo:
-                    "Visão normal",
-
+                titulo: "Visão normal",
                 texto:
                     "Os raios de luz são focalizados diretamente sobre a retina, permitindo a formação de uma imagem nítida.",
-
-                icone:
-                    "👁️"
-
+                icone: "👁️"
             },
-
 
             miopia: {
-
-                titulo:
-                    "Miopia",
-
+                titulo: "Miopia",
                 texto:
-                    "Na miopia, o foco da luz tende a ocorrer antes da retina. Por isso, objetos distantes podem parecer desfocados. Lentes divergentes podem corrigir essa condição.",
-
-                icone:
-                    "👓"
-
+                    "Na miopia, o foco da luz tende a ocorrer antes da retina. Objetos distantes podem parecer desfocados. Lentes divergentes podem corrigir essa condição.",
+                icone: "👓"
             },
 
-
             hipermetropia: {
-
-                titulo:
-                    "Hipermetropia",
-
+                titulo: "Hipermetropia",
                 texto:
                     "Na hipermetropia, o foco tende a ocorrer depois da retina. Lentes convergentes podem ajudar a levar o foco para a posição adequada.",
-
-                icone:
-                    "🔍"
-
+                icone: "🔍"
             }
 
         };
 
-
         const resultadoVisao =
-            document.getElementById(
-                "resultadoVisao"
-            );
-
+            document.getElementById("resultadoVisao");
 
         document
             .querySelectorAll(".condicao")
             .forEach(botao => {
 
-                botao.addEventListener(
-                    "click",
-                    () => {
+                botao.addEventListener("click", () => {
 
-                        document
-                            .querySelectorAll(
-                                ".condicao"
-                            )
-                            .forEach(item => {
+                    document
+                        .querySelectorAll(".condicao")
+                        .forEach(item => {
 
-                                item.classList.remove(
-                                    "ativo"
-                                );
+                            item.classList.remove(
+                                "ativo"
+                            );
 
-                            });
+                        });
 
+                    botao.classList.add("ativo");
 
-                        botao.classList.add(
-                            "ativo"
-                        );
+                    const condicao =
+                        condicoes[
+                            botao.dataset.condicao
+                        ];
 
+                    resultadoVisao.innerHTML = `
 
-                        const condicao =
-                            condicoes[
-                                botao.dataset.condicao
-                            ];
+                        <div class="resultado-icone">
+                            ${condicao.icone}
+                        </div>
 
+                        <div>
 
-                        resultadoVisao.innerHTML = `
+                            <strong>
+                                ${condicao.titulo}
+                            </strong>
 
-                            <div class="resultado-icone">
-                                ${condicao.icone}
-                            </div>
+                            <p>
+                                ${condicao.texto}
+                            </p>
 
-                            <div>
+                        </div>
 
-                                <strong>
-                                    ${condicao.titulo}
-                                </strong>
+                    `;
 
-                                <p>
-                                    ${condicao.texto}
-                                </p>
-
-                            </div>
-
-                        `;
-
-                    }
-                );
+                });
 
             });
-
 
         /* =====================================================
            CORES
@@ -3078,31 +3573,23 @@
 
         };
 
-
         const corInfo =
-            document.getElementById(
-                "corInfo"
-            );
-
+            document.getElementById("corInfo");
 
         document
             .querySelectorAll(".cor-card")
             .forEach(botao => {
 
-                botao.addEventListener(
-                    "click",
-                    () => {
+                botao.addEventListener("click", () => {
 
-                        corInfo.textContent =
-                            informacoesCores[
-                                botao.dataset.cor
-                            ];
+                    corInfo.textContent =
+                        informacoesCores[
+                            botao.dataset.cor
+                        ];
 
-                    }
-                );
+                });
 
             });
-
 
         /* =====================================================
            SIMULADOR MU / MUV
@@ -3114,16 +3601,13 @@
         const campoA =
             document.getElementById("campoA");
 
-
         function atualizarTipoMovimento() {
 
             campoA.style.display =
                 tipo.value === "mu"
                     ? "none"
                     : "block";
-
         }
-
 
         tipo.addEventListener(
             "change",
@@ -3132,149 +3616,123 @@
 
         atualizarTipoMovimento();
 
-
         document
             .getElementById("calcular")
-            .addEventListener(
-                "click",
-                () => {
+            .addEventListener("click", () => {
 
-                    const s0 =
-                        Number(
-                            document.getElementById(
-                                "s0"
-                            ).value
-                        );
+                const s0 =
+                    Number(
+                        document.getElementById("s0").value
+                    );
 
-                    const v0 =
-                        Number(
-                            document.getElementById(
-                                "v0"
-                            ).value
-                        );
+                const v0 =
+                    Number(
+                        document.getElementById("v0").value
+                    );
 
-                    const a =
-                        Number(
-                            document.getElementById(
-                                "a"
-                            ).value
-                        );
+                const a =
+                    Number(
+                        document.getElementById("a").value
+                    );
 
-                    const t =
-                        Number(
-                            document.getElementById(
-                                "t"
-                            ).value
-                        );
+                const t =
+                    Number(
+                        document.getElementById("t").value
+                    );
 
+                const resultado =
+                    document.getElementById("resultado");
 
-                    if (t < 0) {
+                if (t < 0) {
 
-                        document.getElementById(
-                            "resultado"
-                        ).innerHTML = `
-                            ❌ O tempo não pode ser negativo.
-                        `;
+                    resultado.innerHTML =
+                        "❌ O tempo não pode ser negativo.";
 
-                        return;
+                    return;
+                }
 
-                    }
+                let s;
+                let v;
 
+                if (tipo.value === "mu") {
 
-                    let s;
-                    let v;
+                    s = s0 + v0 * t;
+                    v = v0;
 
+                    resultado.innerHTML = `
 
-                    if (tipo.value === "mu") {
+                        🚗
+                        <strong>
+                            Movimento Uniforme
+                        </strong>
 
-                        s =
-                            s0 +
-                            v0 * t;
+                        <br><br>
 
-                        v = v0;
+                        Posição final:
+                        <strong>
+                            ${s.toFixed(2)} m
+                        </strong>
 
+                        <br>
 
-                        document.getElementById(
-                            "resultado"
-                        ).innerHTML = `
+                        Velocidade:
+                        <strong>
+                            ${v.toFixed(2)} m/s
+                        </strong>
 
-                            🚗
-                            <strong>
-                                Movimento Uniforme
-                            </strong>
+                        <br>
 
-                            <br><br>
+                        Aceleração:
+                        <strong>
+                            0 m/s²
+                        </strong>
 
-                            Posição final:
-                            <strong>
-                                ${s.toFixed(2)} m
-                            </strong>
+                    `;
 
-                            <br>
+                } else {
 
-                            Velocidade:
-                            <strong>
-                                ${v.toFixed(2)} m/s
-                            </strong>
+                    s =
+                        s0 +
+                        v0 * t +
+                        0.5 * a * t * t;
 
-                            <br>
+                    v =
+                        v0 +
+                        a * t;
 
-                            Aceleração:
-                            <strong>
-                                0 m/s²
-                            </strong>
+                    resultado.innerHTML = `
 
-                        `;
+                        🏎️
+                        <strong>
+                            Movimento Uniformemente Variado
+                        </strong>
 
-                    } else {
+                        <br><br>
 
-                        s =
-                            s0 +
-                            v0 * t +
-                            0.5 * a * t * t;
+                        Posição final:
+                        <strong>
+                            ${s.toFixed(2)} m
+                        </strong>
 
-                        v =
-                            v0 +
-                            a * t;
+                        <br>
 
+                        Velocidade final:
+                        <strong>
+                            ${v.toFixed(2)} m/s
+                        </strong>
 
-                        document.getElementById(
-                            "resultado"
-                        ).innerHTML = `
+                        <br>
 
-                            🏎️
-                            <strong>
-                                Movimento Uniformemente Variado
-                            </strong>
+                        Aceleração:
+                        <strong>
+                            ${a.toFixed(2)} m/s²
+                        </strong>
 
-                            <br><br>
-
-                            Posição final:
-                            <strong>
-                                ${s.toFixed(2)} m
-                            </strong>
-
-                            <br>
-
-                            Velocidade final:
-                            <strong>
-                                ${v.toFixed(2)} m/s
-                            </strong>
-
-                            <br>
-
-                            Aceleração:
-                            <strong>
-                                ${a.toFixed(2)} m/s²
-                            </strong>
-
-                        `;
-
-                    }
+                    `;
 
                 }
-            );
 
+            });
 
         /* =====================================================
            MAPA CONCEITUAL
@@ -3296,45 +3754,365 @@
 
         };
 
-
         document
             .querySelectorAll(".mapa button")
             .forEach(botao => {
 
-                botao.addEventListener(
+                botao.addEventListener("click", () => {
+
+                    document
+                        .querySelectorAll(".mapa button")
+                        .forEach(item => {
+
+                            item.classList.remove(
+                                "ativo"
+                            );
+
+                        });
+
+                    botao.classList.add("ativo");
+
+                    document.getElementById(
+                        "resumo"
+                    ).textContent =
+                        textos[
+                            botao.dataset.tema
+                        ];
+
+                });
+
+            });
+
+        /* =====================================================
+           MOBILIDADE — SIMULADOR
+        ===================================================== */
+
+        const cadeira =
+            document.getElementById("cadeira");
+
+        const pistaArea =
+            document.getElementById("pistaArea");
+
+        const velocidadeSlider =
+            document.getElementById("velocidade");
+
+        const inclinacaoSlider =
+            document.getElementById("inclinacao");
+
+        const valorVelocidade =
+            document.getElementById("valorVelocidade");
+
+        const valorInclinacao =
+            document.getElementById("valorInclinacao");
+
+        const tempoMobilidade =
+            document.getElementById("tempoMobilidade");
+
+        const distanciaMobilidade =
+            document.getElementById("distanciaMobilidade");
+
+        const velocidadeAtual =
+            document.getElementById("velocidadeAtual");
+
+        const aceleracaoMobilidade =
+            document.getElementById("aceleracaoMobilidade");
+
+        const mobilidadeInfo =
+            document.getElementById("mobilidadeInfo");
+
+        let mobilidadeRodando = false;
+        let tempo = 0;
+        let distancia = 0;
+        let posicao = 25;
+        let ultimoTempo = null;
+
+        function atualizarControles() {
+
+            const velocidade =
+                Number(velocidadeSlider.value);
+
+            const inclinacao =
+                Number(inclinacaoSlider.value);
+
+            valorVelocidade.textContent =
+                velocidade.toFixed(1);
+
+            valorInclinacao.textContent =
+                inclinacao;
+
+            velocidadeAtual.textContent =
+                velocidade.toFixed(1);
+
+            const aceleracao =
+                inclinacao === 0
+                    ? 0
+                    : 9.8 *
+                      Math.sin(
+                          inclinacao * Math.PI / 180
+                      );
+
+            aceleracaoMobilidade.textContent =
+                aceleracao.toFixed(2);
+
+            atualizarInformacao();
+
+        }
+
+        function atualizarInformacao() {
+
+            const inclinacao =
+                Number(inclinacaoSlider.value);
+
+            if (inclinacao === 0) {
+
+                mobilidadeInfo.innerHTML = `
+                    <strong>
+                        💡 Superfície plana
+                    </strong>
+
+                    <p>
+                        Com velocidade constante em uma superfície
+                        plana, a aceleração é aproximadamente zero.
+                        Isso representa um movimento semelhante ao MU.
+                    </p>
+                `;
+
+                return;
+            }
+
+            if (inclinacao <= 7) {
+
+                mobilidadeInfo.innerHTML = `
+                    <strong>
+                        📐 Pequena inclinação
+                    </strong>
+
+                    <p>
+                        A rampa apresenta uma inclinação moderada.
+                        A componente da gravidade ao longo da rampa
+                        pode influenciar o movimento.
+                    </p>
+                `;
+
+                return;
+            }
+
+            if (inclinacao <= 14) {
+
+                mobilidadeInfo.innerHTML = `
+                    <strong>
+                        ⚠️ Inclinação maior
+                    </strong>
+
+                    <p>
+                        Quanto maior a inclinação, maior tende a ser
+                        a componente da força gravitacional paralela
+                        à rampa. Em uma situação real, o projeto da
+                        rampa deve considerar segurança e acessibilidade.
+                    </p>
+                `;
+
+                return;
+            }
+
+            mobilidadeInfo.innerHTML = `
+                <strong>
+                    🛑 Inclinação elevada
+                </strong>
+
+                <p>
+                    Uma inclinação muito elevada aumenta o desafio
+                    físico do deslocamento. Em projetos reais,
+                    dimensões, superfície, corrimãos, espaço de
+                    manobra e normas de acessibilidade precisam ser
+                    considerados.
+                </p>
+            `;
+        }
+
+        function atualizarCadeira() {
+
+            const largura =
+                pistaArea.clientWidth;
+
+            const limite =
+                largura - 100;
+
+            if (posicao > limite) {
+                posicao = 25;
+            }
+
+            cadeira.style.left =
+                `${posicao}px`;
+
+            const inclinacao =
+                Number(inclinacaoSlider.value);
+
+            if (inclinacao > 0 && posicao > largura * .4) {
+
+                cadeira.style.transform =
+                    `rotate(-${Math.min(inclinacao / 2, 10)}deg)`;
+
+            } else {
+
+                cadeira.style.transform =
+                    "rotate(0deg)";
+            }
+        }
+
+        function animarMobilidade(timestamp) {
+
+            if (!mobilidadeRodando) {
+                ultimoTempo = null;
+                return;
+            }
+
+            if (ultimoTempo === null) {
+                ultimoTempo = timestamp;
+            }
+
+            const delta =
+                Math.min(
+                    (timestamp - ultimoTempo) / 1000,
+                    0.05
+                );
+
+            ultimoTempo = timestamp;
+
+            const velocidade =
+                Number(velocidadeSlider.value);
+
+            tempo += delta;
+
+            distancia +=
+                velocidade * delta;
+
+            posicao +=
+                velocidade * delta * 18;
+
+            atualizarCadeira();
+
+            tempoMobilidade.textContent =
+                tempo.toFixed(1);
+
+            distanciaMobilidade.textContent =
+                distancia.toFixed(1);
+
+            requestAnimationFrame(
+                animarMobilidade
+            );
+        }
+
+        document
+            .getElementById("iniciarMobilidade")
+            .addEventListener("click", () => {
+
+                if (mobilidadeRodando) {
+                    return;
+                }
+
+                mobilidadeRodando = true;
+
+                requestAnimationFrame(
+                    animarMobilidade
+                );
+            });
+
+        document
+            .getElementById("pausarMobilidade")
+            .addEventListener("click", () => {
+
+                mobilidadeRodando = false;
+                ultimoTempo = null;
+
+            });
+
+        document
+            .getElementById("resetMobilidade")
+            .addEventListener("click", () => {
+
+                mobilidadeRodando = false;
+
+                tempo = 0;
+                distancia = 0;
+                posicao = 25;
+
+                ultimoTempo = null;
+
+                tempoMobilidade.textContent =
+                    "0.0";
+
+                distanciaMobilidade.textContent =
+                    "0.0";
+
+                atualizarCadeira();
+
+            });
+
+        velocidadeSlider.addEventListener(
+            "input",
+            atualizarControles
+        );
+
+        inclinacaoSlider.addEventListener(
+            "input",
+            atualizarControles
+        );
+
+        document
+            .querySelectorAll(".obstaculo")
+            .forEach(obstaculo => {
+
+                obstaculo.addEventListener(
                     "click",
                     () => {
 
-                        document
-                            .querySelectorAll(
-                                ".mapa button"
-                            )
-                            .forEach(item => {
+                        const tipoObstaculo =
+                            obstaculo.dataset.obstaculo;
 
-                                item.classList.remove(
-                                    "ativo"
-                                );
+                        if (
+                            tipoObstaculo ===
+                            "calcada"
+                        ) {
 
-                            });
+                            mobilidadeInfo.innerHTML = `
+                                <strong>
+                                    🚧 Obstáculo no caminho
+                                </strong>
 
+                                <p>
+                                    Uma calçada irregular ou um obstáculo
+                                    pode dificultar o deslocamento.
+                                    O planejamento acessível busca reduzir
+                                    barreiras físicas.
+                                </p>
+                            `;
 
-                        botao.classList.add(
-                            "ativo"
-                        );
+                        } else {
 
+                            mobilidadeInfo.innerHTML = `
+                                <strong>
+                                    ♿ Acessibilidade
+                                </strong>
 
-                        document.getElementById(
-                            "resumo"
-                        ).textContent =
-                            textos[
-                                botao.dataset.tema
-                            ];
+                                <p>
+                                    Espaços acessíveis devem permitir
+                                    circulação, autonomia e segurança.
+                                    A Física ajuda a compreender forças,
+                                    equilíbrio, atrito e movimento nesses
+                                    espaços.
+                                </p>
+                            `;
+
+                        }
 
                     }
                 );
 
             });
 
+        atualizarControles();
+        atualizarCadeira();
 
         /* =====================================================
            QUIZ
@@ -3346,154 +4124,140 @@
                 pergunta:
                     "Um carro anda a 20 m/s durante 5 segundos. Qual distância percorre?",
 
-                opcoes:
-                    [
-                        "25 m",
-                        "50 m",
-                        "100 m",
-                        "200 m"
-                    ],
+                opcoes: [
+                    "25 m",
+                    "50 m",
+                    "100 m",
+                    "200 m"
+                ],
 
                 correta: 2
             },
-
 
             {
                 pergunta:
                     "Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 segundos?",
 
-                opcoes:
-                    [
-                        "2 m/s",
-                        "5 m/s",
-                        "10 m/s",
-                        "25 m/s"
-                    ],
+                opcoes: [
+                    "2 m/s",
+                    "5 m/s",
+                    "10 m/s",
+                    "25 m/s"
+                ],
 
                 correta: 2
             },
-
 
             {
                 pergunta:
                     "Qual é a expressão da 2ª Lei de Newton?",
 
-                opcoes:
-                    [
-                        "F = m · a",
-                        "F = m + a",
-                        "F = m / a",
-                        "F = a / m"
-                    ],
+                opcoes: [
+                    "F = m · a",
+                    "F = m + a",
+                    "F = m / a",
+                    "F = a / m"
+                ],
 
                 correta: 0
             },
-
 
             {
                 pergunta:
                     "Na reflexão da luz, os ângulos de incidência e reflexão são:",
 
-                opcoes:
-                    [
-                        "Diferentes",
-                        "Sempre zero",
-                        "Iguais",
-                        "Aleatórios"
-                    ],
+                opcoes: [
+                    "Diferentes",
+                    "Sempre zero",
+                    "Iguais",
+                    "Aleatórios"
+                ],
 
                 correta: 2
             },
-
 
             {
                 pergunta:
                     "Quando a luz muda de direção ao passar para outro meio ocorre:",
 
-                opcoes:
-                    [
-                        "Reflexão",
-                        "Refração",
-                        "Inércia",
-                        "Combustão"
-                    ],
+                opcoes: [
+                    "Reflexão",
+                    "Refração",
+                    "Inércia",
+                    "Combustão"
+                ],
 
                 correta: 1
             },
-
 
             {
                 pergunta:
                     "Em uma visão normal, onde os raios de luz são focalizados?",
 
-                opcoes:
-                    [
-                        "Antes da retina",
-                        "Depois da retina",
-                        "Diretamente sobre a retina",
-                        "Na córnea"
-                    ],
+                opcoes: [
+                    "Antes da retina",
+                    "Depois da retina",
+                    "Diretamente sobre a retina",
+                    "Na córnea"
+                ],
 
                 correta: 2
+            },
+
+            {
+                pergunta:
+                    "Por que uma rampa pode facilitar a mobilidade?",
+
+                opcoes: [
+                    "Porque elimina a gravidade",
+                    "Porque reduz a necessidade de vencer um degrau vertical de uma só vez",
+                    "Porque aumenta a massa da pessoa",
+                    "Porque elimina todas as forças"
+                ],
+
+                correta: 1
             }
 
         ];
 
-
         let questao = 0;
         let pontos = 0;
         let resposta = null;
-
+        let quizFinalizado = false;
 
         const pergunta =
-            document.getElementById(
-                "pergunta"
-            );
+            document.getElementById("pergunta");
 
         const opcoes =
-            document.getElementById(
-                "opcoes"
-            );
+            document.getElementById("opcoes");
 
         const feedback =
-            document.getElementById(
-                "feedback"
-            );
+            document.getElementById("feedback");
 
         const verificar =
-            document.getElementById(
-                "verificar"
-            );
+            document.getElementById("verificar");
 
         const proxima =
-            document.getElementById(
-                "proxima"
-            );
-
+            document.getElementById("proxima");
 
         function carregarQuestao() {
 
+            quizFinalizado = false;
             resposta = null;
 
             feedback.textContent = "";
-
-            feedback.className =
-                "feedback";
+            feedback.className = "feedback";
 
             verificar.hidden = false;
-
             proxima.hidden = true;
 
             const atual =
                 perguntas[questao];
 
-
             pergunta.textContent =
                 atual.pergunta;
 
-
             opcoes.innerHTML = "";
-
 
             atual.opcoes.forEach(
                 (texto, indice) => {
@@ -3503,16 +4267,14 @@
                             "button"
                         );
 
+                    botao.className = "opcao";
 
-                    botao.className =
-                        "opcao";
-
+                    botao.type = "button";
 
                     botao.textContent =
                         `${String.fromCharCode(
                             65 + indice
                         )}. ${texto}`;
-
 
                     botao.addEventListener(
                         "click",
@@ -3530,18 +4292,14 @@
 
                                 });
 
-
                             botao.classList.add(
                                 "selecionada"
                             );
 
-
-                            resposta =
-                                indice;
+                            resposta = indice;
 
                         }
                     );
-
 
                     opcoes.appendChild(
                         botao
@@ -3549,9 +4307,7 @@
 
                 }
             );
-
         }
-
 
         verificar.addEventListener(
             "click",
@@ -3566,9 +4322,7 @@
                         "⚠️ Escolha uma alternativa.";
 
                     return;
-
                 }
-
 
                 if (
                     resposta ===
@@ -3588,66 +4342,28 @@
                     feedback.className =
                         "feedback erro";
 
+                    const correta =
+                        perguntas[questao]
+                            .opcoes[
+                                perguntas[questao].correta
+                            ];
+
                     feedback.textContent =
-                        "❌ Incorreto.";
+                        `❌ Incorreto. A resposta correta é: ${correta}.`;
 
                 }
 
-
                 verificar.hidden = true;
-
                 proxima.hidden = false;
 
             }
         );
 
-
         proxima.addEventListener(
             "click",
             () => {
 
-                questao++;
-
-
-                if (
-                    questao >= perguntas.length
-                ) {
-
-                    pergunta.textContent =
-                        `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
-
-                    opcoes.innerHTML = "";
-
-
-                    feedback.className =
-                        "feedback certo";
-
-                    feedback.textContent =
-                        "Quiz concluído!";
-
-
-                    proxima.textContent =
-                        "🔄 Refazer";
-
-
-                    return;
-
-                }
-
-
-                carregarQuestao();
-
-            }
-        );
-
-
-        proxima.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    questao >= perguntas.length
-                ) {
+                if (quizFinalizado) {
 
                     questao = 0;
                     pontos = 0;
@@ -3657,11 +4373,41 @@
 
                     carregarQuestao();
 
+                    return;
                 }
+
+                questao++;
+
+                if (
+                    questao >= perguntas.length
+                ) {
+
+                    quizFinalizado = true;
+
+                    pergunta.textContent =
+                        `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
+
+                    opcoes.innerHTML = "";
+
+                    feedback.className =
+                        "feedback certo";
+
+                    feedback.textContent =
+                        "Quiz concluído! Clique em Refazer para tentar novamente.";
+
+                    verificar.hidden = true;
+                    proxima.hidden = false;
+
+                    proxima.textContent =
+                        "🔄 Refazer";
+
+                    return;
+                }
+
+                carregarQuestao();
 
             }
         );
-
 
         carregarQuestao();
 
@@ -3670,4 +4416,3 @@
 </body>
 
 </html>
-```
