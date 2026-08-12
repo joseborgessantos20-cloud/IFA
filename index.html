@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Física Interativa - Aprenda Física de forma simples e divertida.">
+
 <title>Física Interativa</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,19 +12,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
     --azul:#0757a0;
     --azul2:#1976d2;
-    --claro:#eef7ff;
     --fundo:#f5f7fa;
-    --texto:#222;
     --branco:#fff;
-    --sombra:0 8px 25px #0001;
+    --texto:#222;
+    --suave:#eaf4ff;
+    --verde:#2e7d32;
+    --vermelho:#c62828;
+    --sombra:0 6px 20px #0001;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-html{scroll-behavior:smooth}
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     font-family:Poppins,sans-serif;
@@ -32,17 +42,31 @@ body{
     line-height:1.6;
 }
 
-button,input,select{font:inherit}
-button{cursor:pointer}
-a{color:inherit;text-decoration:none}
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* MENU */
 
 header{
     position:sticky;
     top:0;
-    z-index:10;
+    z-index:100;
     background:var(--azul);
     color:white;
-    padding:15px 7%;
+    min-height:70px;
+    padding:12px 6%;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -50,59 +74,72 @@ header{
 }
 
 .logo{
-    font-size:22px;
+    font-size:21px;
     font-weight:800;
+    white-space:nowrap;
 }
 
 nav{
     display:flex;
-    gap:22px;
+    align-items:center;
+    gap:20px;
 }
 
-nav a:hover{color:#ffeb3b}
+nav a{
+    padding:8px 4px;
+    font-weight:500;
+}
 
-.menu{
+nav a:hover{
+    color:#ffeb3b;
+}
+
+.menu-btn{
     display:none;
-    background:none;
     border:0;
+    background:none;
     color:white;
     font-size:28px;
 }
 
-.tema{
+.tema-btn{
     border:0;
-    background:white;
     border-radius:50%;
     width:40px;
     height:40px;
+    background:white;
 }
 
+/* HERO */
+
 .hero{
-    min-height:70vh;
-    padding:60px 20px;
+    min-height:65vh;
     display:grid;
     place-items:center;
     text-align:center;
+    padding:50px 20px;
     color:white;
     background:linear-gradient(135deg,#003b70,#1976d2,#42a5f5);
 }
 
-.hero div{max-width:750px}
+.hero-content{
+    max-width:750px;
+}
 
 .hero h1{
-    font-size:clamp(42px,8vw,72px);
+    font-size:clamp(40px,8vw,70px);
     line-height:1.1;
     margin-bottom:15px;
 }
 
 .hero p{
     font-size:18px;
-    margin:8px 0;
+    margin:7px 0;
 }
 
 .btn{
     display:inline-block;
-    margin-top:25px;
+    margin-top:22px;
     padding:12px 25px;
     border:0;
     border-radius:30px;
@@ -111,27 +148,27 @@ nav a:hover{color:#ffeb3b}
     font-weight:700;
 }
 
+/* SEÇÕES */
+
 section{
-    padding:65px 7%;
+    padding:60px 7%;
 }
 
 .titulo{
     text-align:center;
     color:var(--azul);
     font-size:clamp(28px,5vw,40px);
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-.desc{
+.descricao{
     max-width:650px;
     margin:0 auto 35px;
     text-align:center;
     color:#666;
 }
 
-.temas{
-    background:var(--claro);
-}
+/* CARDS */
 
 .cards{
     max-width:1100px;
@@ -142,15 +179,17 @@ section{
 }
 
 .card{
-    background:white;
+    background:var(--branco);
     padding:25px;
     border-radius:18px;
     box-shadow:var(--sombra);
     border-top:4px solid var(--azul2);
-    transition:.25s;
+    transition:.2s;
 }
 
-.card:hover{transform:translateY(-5px)}
+.card:hover{
+    transform:translateY(-5px);
+}
 
 .card h3{
     color:var(--azul);
@@ -158,26 +197,96 @@ section{
 }
 
 .icone{
-    font-size:40px;
-    display:block;
-    margin-bottom:5px;
+    font-size:38px;
 }
 
 .formula{
     margin-top:15px;
-    padding:12px;
-    background:var(--claro);
-    color:var(--azul);
+    padding:10px;
     text-align:center;
-    border-radius:10px;
+    background:var(--suave);
+    color:var(--azul);
+    border-radius:9px;
     font-weight:700;
 }
+
+/* ACESSIBILIDADE */
+
+.acessibilidade{
+    background:var(--suave);
+}
+
+.acessibilidade-box{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.acessibilidade-box h3{
+    color:var(--azul);
+    margin-bottom:10px;
+}
+
+.botoes-acessibilidade{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0;
+}
+
+.botoes-acessibilidade button{
+    border:2px solid var(--azul);
+    background:white;
+    color:var(--azul);
+    padding:10px 15px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.botoes-acessibilidade button:hover,
+.botoes-acessibilidade button.ativo{
+    background:var(--azul);
+    color:white;
+}
+
+/* SIMULADOR DE VISÃO */
+
+.visao{
+    margin-top:25px;
+}
+
+.visao-area{
+    height:180px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+    overflow:hidden;
+    background:linear-gradient(135deg,#1976d2,#42a5f5);
+    transition:.3s;
+}
+
+.visao-area .olho{
+    font-size:80px;
+}
+
+.explicacao{
+    margin-top:15px;
+    padding:15px;
+    background:var(--suave);
+    border-radius:10px;
+}
+
+/* LABORATÓRIO */
 
 .laboratorio{
     background:#eaf5ff;
 }
 
-.simulador,.quiz,.mapa-box{
+.simulador,
+.quiz{
     max-width:850px;
     margin:auto;
     background:white;
@@ -199,11 +308,12 @@ section{
     margin-bottom:5px;
 }
 
-.campo input,.campo select{
+.campo input,
+.campo select{
     width:100%;
     padding:10px;
     border:2px solid #ddd;
-    border-radius:9px;
+    border-radius:8px;
 }
 
 .btn-azul{
@@ -224,6 +334,17 @@ section{
     border-radius:8px;
 }
 
+/* MAPA */
+
+.mapa-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
 .mapa{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -232,25 +353,25 @@ section{
 
 .mapa button{
     border:0;
-    padding:22px;
+    padding:20px;
     background:#f5f7fa;
-    border-radius:15px;
-    box-shadow:var(--sombra);
     color:var(--azul);
+    border-radius:14px;
     font-weight:600;
 }
 
 .mapa button:hover{
-    background:var(--claro);
-    transform:translateY(-3px);
+    background:var(--suave);
 }
 
 #resumo{
     margin-top:20px;
-    padding:20px;
-    background:var(--claro);
+    padding:18px;
+    background:var(--suave);
     border-radius:12px;
 }
+
+/* QUIZ */
 
 .pergunta{
     font-size:19px;
@@ -273,7 +394,7 @@ section{
 
 .opcao:hover{
     border-color:var(--azul2);
-    background:var(--claro);
+    background:var(--suave);
 }
 
 .feedback{
@@ -292,22 +413,28 @@ section{
     color:#9b1c1c;
 }
 
+/* RODAPÉ */
+
 footer{
     padding:30px 20px;
-    text-align:center;
     background:var(--azul);
     color:white;
+    text-align:center;
 }
 
-footer strong{color:#ffeb3b}
+footer strong{
+    color:#ffeb3b;
+}
+
+/* MODO ESCURO */
 
 body.dark{
     --fundo:#121212;
     --texto:#eee;
-    background:#121212;
 }
 
 body.dark .card,
+body.dark .acessibilidade-box,
 body.dark .simulador,
 body.dark .quiz,
 body.dark .mapa-box{
@@ -327,83 +454,197 @@ body.dark .resultado{
     background:#333;
 }
 
-body.dark .desc{color:#ccc}
+body.dark .descricao{
+    color:#ccc;
+}
 
-@media(max-width:750px){
+/* ALTO CONTRASTE */
+
+body.contraste{
+    background:#000;
+    color:#fff;
+}
+
+body.contraste .card,
+body.contraste .acessibilidade-box,
+body.contraste .simulador,
+body.contraste .quiz,
+body.contraste .mapa-box{
+    background:#000;
+    color:#fff;
+    border:2px solid white;
+}
+
+body.contraste .titulo,
+body.contraste h3{
+    color:#fff;
+}
+
+/* VISÃO */
+
+body.protanopia .visao-area{
+    filter:url("#protanopia");
+}
+
+body.deuteranopia .visao-area{
+    filter:sepia(.5) saturate(.7);
+}
+
+body.tritanopia .visao-area{
+    filter:hue-rotate(40deg);
+}
+
+/* FONTE */
+
+body.fonte-grande{
+    font-size:115%;
+}
+
+body.fonte-maior{
+    font-size:130%;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
     nav{
         display:none;
         position:absolute;
         top:70px;
         right:15px;
+        width:230px;
         flex-direction:column;
+        align-items:stretch;
         gap:0;
-        width:220px;
         background:var(--azul);
-        border-radius:0 0 12px 12px;
+        border-radius:0 0 14px 14px;
         overflow:hidden;
+        box-shadow:var(--sombra);
     }
 
-    nav.ativo{display:flex}
+    nav.ativo{
+        display:flex;
+    }
 
-    nav a{padding:13px 18px}
+    nav a{
+        padding:14px 18px;
+        border-bottom:1px solid #ffffff22;
+    }
 
-    .menu{display:block}
+    .menu-btn{
+        display:block;
+    }
 
     .mapa{
         grid-template-columns:repeat(2,1fr);
     }
 
-    section{padding:50px 5%}
 }
 
-@media(max-width:450px){
-    .mapa{grid-template-columns:1fr}
-    .simulador,.quiz,.mapa-box{padding:20px}
+@media(max-width:500px){
+
+    header{
+        padding:12px 4%;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    section{
+        padding:45px 5%;
+    }
+
+    .mapa{
+        grid-template-columns:1fr;
+    }
+
+    .simulador,
+    .quiz,
+    .acessibilidade-box{
+        padding:20px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <a href="#inicio" class="logo">⚛️ Física Interativa</a>
 
-    <button class="menu" id="menuBtn">☰</button>
+    <a href="#inicio" class="logo">
+        ⚛️ Física Interativa
+    </a>
 
-    <nav id="nav">
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Abrir menu"
+        aria-expanded="false">
+        ☰
+    </button>
+
+    <nav id="menu">
+
         <a href="#inicio">Início</a>
         <a href="#conteudos">Conteúdos</a>
+        <a href="#acessibilidade">Visão</a>
         <a href="#laboratorio">Laboratório</a>
         <a href="#mapa">Mapa</a>
         <a href="#quiz">Quiz</a>
         <a href="#sobre">Sobre</a>
+
     </nav>
 
-    <button class="tema" id="tema">🌙</button>
+    <button
+        class="tema-btn"
+        id="temaBtn"
+        aria-label="Ativar modo escuro">
+        🌙
+    </button>
+
 </header>
 
 <main>
 
+<!-- INÍCIO -->
+
 <section class="hero" id="inicio">
-    <div>
+
+    <div class="hero-content">
+
         <h1>Física Interativa</h1>
 
-        <p>Descubra como o mundo funciona através da Física.</p>
-
         <p>
-            Aprenda MU, MUV, Dinâmica e Óptica
-            de forma simples e divertida.
+            Aprenda Física de forma simples,
+            visual e acessível.
         </p>
 
-        <a href="#conteudos" class="btn">Começar agora 🚀</a>
+        <p>
+            Explore movimentos, forças, luz
+            e também descubra como a visão
+            influencia nossa percepção do mundo.
+        </p>
+
+        <a href="#conteudos" class="btn">
+            Começar 🚀
+        </a>
+
     </div>
+
 </section>
 
+<!-- CONTEÚDOS -->
+
 <section id="conteudos">
+
     <h2 class="titulo">📚 Conteúdos</h2>
 
-    <p class="desc">
-        Aprenda os principais conceitos da Física.
+    <p class="descricao">
+        Conheça os principais temas da Física.
     </p>
 
     <div class="cards">
@@ -412,9 +653,11 @@ body.dark .desc{color:#ccc}
             <span class="icone">🚗</span>
             <h3>Movimento Uniforme</h3>
             <p>
-                Velocidade constante e aceleração igual a zero.
+                Velocidade constante e aceleração zero.
             </p>
-            <div class="formula">S = S₀ + v · t</div>
+            <div class="formula">
+                S = S₀ + v · t
+            </div>
         </article>
 
         <article class="card">
@@ -423,36 +666,160 @@ body.dark .desc{color:#ccc}
             <p>
                 Movimento com aceleração constante.
             </p>
-            <div class="formula">v = v₀ + a · t</div>
+            <div class="formula">
+                v = v₀ + a · t
+            </div>
         </article>
 
         <article class="card">
             <span class="icone">⚙️</span>
             <h3>Dinâmica</h3>
             <p>
-                Estudo das forças e das Leis de Newton.
+                Forças e Leis de Newton.
             </p>
-            <div class="formula">F = m · a</div>
+            <div class="formula">
+                F = m · a
+            </div>
         </article>
 
         <article class="card">
             <span class="icone">🔦</span>
             <h3>Óptica</h3>
             <p>
-                Estudo da luz, reflexão e refração.
+                Luz, reflexão e refração.
             </p>
-            <div class="formula">i = r</div>
+            <div class="formula">
+                i = r
+            </div>
         </article>
 
     </div>
+
 </section>
 
-<section class="laboratorio" id="laboratorio">
+<!-- VISÃO E ACESSIBILIDADE -->
 
-    <h2 class="titulo">🧪 Laboratório</h2>
+<section
+    class="acessibilidade"
+    id="acessibilidade">
 
-    <p class="desc">
-        Faça uma experiência virtual de MU ou MUV.
+    <h2 class="titulo">
+        👁️ Visão e Acessibilidade
+    </h2>
+
+    <p class="descricao">
+        Nem todas as pessoas enxergam o mundo
+        da mesma maneira. Experimente algumas
+        ferramentas de acessibilidade.
+    </p>
+
+    <div class="acessibilidade-box">
+
+        <h3>🔎 Ajuste sua experiência</h3>
+
+        <p>
+            Use os botões abaixo para experimentar
+            diferentes formas de acessibilidade.
+        </p>
+
+        <div class="botoes-acessibilidade">
+
+            <button id="fonteMais">
+                A+ Aumentar fonte
+            </button>
+
+            <button id="fonteMenos">
+                A− Fonte normal
+            </button>
+
+            <button id="contraste">
+                ◐ Alto contraste
+            </button>
+
+            <button id="escuro">
+                🌙 Modo escuro
+            </button>
+
+        </div>
+
+        <h3>🎨 Simulador de visão</h3>
+
+        <p>
+            Escolha uma opção para perceber como
+            as cores podem ser diferentes.
+        </p>
+
+        <div class="botoes-acessibilidade">
+
+            <button data-visao="normal">
+                👁️ Visão normal
+            </button>
+
+            <button data-visao="protanopia">
+                🔴 Protanopia
+            </button>
+
+            <button data-visao="deuteranopia">
+                🟢 Deuteranopia
+            </button>
+
+            <button data-visao="tritanopia">
+                🔵 Tritanopia
+            </button>
+
+        </div>
+
+        <div class="visao">
+
+            <div
+                class="visao-area"
+                id="visaoArea">
+
+                <span class="olho">
+                    👁️
+                </span>
+
+            </div>
+
+            <div class="explicacao" id="explicacaoVisao">
+
+                <strong>Visão normal:</strong>
+
+                Esta é uma representação simplificada
+                da percepção normal das cores.
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <h3>💡 Por que isso é importante?</h3>
+
+        <p>
+            Um site acessível não deve depender somente
+            das cores para transmitir informações.
+            Textos, símbolos, contrastes e descrições
+            ajudam diferentes pessoas a utilizar
+            o conteúdo.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- LABORATÓRIO -->
+
+<section
+    class="laboratorio"
+    id="laboratorio">
+
+    <h2 class="titulo">
+        🧪 Laboratório
+    </h2>
+
+    <p class="descricao">
+        Faça uma experiência de MU ou MUV.
     </p>
 
     <div class="simulador">
@@ -460,314 +827,816 @@ body.dark .desc{color:#ccc}
         <div class="controles">
 
             <div class="campo">
-                <label>Movimento</label>
+
+                <label for="tipo">
+                    Movimento
+                </label>
+
                 <select id="tipo">
-                    <option value="mu">MU</option>
-                    <option value="muv">MUV</option>
+
+                    <option value="mu">
+                        MU
+                    </option>
+
+                    <option value="muv">
+                        MUV
+                    </option>
+
                 </select>
+
             </div>
 
             <div class="campo">
-                <label>Posição inicial</label>
-                <input id="s0" type="number" value="0">
+
+                <label for="s0">
+                    Posição inicial
+                </label>
+
+                <input
+                    id="s0"
+                    type="number"
+                    value="0">
+
             </div>
 
             <div class="campo">
-                <label>Velocidade inicial</label>
-                <input id="v0" type="number" value="10">
+
+                <label for="v0">
+                    Velocidade inicial
+                </label>
+
+                <input
+                    id="v0"
+                    type="number"
+                    value="10">
+
             </div>
 
-            <div class="campo" id="campoA">
-                <label>Aceleração</label>
-                <input id="a" type="number" value="2">
+            <div
+                class="campo"
+                id="campoA">
+
+                <label for="a">
+                    Aceleração
+                </label>
+
+                <input
+                    id="a"
+                    type="number"
+                    value="2">
+
             </div>
 
             <div class="campo">
-                <label>Tempo</label>
-                <input id="t" type="number" value="5" min="0">
+
+                <label for="t">
+                    Tempo
+                </label>
+
+                <input
+                    id="t"
+                    type="number"
+                    value="5"
+                    min="0">
+
             </div>
 
         </div>
 
-        <button class="btn-azul" id="calcular">
+        <button
+            class="btn-azul"
+            id="calcular">
             ▶ Calcular
         </button>
 
-        <div class="resultado" id="resultado">
+        <div
+            class="resultado"
+            id="resultado"
+            aria-live="polite">
+
             Informe os valores e clique em calcular.
+
         </div>
 
     </div>
+
 </section>
+
+<!-- MAPA -->
 
 <section id="mapa">
 
-    <h2 class="titulo">🗺️ Mapa Conceitual</h2>
+    <h2 class="titulo">
+        🗺️ Mapa Conceitual
+    </h2>
 
-    <p class="desc">
-        Clique em um tema para ver um resumo.
+    <p class="descricao">
+        Escolha um tema para descobrir mais.
     </p>
 
     <div class="mapa-box">
 
         <div class="mapa">
-            <button data-tema="mu">🚗<br>MU</button>
-            <button data-tema="muv">🏎️<br>MUV</button>
-            <button data-tema="dinamica">⚙️<br>Dinâmica</button>
-            <button data-tema="optica">🔦<br>Óptica</button>
+
+            <button data-tema="mu">
+                🚗<br>MU
+            </button>
+
+            <button data-tema="muv">
+                🏎️<br>MUV
+            </button>
+
+            <button data-tema="dinamica">
+                ⚙️<br>Dinâmica
+            </button>
+
+            <button data-tema="optica">
+                🔦<br>Óptica
+            </button>
+
         </div>
 
         <div id="resumo">
-            <strong>Escolha um tema.</strong>
+
+            <strong>
+                Escolha um tema.
+            </strong>
+
         </div>
 
     </div>
+
 </section>
+
+<!-- QUIZ -->
 
 <section id="quiz">
 
-    <h2 class="titulo">🧠 Quiz</h2>
+    <h2 class="titulo">
+        🧠 Quiz
+    </h2>
 
-    <p class="desc">
-        Teste seus conhecimentos de Física.
+    <p class="descricao">
+        Teste seus conhecimentos.
     </p>
 
     <div class="quiz">
 
-        <div id="pergunta" class="pergunta"></div>
+        <div
+            id="pergunta"
+            class="pergunta">
+        </div>
 
-        <div id="opcoes" class="opcoes"></div>
+        <div
+            id="opcoes"
+            class="opcoes">
+        </div>
 
-        <div id="feedback"></div>
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
 
-        <button class="btn-azul" id="verificar">
+        <button
+            class="btn-azul"
+            id="verificar">
             ✓ Verificar
         </button>
 
-        <button class="btn-azul" id="proxima" hidden>
+        <button
+            class="btn-azul"
+            id="proxima"
+            hidden>
             Próxima →
         </button>
 
     </div>
+
 </section>
 
-<section id="sobre">
-    <h2 class="titulo">ℹ️ Sobre</h2>
+<!-- SOBRE -->
 
-    <p class="desc">
-        O Física Interativa é um projeto educacional
-        criado para tornar o aprendizado de Física
-        mais visual, simples e divertido.
+<section id="sobre">
+
+    <h2 class="titulo">
+        ℹ️ Sobre
+    </h2>
+
+    <p class="descricao">
+
+        O Física Interativa é um projeto
+        educacional criado para tornar o
+        aprendizado de Física mais simples,
+        visual e acessível.
+
     </p>
+
 </section>
 
 </main>
 
 <footer>
-    <p>⚛️ <strong>Física Interativa</strong></p>
-    <p>Projeto criado por <strong>José Maheus</strong></p>
-    <p>Aprender Física pode ser divertido! 🚀</p>
+
+    <p>
+        ⚛️ <strong>Física Interativa</strong>
+    </p>
+
+    <p>
+        Projeto criado por
+        <strong>SEU NOME</strong>
+    </p>
+
+    <p>
+        Aprender Física pode ser divertido! 🚀
+    </p>
+
 </footer>
 
 <script>
-/* MENU */
-const menuBtn=document.getElementById("menuBtn");
-const nav=document.getElementById("nav");
 
-menuBtn.onclick=()=>{
-    nav.classList.toggle("ativo");
+/* =========================
+   MENU
+========================= */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const menu =
+    document.getElementById("menu");
+
+menuBtn.onclick = () => {
+
+    const aberto =
+        menu.classList.toggle("ativo");
+
+    menuBtn.setAttribute(
+        "aria-expanded",
+        aberto
+    );
+
+    menuBtn.textContent =
+        aberto ? "✕" : "☰";
+
 };
 
-/* MODO ESCURO */
-document.getElementById("tema").onclick=()=>{
+document
+.querySelectorAll("#menu a")
+.forEach(link => {
+
+    link.onclick = () => {
+
+        menu.classList.remove("ativo");
+
+        menuBtn.textContent = "☰";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    };
+
+});
+
+/* FECHAR MENU AO CLICAR FORA */
+
+document.addEventListener("click", evento => {
+
+    if(
+        !menu.contains(evento.target) &&
+        !menuBtn.contains(evento.target)
+    ){
+
+        menu.classList.remove("ativo");
+
+        menuBtn.textContent = "☰";
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+/* =========================
+   MODO ESCURO
+========================= */
+
+const temaBtn =
+    document.getElementById("temaBtn");
+
+const escuro =
+    document.getElementById("escuro");
+
+function alternarEscuro(){
+
     document.body.classList.toggle("dark");
 
-    document.getElementById("tema").textContent=
-        document.body.classList.contains("dark")?"☀️":"🌙";
+    const ativo =
+        document.body.classList.contains("dark");
+
+    temaBtn.textContent =
+        ativo ? "☀️" : "🌙";
+
+}
+
+temaBtn.onclick = alternarEscuro;
+escuro.onclick = alternarEscuro;
+
+/* =========================
+   FONTE
+========================= */
+
+document.getElementById("fonteMais").onclick = () => {
+
+    document.body.classList.remove("fonte-maior");
+
+    document.body.classList.add("fonte-grande");
+
 };
 
-/* SIMULADOR */
-const tipo=document.getElementById("tipo");
-const campoA=document.getElementById("campoA");
+document.getElementById("fonteMenos").onclick = () => {
 
-tipo.onchange=()=>{
-    campoA.style.display=
-        tipo.value==="mu"?"none":"block";
+    document.body.classList.remove(
+        "fonte-grande",
+        "fonte-maior"
+    );
+
+};
+
+/* =========================
+   CONTRASTE
+========================= */
+
+document
+.getElementById("contraste")
+.onclick = () => {
+
+    document.body.classList.toggle(
+        "contraste"
+    );
+
+};
+
+/* =========================
+   SIMULADOR DE VISÃO
+========================= */
+
+const explicacao =
+    document.getElementById(
+        "explicacaoVisao"
+    );
+
+const explicacoes = {
+
+    normal: `
+        <strong>Visão normal:</strong>
+        representação simplificada da percepção
+        normal das cores.
+    `,
+
+    protanopia: `
+        <strong>Protanopia:</strong>
+        dificuldade principalmente na percepção
+        de tons relacionados ao vermelho.
+    `,
+
+    deuteranopia: `
+        <strong>Deuteranopia:</strong>
+        dificuldade principalmente na percepção
+        de tons relacionados ao verde.
+    `,
+
+    tritanopia: `
+        <strong>Tritanopia:</strong>
+        dificuldade principalmente na percepção
+        de tons relacionados ao azul e amarelo.
+    `
+
+};
+
+document
+.querySelectorAll("[data-visao]")
+.forEach(botao => {
+
+    botao.onclick = () => {
+
+        document.body.classList.remove(
+            "protanopia",
+            "deuteranopia",
+            "tritanopia"
+        );
+
+        const visao =
+            botao.dataset.visao;
+
+        if(visao !== "normal"){
+
+            document.body.classList.add(
+                visao
+            );
+
+        }
+
+        explicacao.innerHTML =
+            explicacoes[visao];
+
+    };
+
+});
+
+/* =========================
+   SIMULADOR MU / MUV
+========================= */
+
+const tipo =
+    document.getElementById("tipo");
+
+const campoA =
+    document.getElementById("campoA");
+
+tipo.onchange = () => {
+
+    campoA.style.display =
+        tipo.value === "mu"
+        ? "none"
+        : "block";
+
 };
 
 tipo.onchange();
 
-document.getElementById("calcular").onclick=()=>{
+document
+.getElementById("calcular")
+.onclick = () => {
 
-    const s0=Number(document.getElementById("s0").value);
-    const v0=Number(document.getElementById("v0").value);
-    const a=Number(document.getElementById("a").value);
-    const t=Number(document.getElementById("t").value);
+    const s0 =
+        Number(
+            document.getElementById("s0").value
+        );
 
-    let s,v;
+    const v0 =
+        Number(
+            document.getElementById("v0").value
+        );
 
-    if(tipo.value==="mu"){
-        s=s0+v0*t;
-        v=v0;
+    const a =
+        Number(
+            document.getElementById("a").value
+        );
 
-        document.getElementById("resultado").innerHTML=`
-            🚗 <strong>Movimento Uniforme</strong><br><br>
-            Posição final: <strong>${s.toFixed(2)} m</strong><br>
-            Velocidade: <strong>${v.toFixed(2)} m/s</strong><br>
-            Aceleração: <strong>0 m/s²</strong>
+    const t =
+        Number(
+            document.getElementById("t").value
+        );
+
+    let s;
+    let v;
+
+    if(tipo.value === "mu"){
+
+        s = s0 + v0 * t;
+        v = v0;
+
+        document.getElementById(
+            "resultado"
+        ).innerHTML = `
+
+            🚗 <strong>Movimento Uniforme</strong>
+
+            <br><br>
+
+            Posição final:
+            <strong>${s.toFixed(2)} m</strong>
+
+            <br>
+
+            Velocidade:
+            <strong>${v.toFixed(2)} m/s</strong>
+
+            <br>
+
+            Aceleração:
+            <strong>0 m/s²</strong>
+
         `;
+
     }else{
-        s=s0+v0*t+0.5*a*t*t;
-        v=v0+a*t;
 
-        document.getElementById("resultado").innerHTML=`
-            🏎️ <strong>Movimento Uniformemente Variado</strong><br><br>
-            Posição final: <strong>${s.toFixed(2)} m</strong><br>
-            Velocidade final: <strong>${v.toFixed(2)} m/s</strong><br>
-            Aceleração: <strong>${a.toFixed(2)} m/s²</strong>
+        s =
+            s0 +
+            v0 * t +
+            0.5 * a * t * t;
+
+        v =
+            v0 + a * t;
+
+        document.getElementById(
+            "resultado"
+        ).innerHTML = `
+
+            🏎️
+            <strong>
+                Movimento Uniformemente Variado
+            </strong>
+
+            <br><br>
+
+            Posição final:
+            <strong>${s.toFixed(2)} m</strong>
+
+            <br>
+
+            Velocidade final:
+            <strong>${v.toFixed(2)} m/s</strong>
+
+            <br>
+
+            Aceleração:
+            <strong>${a.toFixed(2)} m/s²</strong>
+
         `;
+
     }
+
 };
 
-/* MAPA */
-const textos={
-    mu:"🚗 No MU, a velocidade é constante e a aceleração é zero. Fórmula: S = S₀ + v · t.",
-    muv:"🏎️ No MUV, a aceleração é constante e a velocidade varia com o tempo.",
-    dinamica:"⚙️ A Dinâmica estuda as forças responsáveis pelas mudanças no movimento. Fórmula: F = m · a.",
-    optica:"🔦 A Óptica estuda a luz, incluindo reflexão, refração, lentes e espelhos."
+/* =========================
+   MAPA
+========================= */
+
+const textos = {
+
+    mu:
+        "🚗 No MU, a velocidade é constante e a aceleração é zero. Fórmula: S = S₀ + v · t.",
+
+    muv:
+        "🏎️ No MUV, a aceleração é constante e a velocidade varia com o tempo.",
+
+    dinamica:
+        "⚙️ A Dinâmica estuda as forças responsáveis pelas mudanças no movimento. Fórmula: F = m · a.",
+
+    optica:
+        "🔦 A Óptica estuda a luz, incluindo reflexão, refração, lentes e espelhos."
+
 };
 
-document.querySelectorAll(".mapa button").forEach(botao=>{
-    botao.onclick=()=>{
-        document.getElementById("resumo").textContent=
+document
+.querySelectorAll(".mapa button")
+.forEach(botao => {
+
+    botao.onclick = () => {
+
+        document.getElementById(
+            "resumo"
+        ).textContent =
             textos[botao.dataset.tema];
+
     };
+
 });
 
-/* QUIZ */
-const perguntas=[
+/* =========================
+   QUIZ
+========================= */
+
+const perguntas = [
+
     {
-        q:"Um carro anda a 20 m/s durante 5 s. Qual distância percorre?",
-        op:["25 m","50 m","100 m","200 m"],
-        c:2
+        pergunta:
+            "Um carro anda a 20 m/s durante 5 segundos. Qual distância percorre?",
+
+        opcoes:
+            ["25 m","50 m","100 m","200 m"],
+
+        correta:2
     },
+
     {
-        q:"Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 s?",
-        op:["2 m/s","5 m/s","10 m/s","25 m/s"],
-        c:2
+        pergunta:
+            "Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 segundos?",
+
+        opcoes:
+            ["2 m/s","5 m/s","10 m/s","25 m/s"],
+
+        correta:2
     },
+
     {
-        q:"Qual é a expressão da 2ª Lei de Newton?",
-        op:["F = m · a","F = m + a","F = m / a","F = a / m"],
-        c:0
+        pergunta:
+            "Qual é a expressão da 2ª Lei de Newton?",
+
+        opcoes:
+            [
+                "F = m · a",
+                "F = m + a",
+                "F = m / a",
+                "F = a / m"
+            ],
+
+        correta:0
     },
+
     {
-        q:"Na reflexão da luz, os ângulos de incidência e reflexão são:",
-        op:["Diferentes","Sempre zero","Iguais","Aleatórios"],
-        c:2
+        pergunta:
+            "Na reflexão da luz, os ângulos de incidência e reflexão são:",
+
+        opcoes:
+            [
+                "Diferentes",
+                "Sempre zero",
+                "Iguais",
+                "Aleatórios"
+            ],
+
+        correta:2
     },
+
     {
-        q:"Quando a luz muda de direção ao passar para outro meio ocorre:",
-        op:["Reflexão","Refração","Inércia","Combustão"],
-        c:1
+        pergunta:
+            "Quando a luz muda de direção ao passar para outro meio ocorre:",
+
+        opcoes:
+            [
+                "Reflexão",
+                "Refração",
+                "Inércia",
+                "Combustão"
+            ],
+
+        correta:1
     }
+
 ];
 
-let atual=0;
-let pontos=0;
-let resposta=null;
+let questao = 0;
+let pontos = 0;
+let resposta = null;
 
-const pergunta=document.getElementById("pergunta");
-const opcoes=document.getElementById("opcoes");
-const feedback=document.getElementById("feedback");
-const verificar=document.getElementById("verificar");
-const proxima=document.getElementById("proxima");
+const pergunta =
+    document.getElementById("pergunta");
 
-function carregar(){
+const opcoes =
+    document.getElementById("opcoes");
 
-    resposta=null;
-    feedback.textContent="";
-    proxima.hidden=true;
-    verificar.hidden=false;
+const feedback =
+    document.getElementById("feedback");
 
-    const q=perguntas[atual];
+const verificar =
+    document.getElementById("verificar");
 
-    pergunta.textContent=q.q;
-    opcoes.innerHTML="";
+const proxima =
+    document.getElementById("proxima");
 
-    q.op.forEach((texto,i)=>{
+function carregarQuestao(){
 
-        const btn=document.createElement("button");
+    resposta = null;
 
-        btn.className="opcao";
-        btn.textContent=
-            `${String.fromCharCode(65+i)}. ${texto}`;
+    feedback.textContent = "";
 
-        btn.onclick=()=>{
-            document.querySelectorAll(".opcao")
-                .forEach(x=>x.style.background="white");
+    feedback.className =
+        "feedback";
 
-            btn.style.background="#dceeff";
-            resposta=i;
-        };
+    verificar.hidden = false;
 
-        opcoes.appendChild(btn);
-    });
+    proxima.hidden = true;
+
+    const atual =
+        perguntas[questao];
+
+    pergunta.textContent =
+        atual.pergunta;
+
+    opcoes.innerHTML = "";
+
+    atual.opcoes.forEach(
+        (texto, indice) => {
+
+            const botao =
+                document.createElement(
+                    "button"
+                );
+
+            botao.className =
+                "opcao";
+
+            botao.textContent =
+                `${String.fromCharCode(
+                    65 + indice
+                )}. ${texto}`;
+
+            botao.onclick = () => {
+
+                document
+                .querySelectorAll(".opcao")
+                .forEach(
+                    item =>
+                        item.style.background =
+                            "white"
+                );
+
+                botao.style.background =
+                    "#dceeff";
+
+                resposta = indice;
+
+            };
+
+            opcoes.appendChild(botao);
+
+        }
+    );
+
 }
 
-verificar.onclick=()=>{
+verificar.onclick = () => {
 
-    if(resposta===null){
-        feedback.className="feedback erro";
-        feedback.textContent="⚠️ Escolha uma alternativa.";
+    if(resposta === null){
+
+        feedback.className =
+            "feedback erro";
+
+        feedback.textContent =
+            "⚠️ Escolha uma alternativa.";
+
         return;
+
     }
 
-    if(resposta===perguntas[atual].c){
+    if(
+        resposta ===
+        perguntas[questao].correta
+    ){
+
         pontos++;
-        feedback.className="feedback certo";
-        feedback.textContent="🎉 Correto!";
+
+        feedback.className =
+            "feedback certo";
+
+        feedback.textContent =
+            "🎉 Correto!";
+
     }else{
-        feedback.className="feedback erro";
-        feedback.textContent="❌ Incorreto.";
+
+        feedback.className =
+            "feedback erro";
+
+        feedback.textContent =
+            "❌ Incorreto.";
+
     }
 
-    verificar.hidden=true;
-    proxima.hidden=false;
+    verificar.hidden = true;
+    proxima.hidden = false;
+
 };
 
-proxima.onclick=()=>{
+proxima.onclick = () => {
 
-    atual++;
+    questao++;
 
-    if(atual>=perguntas.length){
+    if(
+        questao >= perguntas.length
+    ){
 
-        pergunta.textContent=
+        pergunta.textContent =
             `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
 
-        opcoes.innerHTML="";
-        feedback.className="feedback certo";
-        feedback.textContent="Quiz concluído!";
+        opcoes.innerHTML = "";
 
-        proxima.textContent="🔄 Refazer";
+        feedback.className =
+            "feedback certo";
 
-        if(proxima.dataset.fim){
-            atual=0;
-            pontos=0;
-            delete proxima.dataset.fim;
-            proxima.textContent="Próxima →";
-            carregar();
-        }else{
-            proxima.dataset.fim="1";
-        }
+        feedback.textContent =
+            "Quiz concluído!";
+
+        proxima.textContent =
+            "🔄 Refazer";
+
+        proxima.onclick = () => {
+
+            questao = 0;
+            pontos = 0;
+
+            proxima.textContent =
+                "Próxima →";
+
+            carregarQuestao();
+
+        };
 
         return;
+
     }
 
-    carregar();
+    carregarQuestao();
+
 };
 
-carregar();
+carregarQuestao();
+
 </script>
 
 </body>
