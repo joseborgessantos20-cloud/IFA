@@ -1,4788 +1,774 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Física Interativa - Aprenda MU, MUV, Dinâmica e Óptica através de conteúdos, simuladores e quizzes."
-    >
-
-    <title>Física Interativa</title>
-
-
-    <!-- =========================================
-         FONTE
-    ========================================== -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- =========================================
-         CSS
-    ========================================== -->
-
-    <style>
-
-        /* =========================================
-           VARIÁVEIS
-        ========================================== */
-
-        :root {
-
-            --azul: #003366;
-            --azul-escuro: #001f3f;
-            --azul-claro: #1976d2;
-            --azul-hover: #2196f3;
-
-            --azul-suave: #e3f2fd;
-
-            --branco: #ffffff;
-
-            --cinza: #f5f7fb;
-            --cinza-escuro: #444;
-
-            --texto: #222;
-
-            --verde: #2e7d32;
-            --vermelho: #c62828;
-
-            --amarelo: #ffeb3b;
-
-            --sombra:
-                0 10px 30px rgba(0, 0, 0, .12);
-
-            --sombra-forte:
-                0 15px 40px rgba(0, 0, 0, .20);
-
-            --transicao: .3s ease;
-
-        }
-
-
-        /* =========================================
-           RESET
-        ========================================== */
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            font-family:
-                'Poppins',
-                sans-serif;
-
-            background:
-                var(--cinza);
-
-            color:
-                var(--texto);
-
-            line-height: 1.6;
-
-            transition:
-                background var(--transicao),
-                color var(--transicao);
-
-        }
-
-
-        img {
-
-            max-width: 100%;
-
-            display: block;
-
-        }
-
-
-        button,
-        input,
-        select {
-
-            font-family: inherit;
-
-        }
-
-
-        button {
-
-            cursor: pointer;
-
-        }
-
-
-        a {
-
-            color: inherit;
-
-        }
-
-
-        /* =========================================
-           ACESSIBILIDADE
-        ========================================== */
-
-        .skip-link {
-
-            position: fixed;
-
-            left: 15px;
-
-            top: -100px;
-
-            z-index: 99999;
-
-            background: #000;
-
-            color: #fff;
-
-            padding: 12px 18px;
-
-            border-radius: 8px;
-
-            text-decoration: none;
-
-            font-weight: 700;
-
-        }
-
-
-        .skip-link:focus {
-
-            top: 15px;
-
-        }
-
-
-        :focus-visible {
-
-            outline:
-                4px solid
-                var(--amarelo);
-
-            outline-offset: 4px;
-
-        }
-
-
-        /* =========================================
-           BARRA DE ACESSIBILIDADE
-        ========================================== */
-
-        .acessibilidade {
-
-            background:
-                #e3f2fd;
-
-            color:
-                var(--azul);
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            gap:
-                8px;
-
-            flex-wrap:
-                wrap;
-
-            padding:
-                10px 20px;
-
-            border-bottom:
-                1px solid #c5dff5;
-
-        }
-
-
-        .acessibilidade strong {
-
-            margin-right:
-                5px;
-
-        }
-
-
-        .acessibilidade button {
-
-            border:
-                2px solid
-                var(--azul);
-
-            background:
-                white;
-
-            color:
-                var(--azul);
-
-            padding:
-                7px 12px;
-
-            border-radius:
-                8px;
-
-            font-weight:
-                600;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .acessibilidade button:hover {
-
-            background:
-                var(--azul);
-
-            color:
-                white;
-
-        }
-
-
-        /* =========================================
-           CABEÇALHO
-        ========================================== */
-
-        .cabecalho {
-
-            position:
-                sticky;
-
-            top:
-                0;
-
-            z-index:
-                5000;
-
-            min-height:
-                75px;
-
-            padding:
-                15px 7%;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                20px;
-
-            background:
-                var(--azul);
-
-            color:
-                white;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,.15);
-
-        }
-
-
-        .logo {
-
-            text-decoration:
-                none;
-
-            font-size:
-                26px;
-
-            font-weight:
-                800;
-
-            white-space:
-                nowrap;
-
-        }
-
-
-        #menu {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                28px;
-
-        }
-
-
-        #menu a {
-
-            color:
-                white;
-
-            text-decoration:
-                none;
-
-            font-weight:
-                500;
-
-            position:
-                relative;
-
-        }
-
-
-        #menu a::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            left:
-                0;
-
-            bottom:
-                -6px;
-
-            width:
-                0;
-
-            height:
-                2px;
-
-            background:
-                var(--amarelo);
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        #menu a:hover::after,
-        #menu a:focus::after {
-
-            width:
-                100%;
-
-        }
-
-
-        .menu-btn {
-
-            display:
-                none;
-
-            border:
-                none;
-
-            background:
-                transparent;
-
-            color:
-                white;
-
-            font-size:
-                32px;
-
-            width:
-                45px;
-
-            height:
-                45px;
-
-        }
-
-
-        .tema-btn {
-
-            border:
-                none;
-
-            background:
-                white;
-
-            color:
-                var(--azul);
-
-            width:
-                43px;
-
-            height:
-                43px;
-
-            border-radius:
-                50%;
-
-            font-size:
-                19px;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .tema-btn:hover {
-
-            transform:
-                rotate(15deg)
-                scale(1.08);
-
-        }
-
-
-        /* =========================================
-           BANNER
-        ========================================== */
-
-        .banner {
-
-            min-height:
-                78vh;
-
-            padding:
-                60px 8%;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            text-align:
-                center;
-
-            color:
-                white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #002b5c,
-                    #1976d2,
-                    #42a5f5
-                );
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .banner::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                400px;
-
-            height:
-                400px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,.08);
-
-            top:
-                -150px;
-
-            left:
-                -100px;
-
-        }
-
-
-        .banner::after {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                500px;
-
-            height:
-                500px;
-
-            border-radius:
-                50%;
-
-            background:
-                rgba(255,255,255,.08);
-
-            right:
-                -200px;
-
-            bottom:
-                -200px;
-
-        }
-
-
-        .banner-conteudo {
-
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            max-width:
-                850px;
-
-            animation:
-                aparecer 1s ease;
-
-        }
-
-
-        .banner h1 {
-
-            font-size:
-                clamp(42px, 8vw, 78px);
-
-            line-height:
-                1.1;
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .banner p {
-
-            font-size:
-                clamp(17px, 2vw, 22px);
-
-            max-width:
-                700px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .botao {
-
-            display:
-                inline-block;
-
-            margin-top:
-                30px;
-
-            padding:
-                14px 32px;
-
-            border-radius:
-                50px;
-
-            background:
-                white;
-
-            color:
-                var(--azul);
-
-            text-decoration:
-                none;
-
-            font-weight:
-                700;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .botao:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,.2);
-
-        }
-
-
-        /* =========================================
-           SEÇÕES
-        ========================================== */
-
-        .secao {
-
-            padding:
-                80px 7%;
-
-        }
-
-
-        .titulo-secao {
-
-            text-align:
-                center;
-
-            color:
-                var(--azul);
-
-            font-size:
-                clamp(30px, 5vw, 42px);
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .descricao {
-
-            max-width:
-                750px;
-
-            margin:
-                0 auto 45px;
-
-            text-align:
-                center;
-
-            color:
-                var(--cinza-escuro);
-
-        }
-
-
-        /* =========================================
-           CARROSSEL
-        ========================================== */
-
-        .secao-carrossel {
-
-            background:
-                #eef7ff;
-
-            padding:
-                75px 0 60px;
-
-        }
-
-
-        .carrossel-wrapper {
-
-            max-width:
-                1250px;
-
-            margin:
-                auto;
-
-            padding:
-                0 20px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                15px;
-
-        }
-
-
-        .carrossel {
-
-            flex:
-                1;
-
-            display:
-                flex;
-
-            gap:
-                25px;
-
-            overflow-x:
-                auto;
-
-            scroll-behavior:
-                smooth;
-
-            scroll-snap-type:
-                x mandatory;
-
-            scrollbar-width:
-                none;
-
-            padding:
-                25px 5px;
-
-        }
-
-
-        .carrossel::-webkit-scrollbar {
-
-            display:
-                none;
-
-        }
-
-
-        .slide {
-
-            flex:
-                0 0
-                calc(33.333% - 17px);
-
-            min-width:
-                260px;
-
-            scroll-snap-align:
-                center;
-
-            background:
-                white;
-
-            border-radius:
-                22px;
-
-            padding:
-                32px 25px;
-
-            text-align:
-                center;
-
-            box-shadow:
-                var(--sombra);
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .slide:hover {
-
-            transform:
-                translateY(-10px);
-
-            box-shadow:
-                var(--sombra-forte);
-
-        }
-
-
-        .slide a {
-
-            text-decoration:
-                none;
-
-        }
-
-
-        .icone {
-
-            font-size:
-                52px;
-
-            display:
-                block;
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        .slide h3 {
-
-            color:
-                var(--azul);
-
-            font-size:
-                25px;
-
-            margin-bottom:
-                8px;
-
-        }
-
-
-        .slide p {
-
-            color:
-                var(--cinza-escuro);
-
-            min-height:
-                50px;
-
-        }
-
-
-        .ver-mais {
-
-            display:
-                inline-block;
-
-            margin-top:
-                18px;
-
-            padding:
-                8px 18px;
-
-            background:
-                var(--azul-suave);
-
-            color:
-                var(--azul);
-
-            border-radius:
-                20px;
-
-            font-weight:
-                600;
-
-        }
-
-
-        .carrossel-btn {
-
-            flex-shrink:
-                0;
-
-            width:
-                52px;
-
-            height:
-                52px;
-
-            border:
-                none;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--azul-claro);
-
-            color:
-                white;
-
-            font-size:
-                36px;
-
-            line-height:
-                1;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .carrossel-btn:hover {
-
-            background:
-                var(--azul);
-
-            transform:
-                scale(1.08);
-
-        }
-
-
-        .indicadores {
-
-            display:
-                flex;
-
-            justify-content:
-                center;
-
-            gap:
-                9px;
-
-            margin-top:
-                10px;
-
-        }
-
-
-        .indicador {
-
-            width:
-                12px;
-
-            height:
-                12px;
-
-            border:
-                none;
-
-            border-radius:
-                50%;
-
-            background:
-                #90caf9;
-
-            padding:
-                0;
-
-        }
-
-
-        .indicador.ativo {
-
-            width:
-                30px;
-
-            border-radius:
-                10px;
-
-            background:
-                var(--azul);
-
-        }
-
-
-        /* =========================================
-           CARDS
-        ========================================== */
-
-        .cards {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(250px, 1fr)
-                );
-
-            gap:
-                25px;
-
-        }
-
-
-        .card {
-
-            background:
-                white;
-
-            padding:
-                30px;
-
-            border-radius:
-                20px;
-
-            box-shadow:
-                var(--sombra);
-
-            transition:
-                var(--transicao);
-
-            border-top:
-                5px solid
-                var(--azul-claro);
-
-        }
-
-
-        .card:hover {
-
-            transform:
-                translateY(-8px);
-
-        }
-
-
-        .card h3 {
-
-            color:
-                var(--azul);
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .formula {
-
-            margin-top:
-                15px;
-
-            padding:
-                15px;
-
-            background:
-                var(--azul-suave);
-
-            color:
-                var(--azul);
-
-            border-radius:
-                10px;
-
-            text-align:
-                center;
-
-            font-size:
-                20px;
-
-            font-weight:
-                700;
-
-        }
-
-
-        /* =========================================
-           SIMULADOR
-        ========================================== */
-
-        .interativo {
-
-            background:
-                #eaf5ff;
-
-        }
-
-
-        .simulador {
-
-            max-width:
-                1000px;
-
-            margin:
-                auto;
-
-            background:
-                white;
-
-            padding:
-                35px;
-
-            border-radius:
-                25px;
-
-            box-shadow:
-                var(--sombra);
-
-        }
-
-
-        .controles {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(180px, 1fr)
-                );
-
-            gap:
-                18px;
-
-        }
-
-
-        .campo {
-
-            display:
-                flex;
-
-            flex-direction:
-                column;
-
-            gap:
-                7px;
-
-        }
-
-
-        .campo label {
-
-            font-weight:
-                600;
-
-            color:
-                var(--azul);
-
-        }
-
-
-        .campo input,
-        .campo select {
-
-            width:
-                100%;
-
-            padding:
-                12px;
-
-            border:
-                2px solid
-                #c5c5c5;
-
-            border-radius:
-                9px;
-
-            font-size:
-                16px;
-
-            background:
-                white;
-
-            color:
-                var(--texto);
-
-        }
-
-
-        .btn-principal {
-
-            margin-top:
-                25px;
-
-            border:
-                none;
-
-            background:
-                var(--azul-claro);
-
-            color:
-                white;
-
-            padding:
-                14px 25px;
-
-            border-radius:
-                30px;
-
-            font-weight:
-                700;
-
-            font-size:
-                16px;
-
-        }
-
-
-        .btn-principal:hover {
-
-            background:
-                var(--azul);
-
-        }
-
-
-        .resultado {
-
-            margin-top:
-                25px;
-
-            padding:
-                20px;
-
-            background:
-                #f5f7fb;
-
-            border-left:
-                5px solid
-                var(--azul-claro);
-
-            border-radius:
-                10px;
-
-        }
-
-
-        /* =========================================
-           ANIMAÇÃO DO SIMULADOR
-        ========================================== */
-
-        .pista {
-
-            height:
-                140px;
-
-            margin-top:
-                30px;
-
-            border-radius:
-                18px;
-
-            background:
-                linear-gradient(
-                    #bbdefb 0 65%,
-                    #555 65%
-                );
-
-            position:
-                relative;
-
-            overflow:
-                hidden;
-
-            border:
-                2px solid
-                #90caf9;
-
-        }
-
-
-        .faixa {
-
-            position:
-                absolute;
-
-            bottom:
-                20px;
-
-            left:
-                0;
-
-            width:
-                100%;
-
-            height:
-                5px;
-
-            background:
-                repeating-linear-gradient(
-                    90deg,
-                    white 0 40px,
-                    transparent 40px 80px
-                );
-
-        }
-
-
-        .carro {
-
-            position:
-                absolute;
-
-            left:
-                20px;
-
-            bottom:
-                28px;
-
-            width:
-                70px;
-
-            height:
-                38px;
-
-            background:
-                #e53935;
-
-            border-radius:
-                12px 15px 8px 8px;
-
-            transition:
-                left 1s ease;
-
-        }
-
-
-        .carro::before {
-
-            content:
-                "";
-
-            position:
-                absolute;
-
-            width:
-                35px;
-
-            height:
-                22px;
-
-            left:
-                17px;
-
-            top:
-                -16px;
-
-            background:
-                #e53935;
-
-            border-radius:
-                12px 12px 0 0;
-
-        }
-
-
-        .roda {
-
-            position:
-                absolute;
-
-            bottom:
-                -9px;
-
-            width:
-                18px;
-
-            height:
-                18px;
-
-            background:
-                #111;
-
-            border-radius:
-                50%;
-
-        }
-
-
-        .roda1 {
-            left: 8px;
-        }
-
-
-        .roda2 {
-            right: 8px;
-        }
-
-
-        /* =========================================
-           MAPA CONCEITUAL
-        ========================================== */
-
-        .mapa {
-
-            max-width:
-                1100px;
-
-            margin:
-                auto;
-
-            text-align:
-                center;
-
-        }
-
-
-        .centro {
-
-            display:
-                inline-block;
-
-            background:
-                var(--azul-claro);
-
-            color:
-                white;
-
-            padding:
-                18px 40px;
-
-            border-radius:
-                18px;
-
-            font-size:
-                28px;
-
-            font-weight:
-                800;
-
-            box-shadow:
-                var(--sombra);
-
-        }
-
-
-        .linha {
-
-            width:
-                5px;
-
-            height:
-                45px;
-
-            margin:
-                auto;
-
-            background:
-                var(--azul-claro);
-
-        }
-
-
-        .galhos {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(190px, 1fr)
-                );
-
-            gap:
-                20px;
-
-        }
-
-
-        .caixa {
-
-            border:
-                none;
-
-            background:
-                white;
-
-            padding:
-                25px;
-
-            border-radius:
-                18px;
-
-            box-shadow:
-                var(--sombra);
-
-            font-size:
-                17px;
-
-            color:
-                var(--texto);
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .caixa:hover {
-
-            transform:
-                translateY(-8px);
-
-            background:
-                #e3f2fd;
-
-        }
-
-
-        .painel {
-
-            max-width:
-                900px;
-
-            margin:
-                35px auto 0;
-
-        }
-
-
-        #conteudo {
-
-            background:
-                white;
-
-            padding:
-                30px;
-
-            border-radius:
-                18px;
-
-            box-shadow:
-                var(--sombra);
-
-            min-height:
-                150px;
-
-        }
-
-
-        #conteudo h3 {
-
-            color:
-                var(--azul);
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        /* =========================================
-           QUIZ
-        ========================================== */
-
-        .quiz-container {
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
-            background:
-                white;
-
-            padding:
-                35px;
-
-            border-radius:
-                25px;
-
-            box-shadow:
-                var(--sombra);
-
-        }
-
-
-        .quiz-topo {
-
-            display:
-                flex;
-
-            justify-content:
-                space-between;
-
-            flex-wrap:
-                wrap;
-
-            gap:
-                10px;
-
-            margin-bottom:
-                25px;
-
-            color:
-                var(--azul);
-
-            font-weight:
-                700;
-
-        }
-
-
-        .pergunta {
-
-            font-size:
-                21px;
-
-            font-weight:
-                600;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .opcoes {
-
-            display:
-                grid;
-
-            gap:
-                13px;
-
-        }
-
-
-        .opcao {
-
-            width:
-                100%;
-
-            padding:
-                15px;
-
-            text-align:
-                left;
-
-            border:
-                2px solid
-                #ccc;
-
-            background:
-                white;
-
-            color:
-                var(--texto);
-
-            border-radius:
-                12px;
-
-            font-size:
-                16px;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        .opcao:hover {
-
-            border-color:
-                var(--azul-claro);
-
-            background:
-                var(--azul-suave);
-
-        }
-
-
-        .opcao.selecionada {
-
-            border-color:
-                var(--azul);
-
-            background:
-                #bbdefb;
-
-        }
-
-
-        .feedback {
-
-            margin-top:
-                20px;
-
-            padding:
-                18px;
-
-            border-radius:
-                12px;
-
-        }
-
-
-        .feedback.certo {
-
-            background:
-                #d9f7df;
-
-            color:
-                #155724;
-
-            border:
-                2px solid
-                #2e7d32;
-
-        }
-
-
-        .feedback.erro {
-
-            background:
-                #ffe0e0;
-
-            color:
-                #721c24;
-
-            border:
-                2px solid
-                #c62828;
-
-        }
-
-
-        .quiz-botoes {
-
-            display:
-                flex;
-
-            gap:
-                12px;
-
-            flex-wrap:
-                wrap;
-
-            margin-top:
-                25px;
-
-        }
-
-
-        /* =========================================
-           SOBRE
-        ========================================== */
-
-        .sobre {
-
-            background:
-                white;
-
-            text-align:
-                center;
-
-        }
-
-
-        .sobre-conteudo {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-        }
-
-
-        /* =========================================
-           RODAPÉ
-        ========================================== */
-
-        footer {
-
-            background:
-                var(--azul);
-
-            color:
-                white;
-
-            text-align:
-                center;
-
-            padding:
-                30px;
-
-        }
-
-
-        /* =========================================
-           BOTÃO TOPO
-        ========================================== */
-
-        #topo {
-
-            position:
-                fixed;
-
-            right:
-                20px;
-
-            bottom:
-                20px;
-
-            width:
-                52px;
-
-            height:
-                52px;
-
-            border:
-                none;
-
-            border-radius:
-                50%;
-
-            background:
-                var(--azul-claro);
-
-            color:
-                white;
-
-            font-size:
-                23px;
-
-            z-index:
-                4000;
-
-            box-shadow:
-                var(--sombra);
-
-            opacity:
-                0;
-
-            visibility:
-                hidden;
-
-            transition:
-                var(--transicao);
-
-        }
-
-
-        #topo.visivel {
-
-            opacity:
-                1;
-
-            visibility:
-                visible;
-
-        }
-
-
-        /* =========================================
-           MODO ESCURO
-        ========================================== */
-
-        body.dark {
-
-            --cinza:
-                #121212;
-
-            --texto:
-                #f5f5f5;
-
-            --cinza-escuro:
-                #d0d0d0;
-
-            background:
-                #121212;
-
-            color:
-                #f5f5f5;
-
-        }
-
-
-        body.dark .acessibilidade {
-
-            background:
-                #1e1e1e;
-
-            color:
-                white;
-
-            border-color:
-                #444;
-
-        }
-
-
-        body.dark .acessibilidade button {
-
-            background:
-                #333;
-
-            color:
-                white;
-
-            border-color:
-                #aaa;
-
-        }
-
-
-        body.dark .secao-carrossel,
-        body.dark .interativo {
-
-            background:
-                #181818;
-
-        }
-
-
-        body.dark .slide,
-        body.dark .card,
-        body.dark .simulador,
-        body.dark #conteudo,
-        body.dark .quiz-container,
-        body.dark .sobre {
-
-            background:
-                #222;
-
-            color:
-                white;
-
-        }
-
-
-        body.dark .slide h3,
-        body.dark .card h3,
-        body.dark #conteudo h3,
-        body.dark .titulo-secao {
-
-            color:
-                #90caf9;
-
-        }
-
-
-        body.dark .slide p,
-        body.dark .descricao {
-
-            color:
-                #ddd;
-
-        }
-
-
-        body.dark .campo label {
-
-            color:
-                #90caf9;
-
-        }
-
-
-        body.dark .campo input,
-        body.dark .campo select,
-        body.dark .opcao {
-
-            background:
-                #333;
-
-            color:
-                white;
-
-            border-color:
-                #666;
-
-        }
-
-
-        body.dark .resultado {
-
-            background:
-                #333;
-
-        }
-
-
-        body.dark .caixa {
-
-            background:
-                #222;
-
-            color:
-                white;
-
-        }
-
-
-        /* =========================================
-           ALTO CONTRASTE
-        ========================================== */
-
-        body.alto-contraste {
-
-            background:
-                #000;
-
-            color:
-                #fff;
-
-        }
-
-
-        body.alto-contraste .cabecalho,
-        body.alto-contraste footer {
-
-            background:
-                #000;
-
-            border:
-                2px solid
-                white;
-
-        }
-
-
-        body.alto-contraste .card,
-        body.alto-contraste .slide,
-        body.alto-contraste .simulador,
-        body.alto-contraste .quiz-container,
-        body.alto-contraste #conteudo,
-        body.alto-contraste .caixa,
-        body.alto-contraste .sobre {
-
-            background:
-                #000;
-
-            color:
-                #fff;
-
-            border:
-                2px solid
-                #fff;
-
-        }
-
-
-        body.alto-contraste h2,
-        body.alto-contraste h3,
-        body.alto-contraste p,
-        body.alto-contraste a {
-
-            color:
-                #fff;
-
-        }
-
-
-        /* =========================================
-           FONTE
-        ========================================== */
-
-        body.fonte-grande {
-
-            font-size:
-                115%;
-
-        }
-
-
-        body.fonte-muito-grande {
-
-            font-size:
-                135%;
-
-        }
-
-
-        /* =========================================
-           REDUÇÃO DE ANIMAÇÕES
-        ========================================== */
-
-        body.sem-animacao *,
-        body.sem-animacao *::before,
-        body.sem-animacao *::after {
-
-            animation-duration:
-                .01ms !important;
-
-            animation-iteration-count:
-                1 !important;
-
-            transition-duration:
-                .01ms !important;
-
-            scroll-behavior:
-                auto !important;
-
-        }
-
-
-        @media (
-            prefers-reduced-motion: reduce
-        ) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
-
-                scroll-behavior:
-                    auto !important;
-
-            }
-
-        }
-
-
-        /* =========================================
-           RESPONSIVIDADE
-        ========================================== */
-
-        @media (max-width: 900px) {
-
-            .menu-btn {
-
-                display:
-                    block;
-
-            }
-
-
-            #menu {
-
-                position:
-                    absolute;
-
-                top:
-                    100%;
-
-                right:
-                    15px;
-
-                width:
-                    250px;
-
-                display:
-                    none;
-
-                flex-direction:
-                    column;
-
-                align-items:
-                    stretch;
-
-                gap:
-                    0;
-
-                background:
-                    var(--azul);
-
-                border-radius:
-                    0 0 15px 15px;
-
-                overflow:
-                    hidden;
-
-                box-shadow:
-                    var(--sombra-forte);
-
-            }
-
-
-            #menu.ativo {
-
-                display:
-                    flex;
-
-            }
-
-
-            #menu a {
-
-                padding:
-                    17px 20px;
-
-                border-bottom:
-                    1px solid
-                    rgba(255,255,255,.15);
-
-            }
-
-
-            .slide {
-
-                flex:
-                    0 0 70%;
-
-            }
-
-
-            .carrossel-wrapper {
-
-                padding:
-                    0 15px;
-
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            .cabecalho {
-
-                padding:
-                    12px 5%;
-
-            }
-
-
-            .logo {
-
-                font-size:
-                    21px;
-
-            }
-
-
-            .tema-btn {
-
-                width:
-                    40px;
-
-                height:
-                    40px;
-
-            }
-
-
-            .slide {
-
-                flex:
-                    0 0 88%;
-
-            }
-
-
-            .carrossel-btn {
-
-                width:
-                    42px;
-
-                height:
-                    42px;
-
-                font-size:
-                    30px;
-
-            }
-
-
-            .quiz-container,
-            .simulador {
-
-                padding:
-                    22px;
-
-            }
-
-
-            .secao {
-
-                padding:
-                    60px 5%;
-
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Física Interativa - Aprenda Física de forma simples e divertida.">
+<title>Física Interativa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --azul:#0757a0;
+    --azul2:#1976d2;
+    --claro:#eef7ff;
+    --fundo:#f5f7fa;
+    --texto:#222;
+    --branco:#fff;
+    --sombra:0 8px 25px #0001;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:var(--fundo);
+    color:var(--texto);
+    line-height:1.6;
+}
+
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--azul);
+    color:white;
+    padding:15px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:var(--sombra);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+nav{
+    display:flex;
+    gap:22px;
+}
+
+nav a:hover{color:#ffeb3b}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:28px;
+}
+
+.tema{
+    border:0;
+    background:white;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+}
+
+.hero{
+    min-height:70vh;
+    padding:60px 20px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#003b70,#1976d2,#42a5f5);
+}
+
+.hero div{max-width:750px}
+
+.hero h1{
+    font-size:clamp(42px,8vw,72px);
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin:8px 0;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    border:0;
+    border-radius:30px;
+    background:white;
+    color:var(--azul);
+    font-weight:700;
+}
+
+section{
+    padding:65px 7%;
+}
+
+.titulo{
+    text-align:center;
+    color:var(--azul);
+    font-size:clamp(28px,5vw,40px);
+    margin-bottom:10px;
+}
+
+.desc{
+    max-width:650px;
+    margin:0 auto 35px;
+    text-align:center;
+    color:#666;
+}
+
+.temas{
+    background:var(--claro);
+}
+
+.cards{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:var(--sombra);
+    border-top:4px solid var(--azul2);
+    transition:.25s;
+}
+
+.card:hover{transform:translateY(-5px)}
+
+.card h3{
+    color:var(--azul);
+    margin-bottom:10px;
+}
+
+.icone{
+    font-size:40px;
+    display:block;
+    margin-bottom:5px;
+}
+
+.formula{
+    margin-top:15px;
+    padding:12px;
+    background:var(--claro);
+    color:var(--azul);
+    text-align:center;
+    border-radius:10px;
+    font-weight:700;
+}
+
+.laboratorio{
+    background:#eaf5ff;
+}
+
+.simulador,.quiz,.mapa-box{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+}
+
+.controles{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+}
+
+.campo label{
+    display:block;
+    color:var(--azul);
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.campo input,.campo select{
+    width:100%;
+    padding:10px;
+    border:2px solid #ddd;
+    border-radius:9px;
+}
+
+.btn-azul{
+    margin-top:20px;
+    padding:12px 22px;
+    border:0;
+    border-radius:25px;
+    background:var(--azul2);
+    color:white;
+    font-weight:700;
+}
+
+.resultado{
+    margin-top:20px;
+    padding:15px;
+    background:#f5f7fa;
+    border-left:4px solid var(--azul2);
+    border-radius:8px;
+}
+
+.mapa{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.mapa button{
+    border:0;
+    padding:22px;
+    background:#f5f7fa;
+    border-radius:15px;
+    box-shadow:var(--sombra);
+    color:var(--azul);
+    font-weight:600;
+}
+
+.mapa button:hover{
+    background:var(--claro);
+    transform:translateY(-3px);
+}
+
+#resumo{
+    margin-top:20px;
+    padding:20px;
+    background:var(--claro);
+    border-radius:12px;
+}
+
+.pergunta{
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.opcoes{
+    display:grid;
+    gap:10px;
+}
+
+.opcao{
+    padding:13px;
+    text-align:left;
+    border:2px solid #ddd;
+    border-radius:10px;
+    background:white;
+}
+
+.opcao:hover{
+    border-color:var(--azul2);
+    background:var(--claro);
+}
+
+.feedback{
+    margin-top:15px;
+    padding:15px;
+    border-radius:10px;
+}
+
+.certo{
+    background:#dff5e3;
+    color:#176525;
+}
+
+.erro{
+    background:#ffe1e1;
+    color:#9b1c1c;
+}
+
+footer{
+    padding:30px 20px;
+    text-align:center;
+    background:var(--azul);
+    color:white;
+}
+
+footer strong{color:#ffeb3b}
+
+body.dark{
+    --fundo:#121212;
+    --texto:#eee;
+    background:#121212;
+}
+
+body.dark .card,
+body.dark .simulador,
+body.dark .quiz,
+body.dark .mapa-box{
+    background:#222;
+    color:white;
+}
+
+body.dark .opcao,
+body.dark .campo input,
+body.dark .campo select{
+    background:#333;
+    color:white;
+    border-color:#555;
+}
+
+body.dark .resultado{
+    background:#333;
+}
+
+body.dark .desc{color:#ccc}
+
+@media(max-width:750px){
+    nav{
+        display:none;
+        position:absolute;
+        top:70px;
+        right:15px;
+        flex-direction:column;
+        gap:0;
+        width:220px;
+        background:var(--azul);
+        border-radius:0 0 12px 12px;
+        overflow:hidden;
+    }
+
+    nav.ativo{display:flex}
+
+    nav a{padding:13px 18px}
+
+    .menu{display:block}
+
+    .mapa{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    section{padding:50px 5%}
+}
+
+@media(max-width:450px){
+    .mapa{grid-template-columns:1fr}
+    .simulador,.quiz,.mapa-box{padding:20px}
+}
+</style>
 </head>
-
 
 <body>
 
+<header>
+    <a href="#inicio" class="logo">⚛️ Física Interativa</a>
 
-    <!-- =========================================
-         ACESSIBILIDADE
-    ========================================== -->
+    <button class="menu" id="menuBtn">☰</button>
 
-    <a
-        href="#conteudo-principal"
-        class="skip-link"
-    >
-        Pular para o conteúdo principal
-    </a>
+    <nav id="nav">
+        <a href="#inicio">Início</a>
+        <a href="#conteudos">Conteúdos</a>
+        <a href="#laboratorio">Laboratório</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#sobre">Sobre</a>
+    </nav>
 
+    <button class="tema" id="tema">🌙</button>
+</header>
 
-    <div
-        class="acessibilidade"
-        role="region"
-        aria-label="Ferramentas de acessibilidade"
-    >
+<main>
 
-        <strong>
-            Acessibilidade:
-        </strong>
+<section class="hero" id="inicio">
+    <div>
+        <h1>Física Interativa</h1>
 
-        <button
-            type="button"
-            id="aumentarFonte"
-        >
-            A+
+        <p>Descubra como o mundo funciona através da Física.</p>
+
+        <p>
+            Aprenda MU, MUV, Dinâmica e Óptica
+            de forma simples e divertida.
+        </p>
+
+        <a href="#conteudos" class="btn">Começar agora 🚀</a>
+    </div>
+</section>
+
+<section id="conteudos">
+    <h2 class="titulo">📚 Conteúdos</h2>
+
+    <p class="desc">
+        Aprenda os principais conceitos da Física.
+    </p>
+
+    <div class="cards">
+
+        <article class="card">
+            <span class="icone">🚗</span>
+            <h3>Movimento Uniforme</h3>
+            <p>
+                Velocidade constante e aceleração igual a zero.
+            </p>
+            <div class="formula">S = S₀ + v · t</div>
+        </article>
+
+        <article class="card">
+            <span class="icone">🏎️</span>
+            <h3>MUV</h3>
+            <p>
+                Movimento com aceleração constante.
+            </p>
+            <div class="formula">v = v₀ + a · t</div>
+        </article>
+
+        <article class="card">
+            <span class="icone">⚙️</span>
+            <h3>Dinâmica</h3>
+            <p>
+                Estudo das forças e das Leis de Newton.
+            </p>
+            <div class="formula">F = m · a</div>
+        </article>
+
+        <article class="card">
+            <span class="icone">🔦</span>
+            <h3>Óptica</h3>
+            <p>
+                Estudo da luz, reflexão e refração.
+            </p>
+            <div class="formula">i = r</div>
+        </article>
+
+    </div>
+</section>
+
+<section class="laboratorio" id="laboratorio">
+
+    <h2 class="titulo">🧪 Laboratório</h2>
+
+    <p class="desc">
+        Faça uma experiência virtual de MU ou MUV.
+    </p>
+
+    <div class="simulador">
+
+        <div class="controles">
+
+            <div class="campo">
+                <label>Movimento</label>
+                <select id="tipo">
+                    <option value="mu">MU</option>
+                    <option value="muv">MUV</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Posição inicial</label>
+                <input id="s0" type="number" value="0">
+            </div>
+
+            <div class="campo">
+                <label>Velocidade inicial</label>
+                <input id="v0" type="number" value="10">
+            </div>
+
+            <div class="campo" id="campoA">
+                <label>Aceleração</label>
+                <input id="a" type="number" value="2">
+            </div>
+
+            <div class="campo">
+                <label>Tempo</label>
+                <input id="t" type="number" value="5" min="0">
+            </div>
+
+        </div>
+
+        <button class="btn-azul" id="calcular">
+            ▶ Calcular
         </button>
 
-        <button
-            type="button"
-            id="diminuirFonte"
-        >
-            A−
+        <div class="resultado" id="resultado">
+            Informe os valores e clique em calcular.
+        </div>
+
+    </div>
+</section>
+
+<section id="mapa">
+
+    <h2 class="titulo">🗺️ Mapa Conceitual</h2>
+
+    <p class="desc">
+        Clique em um tema para ver um resumo.
+    </p>
+
+    <div class="mapa-box">
+
+        <div class="mapa">
+            <button data-tema="mu">🚗<br>MU</button>
+            <button data-tema="muv">🏎️<br>MUV</button>
+            <button data-tema="dinamica">⚙️<br>Dinâmica</button>
+            <button data-tema="optica">🔦<br>Óptica</button>
+        </div>
+
+        <div id="resumo">
+            <strong>Escolha um tema.</strong>
+        </div>
+
+    </div>
+</section>
+
+<section id="quiz">
+
+    <h2 class="titulo">🧠 Quiz</h2>
+
+    <p class="desc">
+        Teste seus conhecimentos de Física.
+    </p>
+
+    <div class="quiz">
+
+        <div id="pergunta" class="pergunta"></div>
+
+        <div id="opcoes" class="opcoes"></div>
+
+        <div id="feedback"></div>
+
+        <button class="btn-azul" id="verificar">
+            ✓ Verificar
         </button>
 
-        <button
-            type="button"
-            id="contraste"
-        >
-            ◐ Contraste
-        </button>
-
-        <button
-            type="button"
-            id="animacao"
-        >
-            🐌 Menos animação
-        </button>
-
-        <button
-            type="button"
-            id="leitura"
-        >
-            🔊 Ler página
+        <button class="btn-azul" id="proxima" hidden>
+            Próxima →
         </button>
 
     </div>
-
-
-    <!-- =========================================
-         CABEÇALHO
-    ========================================== -->
-
-    <header class="cabecalho">
-
-        <a
-            href="#inicio"
-            class="logo"
-        >
-            ⚛️ Física Interativa
-        </a>
-
-
-        <button
-            class="menu-btn"
-            id="menuBtn"
-            type="button"
-            aria-label="Abrir menu"
-            aria-expanded="false"
-            aria-controls="menu"
-        >
-            ☰
-        </button>
-
-
-        <nav
-            id="menu"
-            aria-label="Navegação principal"
-        >
-
-            <a href="#inicio">
-                Início
-            </a>
-
-            <a href="#conteudos">
-                Conteúdos
-            </a>
-
-            <a href="#interativo">
-                Laboratório
-            </a>
-
-            <a href="#mapa">
-                Mapa
-            </a>
-
-            <a href="#quiz">
-                Quiz
-            </a>
-
-            <a href="#sobre">
-                Sobre
-            </a>
-
-        </nav>
-
-
-        <button
-            class="tema-btn"
-            id="temaBtn"
-            type="button"
-            aria-label="Ativar modo escuro"
-        >
-            🌙
-        </button>
-
-    </header>
-
-
-    <!-- =========================================
-         CONTEÚDO
-    ========================================== -->
-
-    <main id="conteudo-principal">
-
-
-        <!-- =========================================
-             BANNER
-        ========================================== -->
-
-        <section
-            class="banner"
-            id="inicio"
-            aria-labelledby="titulo-principal"
-        >
-
-            <div class="banner-conteudo">
-
-                <h1 id="titulo-principal">
-                    Física Interativa
-                </h1>
-
-                <p>
-                    Descubra como o mundo funciona
-                    através da Física.
-                </p>
-
-                <p>
-                    Estude MU, MUV, Dinâmica e Óptica
-                    com experiências virtuais, desafios
-                    e explicações simples.
-                </p>
-
-                <a
-                    href="#conteudos"
-                    class="botao"
-                >
-                    Começar agora 🚀
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             CARROSSEL
-        ========================================== -->
-
-        <section
-            class="secao-carrossel"
-            aria-labelledby="temas-titulo"
-        >
-
-            <h2
-                class="titulo-secao"
-                id="temas-titulo"
-            >
-                Explore os temas
-            </h2>
-
-            <p class="descricao">
-                Navegue pelos principais conteúdos
-                de Física.
-            </p>
-
-
-            <div class="carrossel-wrapper">
-
-                <button
-                    class="carrossel-btn"
-                    id="anterior"
-                    type="button"
-                    aria-label="Tema anterior"
-                >
-                    ‹
-                </button>
-
-
-                <div
-                    class="carrossel"
-                    id="carrossel"
-                    tabindex="0"
-                    role="region"
-                    aria-label="Carrossel de conteúdos"
-                >
-
-
-                    <article class="slide">
-
-                        <a href="#mu">
-
-                            <span
-                                class="icone"
-                                aria-hidden="true"
-                            >
-                                🚗
-                            </span>
-
-                            <h3>
-                                MU
-                            </h3>
-
-                            <p>
-                                Movimento Uniforme
-                            </p>
-
-                            <span class="ver-mais">
-                                Estudar →
-                            </span>
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="slide">
-
-                        <a href="#muv">
-
-                            <span
-                                class="icone"
-                                aria-hidden="true"
-                            >
-                                🏎️
-                            </span>
-
-                            <h3>
-                                MUV
-                            </h3>
-
-                            <p>
-                                Movimento Uniformemente Variado
-                            </p>
-
-                            <span class="ver-mais">
-                                Estudar →
-                            </span>
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="slide">
-
-                        <a href="#dinamica">
-
-                            <span
-                                class="icone"
-                                aria-hidden="true"
-                            >
-                                ⚙️
-                            </span>
-
-                            <h3>
-                                Dinâmica
-                            </h3>
-
-                            <p>
-                                Forças e Leis de Newton
-                            </p>
-
-                            <span class="ver-mais">
-                                Estudar →
-                            </span>
-
-                        </a>
-
-                    </article>
-
-
-                    <article class="slide">
-
-                        <a href="#optica">
-
-                            <span
-                                class="icone"
-                                aria-hidden="true"
-                            >
-                                🔦
-                            </span>
-
-                            <h3>
-                                Óptica
-                            </h3>
-
-                            <p>
-                                Luz, reflexão e refração
-                            </p>
-
-                            <span class="ver-mais">
-                                Estudar →
-                            </span>
-
-                        </a>
-
-                    </article>
-
-
-                </div>
-
-
-                <button
-                    class="carrossel-btn"
-                    id="proximo"
-                    type="button"
-                    aria-label="Próximo tema"
-                >
-                    ›
-                </button>
-
-            </div>
-
-
-            <div
-                class="indicadores"
-                id="indicadores"
-                role="tablist"
-                aria-label="Selecionar tema"
-            >
-
-                <button
-                    class="indicador ativo"
-                    type="button"
-                    data-slide="0"
-                    role="tab"
-                    aria-label="Movimento Uniforme"
-                    aria-selected="true"
-                ></button>
-
-                <button
-                    class="indicador"
-                    type="button"
-                    data-slide="1"
-                    role="tab"
-                    aria-label="Movimento Uniformemente Variado"
-                    aria-selected="false"
-                ></button>
-
-                <button
-                    class="indicador"
-                    type="button"
-                    data-slide="2"
-                    role="tab"
-                    aria-label="Dinâmica"
-                    aria-selected="false"
-                ></button>
-
-                <button
-                    class="indicador"
-                    type="button"
-                    data-slide="3"
-                    role="tab"
-                    aria-label="Óptica"
-                    aria-selected="false"
-                ></button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             CONTEÚDOS
-        ========================================== -->
-
-        <section
-            class="secao"
-            id="conteudos"
-            aria-labelledby="conteudos-titulo"
-        >
-
-            <h2
-                class="titulo-secao"
-                id="conteudos-titulo"
-            >
-                Conteúdos de Física
-            </h2>
-
-            <p class="descricao">
-                Conheça os conceitos fundamentais
-                de cada assunto.
-            </p>
-
-
-            <div class="cards">
-
-
-                <!-- MU -->
-
-                <article
-                    class="card"
-                    id="mu"
-                >
-
-                    <h3>
-                        🚗 Movimento Uniforme
-                    </h3>
-
-                    <p>
-                        No Movimento Uniforme, um corpo
-                        percorre distâncias iguais em
-                        intervalos de tempos iguais.
-                    </p>
-
-                    <div class="formula">
-                        S = S₀ + v · t
-                    </div>
-
-                    <br>
-
-                    <p>
-                        <strong>Características:</strong>
-                    </p>
-
-                    <p>
-                        • Velocidade constante<br>
-                        • Aceleração igual a zero<br>
-                        • Movimento progressivo ou retrógrado
-                    </p>
-
-                </article>
-
-
-                <!-- MUV -->
-
-                <article
-                    class="card"
-                    id="muv"
-                >
-
-                    <h3>
-                        🏎️ Movimento Uniformemente Variado
-                    </h3>
-
-                    <p>
-                        No MUV, a aceleração é constante,
-                        fazendo a velocidade variar
-                        uniformemente.
-                    </p>
-
-                    <div class="formula">
-                        v = v₀ + a · t
-                    </div>
-
-                    <br>
-
-                    <div class="formula">
-                        S = S₀ + v₀t + ½at²
-                    </div>
-
-                </article>
-
-
-                <!-- DINÂMICA -->
-
-                <article
-                    class="card"
-                    id="dinamica"
-                >
-
-                    <h3>
-                        ⚙️ Dinâmica
-                    </h3>
-
-                    <p>
-                        A Dinâmica estuda as forças que
-                        podem alterar o movimento dos corpos.
-                    </p>
-
-                    <div class="formula">
-                        F = m · a
-                    </div>
-
-                    <br>
-
-                    <p>
-                        Estude as três Leis de Newton,
-                        força peso, normal, atrito e tração.
-                    </p>
-
-                </article>
-
-
-                <!-- ÓPTICA -->
-
-                <article
-                    class="card"
-                    id="optica"
-                >
-
-                    <h3>
-                        🔦 Óptica
-                    </h3>
-
-                    <p>
-                        A Óptica estuda a luz e os
-                        fenômenos relacionados à sua
-                        propagação.
-                    </p>
-
-                    <div class="formula">
-                        i = r
-                    </div>
-
-                    <br>
-
-                    <p>
-                        Reflexão, refração, espelhos,
-                        lentes, dispersão e formação
-                        de imagens.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             LABORATÓRIO
-        ========================================== -->
-
-        <section
-            class="secao interativo"
-            id="interativo"
-            aria-labelledby="laboratorio-titulo"
-        >
-
-            <h2
-                class="titulo-secao"
-                id="laboratorio-titulo"
-            >
-                🧪 Laboratório Interativo
-            </h2>
-
-            <p class="descricao">
-                Faça uma experiência virtual de MU ou MUV.
-                Altere os valores e veja o resultado.
-            </p>
-
-
-            <div class="simulador">
-
-                <div class="controles">
-
-
-                    <div class="campo">
-
-                        <label for="tipoMovimento">
-                            Tipo de movimento
-                        </label>
-
-                        <select id="tipoMovimento">
-
-                            <option value="mu">
-                                MU
-                            </option>
-
-                            <option value="muv">
-                                MUV
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label for="s0">
-                            Posição inicial (m)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="s0"
-                            value="0"
-                            step="0.1"
-                        >
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label for="v0">
-                            Velocidade inicial (m/s)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="v0"
-                            value="10"
-                            step="0.1"
-                        >
-
-                    </div>
-
-
-                    <div
-                        class="campo"
-                        id="campoAceleracao"
-                    >
-
-                        <label for="aceleracao">
-                            Aceleração (m/s²)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="aceleracao"
-                            value="2"
-                            step="0.1"
-                        >
-
-                    </div>
-
-
-                    <div class="campo">
-
-                        <label for="tempo">
-                            Tempo (s)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="tempo"
-                            value="5"
-                            min="0"
-                            step="0.1"
-                        >
-
-                    </div>
-
-
-                </div>
-
-
-                <button
-                    class="btn-principal"
-                    id="calcular"
-                    type="button"
-                >
-                    ▶ Calcular movimento
-                </button>
-
-
-                <div
-                    class="resultado"
-                    id="resultado"
-                    role="status"
-                    aria-live="polite"
-                >
-                    Informe os valores e clique
-                    em calcular.
-                </div>
-
-
-                <div
-                    class="pista"
-                    role="img"
-                    aria-label="Representação visual do movimento"
-                >
-
-                    <div class="faixa"></div>
-
-                    <div
-                        class="carro"
-                        id="carro"
-                        aria-hidden="true"
-                    >
-
-                        <span
-                            class="roda roda1"
-                        ></span>
-
-                        <span
-                            class="roda roda2"
-                        ></span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             MAPA
-        ========================================== -->
-
-        <section
-            class="secao"
-            id="mapa"
-            aria-labelledby="mapa-titulo"
-        >
-
-            <h2
-                class="titulo-secao"
-                id="mapa-titulo"
-            >
-                🗺️ Mapa Conceitual
-            </h2>
-
-            <p class="descricao">
-                Clique ou pressione Enter em um tema
-                para descobrir seus principais conceitos.
-            </p>
-
-
-            <div class="mapa">
-
-                <div class="centro">
-                    FÍSICA
-                </div>
-
-                <div class="linha"></div>
-
-
-                <div class="galhos">
-
-
-                    <button
-                        class="caixa"
-                        type="button"
-                        data-tema="mu"
-                        aria-label="Ver resumo de Movimento Uniforme"
-                    >
-
-                        🚗
-
-                        <br>
-
-                        <strong>
-                            MU
-                        </strong>
-
-                    </button>
-
-
-                    <button
-                        class="caixa"
-                        type="button"
-                        data-tema="muv"
-                        aria-label="Ver resumo de Movimento Uniformemente Variado"
-                    >
-
-                        🏎️
-
-                        <br>
-
-                        <strong>
-                            MUV
-                        </strong>
-
-                    </button>
-
-
-                    <button
-                        class="caixa"
-                        type="button"
-                        data-tema="dinamica"
-                        aria-label="Ver resumo de Dinâmica"
-                    >
-
-                        ⚙️
-
-                        <br>
-
-                        <strong>
-                            Dinâmica
-                        </strong>
-
-                    </button>
-
-
-                    <button
-                        class="caixa"
-                        type="button"
-                        data-tema="optica"
-                        aria-label="Ver resumo de Óptica"
-                    >
-
-                        🔦
-
-                        <br>
-
-                        <strong>
-                            Óptica
-                        </strong>
-
-                    </button>
-
-
-                </div>
-
-
-                <div class="painel">
-
-                    <div
-                        id="conteudo"
-                        role="region"
-                        aria-live="polite"
-                        aria-label="Informações do tema"
-                    >
-
-                        <h3>
-                            Escolha um tema
-                        </h3>
-
-                        <p>
-                            Selecione uma área acima
-                            para ver um resumo.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             QUIZ
-        ========================================== -->
-
-        <section
-            class="secao"
-            id="quiz"
-            aria-labelledby="quiz-titulo"
-        >
-
-            <h2
-                class="titulo-secao"
-                id="quiz-titulo"
-            >
-                🧠 Quiz de Física
-            </h2>
-
-            <p class="descricao">
-                Teste seus conhecimentos sobre MU,
-                MUV, Dinâmica e Óptica.
-            </p>
-
-
-            <div class="quiz-container">
-
-
-                <div class="quiz-topo">
-
-                    <span id="questaoNumero">
-                        Questão 1 de 5
-                    </span>
-
-                    <span id="pontuacao">
-                        Pontos: 0
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="pergunta"
-                    id="pergunta"
-                    aria-live="polite"
-                >
-                </div>
-
-
-                <div
-                    class="opcoes"
-                    id="opcoes"
-                    role="group"
-                    aria-label="Alternativas"
-                >
-                </div>
-
-
-                <div
-                    id="feedback"
-                    class="feedback"
-                    role="alert"
-                    aria-live="assertive"
-                    hidden
-                >
-                </div>
-
-
-                <div class="quiz-botoes">
-
-                    <button
-                        class="btn-principal"
-                        id="verificar"
-                        type="button"
-                    >
-                        ✓ Verificar
-                    </button>
-
-                    <button
-                        class="btn-principal"
-                        id="proxima"
-                        type="button"
-                        hidden
-                    >
-                        Próxima →
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             SOBRE
-        ========================================== -->
-
-        <section
-            class="secao sobre"
-            id="sobre"
-            aria-labelledby="sobre-titulo"
-        >
-
-            <div class="sobre-conteudo">
-
-                <h2
-                    class="titulo-secao"
-                    id="sobre-titulo"
-                >
-                    Sobre o projeto
-                </h2>
-
-                <p>
-                    O Física Interativa é um projeto
-                    educacional criado para tornar
-                    o aprendizado de Física mais
-                    visual, acessível e divertido.
-                </p>
-
-                <br>
-
-                <p>
-                    O projeto aborda Movimento Uniforme,
-                    Movimento Uniformemente Variado,
-                    Dinâmica e Óptica.
-                </p>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =========================================
-         RODAPÉ
-    ========================================== -->
-
-    <footer>
-
-        <p>
-            ⚛️ Física Interativa
-        </p>
-
-        <p>
-            Aprender Física pode ser divertido!
-        </p>
-
-    </footer>
-
-
-    <!-- =========================================
-         BOTÃO TOPO
-    ========================================== -->
-
-    <button
-        id="topo"
-        type="button"
-        aria-label="Voltar ao topo"
-    >
-        ↑
-    </button>
-
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
-    <script>
-
-
-        /* =========================================
-           MENU HAMBÚRGUER
-        ========================================== */
-
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-        const menu =
-            document.getElementById("menu");
-
-
-        menuBtn.addEventListener(
-            "click",
-            () => {
-
-                const aberto =
-                    menu.classList.toggle("ativo");
-
-
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    aberto
-                );
-
-
-                menuBtn.setAttribute(
-                    "aria-label",
-                    aberto
-                        ? "Fechar menu"
-                        : "Abrir menu"
-                );
-
-
-                menuBtn.textContent =
-                    aberto
-                        ? "✕"
-                        : "☰";
-
-            }
-        );
-
-
-        document
-            .querySelectorAll("#menu a")
-            .forEach(link => {
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        menu.classList.remove(
-                            "ativo"
-                        );
-
-                        menuBtn.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        menuBtn.textContent =
-                            "☰";
-
-                    }
-                );
-
-            });
-
-
-        /* =========================================
-           MODO ESCURO
-        ========================================== */
-
-        const temaBtn =
-            document.getElementById("temaBtn");
-
-
-        temaBtn.addEventListener(
-            "click",
-            () => {
-
-                document.body.classList.toggle(
-                    "dark"
-                );
-
-
-                const escuro =
-                    document.body.classList.contains(
-                        "dark"
-                    );
-
-
-                temaBtn.textContent =
-                    escuro
-                        ? "☀️"
-                        : "🌙";
-
-
-                temaBtn.setAttribute(
-                    "aria-label",
-                    escuro
-                        ? "Desativar modo escuro"
-                        : "Ativar modo escuro"
-                );
-
-            }
-        );
-
-
-        /* =========================================
-           TAMANHO DA FONTE
-        ========================================== */
-
-        document
-            .getElementById("aumentarFonte")
-            .addEventListener(
-                "click",
-                () => {
-
-                    document.body.classList.remove(
-                        "fonte-muito-grande"
-                    );
-
-                    document.body.classList.add(
-                        "fonte-grande"
-                    );
-
-                }
-            );
-
-
-        document
-            .getElementById("diminuirFonte")
-            .addEventListener(
-                "click",
-                () => {
-
-                    document.body.classList.remove(
-                        "fonte-grande",
-                        "fonte-muito-grande"
-                    );
-
-                }
-            );
-
-
-        /* =========================================
-           ALTO CONTRASTE
-        ========================================== */
-
-        document
-            .getElementById("contraste")
-            .addEventListener(
-                "click",
-                () => {
-
-                    document.body.classList.toggle(
-                        "alto-contraste"
-                    );
-
-                }
-            );
-
-
-        /* =========================================
-           REDUZIR ANIMAÇÕES
-        ========================================== */
-
-        document
-            .getElementById("animacao")
-            .addEventListener(
-                "click",
-                () => {
-
-                    document.body.classList.toggle(
-                        "sem-animacao"
-                    );
-
-                }
-            );
-
-
-        /* =========================================
-           LEITOR DE TEXTO
-        ========================================== */
-
-        document
-            .getElementById("leitura")
-            .addEventListener(
-                "click",
-                () => {
-
-                    if (
-                        !("speechSynthesis" in window)
-                    ) {
-
-                        alert(
-                            "Seu navegador não oferece suporte à leitura de texto."
-                        );
-
-                        return;
-
-                    }
-
-
-                    window.speechSynthesis.cancel();
-
-
-                    const texto =
-                        document
-                            .querySelector("main")
-                            .innerText;
-
-
-                    const fala =
-                        new SpeechSynthesisUtterance(
-                            texto
-                        );
-
-
-                    fala.lang =
-                        "pt-BR";
-
-                    fala.rate =
-                        .9;
-
-
-                    window.speechSynthesis.speak(
-                        fala
-                    );
-
-                }
-            );
-
-
-        /* =========================================
-           CARROSSEL
-        ========================================== */
-
-        const carrossel =
-            document.getElementById(
-                "carrossel"
-            );
-
-        const slides =
-            document.querySelectorAll(
-                ".slide"
-            );
-
-        const anterior =
-            document.getElementById(
-                "anterior"
-            );
-
-        const proximo =
-            document.getElementById(
-                "proximo"
-            );
-
-        const indicadores =
-            document.querySelectorAll(
-                ".indicador"
-            );
-
-
-        let slideAtual = 0;
-
-
-        function larguraSlide() {
-
-            if (!slides.length) {
-
-                return 0;
-
-            }
-
-
-            return (
-                slides[0].offsetWidth +
-                25
-            );
-
-        }
-
-
-        function atualizarCarrossel() {
-
-            const largura =
-                larguraSlide();
-
-
-            carrossel.scrollTo({
-
-                left:
-                    slideAtual *
-                    largura,
-
-                behavior:
-                    "smooth"
-
-            });
-
-
-            indicadores.forEach(
-                (indicador, indice) => {
-
-                    const ativo =
-                        indice === slideAtual;
-
-
-                    indicador.classList.toggle(
-                        "ativo",
-                        ativo
-                    );
-
-
-                    indicador.setAttribute(
-                        "aria-selected",
-                        ativo
-                    );
-
-                }
-            );
-
-        }
-
-
-        anterior.addEventListener(
-            "click",
-            () => {
-
-                slideAtual--;
-
-                if (slideAtual < 0) {
-
-                    slideAtual =
-                        slides.length - 1;
-
-                }
-
-                atualizarCarrossel();
-
-            }
-        );
-
-
-        proximo.addEventListener(
-            "click",
-            () => {
-
-                slideAtual++;
-
-                if (
-                    slideAtual >=
-                    slides.length
-                ) {
-
-                    slideAtual = 0;
-
-                }
-
-                atualizarCarrossel();
-
-            }
-        );
-
-
-        indicadores.forEach(
-            (indicador, indice) => {
-
-                indicador.addEventListener(
-                    "click",
-                    () => {
-
-                        slideAtual =
-                            indice;
-
-                        atualizarCarrossel();
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* Teclado */
-
-        carrossel.addEventListener(
-            "keydown",
-            evento => {
-
-                if (
-                    evento.key ===
-                    "ArrowRight"
-                ) {
-
-                    evento.preventDefault();
-
-                    proximo.click();
-
-                }
-
-
-                if (
-                    evento.key ===
-                    "ArrowLeft"
-                ) {
-
-                    evento.preventDefault();
-
-                    anterior.click();
-
-                }
-
-            }
-        );
-
-
-        /* =========================================
-           AUTOPLAY DO CARROSSEL
-        ========================================== */
-
-        let autoplay =
-            setInterval(
-                () => {
-
-                    slideAtual++;
-
-                    if (
-                        slideAtual >=
-                        slides.length
-                    ) {
-
-                        slideAtual = 0;
-
-                    }
-
-                    atualizarCarrossel();
-
-                },
-                5000
-            );
-
-
-        carrossel.addEventListener(
-            "mouseenter",
-            () => {
-
-                clearInterval(
-                    autoplay
-                );
-
-            }
-        );
-
-
-        carrossel.addEventListener(
-            "mouseleave",
-            () => {
-
-                autoplay =
-                    setInterval(
-                        () => {
-
-                            slideAtual++;
-
-                            if (
-                                slideAtual >=
-                                slides.length
-                            ) {
-
-                                slideAtual = 0;
-
-                            }
-
-                            atualizarCarrossel();
-
-                        },
-                        5000
-                    );
-
-            }
-        );
-
-
-        /* =========================================
-           SIMULADOR MU / MUV
-        ========================================== */
-
-        const tipo =
-            document.getElementById(
-                "tipoMovimento"
-            );
-
-        const campoAceleracao =
-            document.getElementById(
-                "campoAceleracao"
-            );
-
-
-        tipo.addEventListener(
-            "change",
-            () => {
-
-                if (
-                    tipo.value === "mu"
-                ) {
-
-                    campoAceleracao.style.display =
-                        "none";
-
-                } else {
-
-                    campoAceleracao.style.display =
-                        "flex";
-
-                }
-
-            }
-        );
-
-
-        tipo.dispatchEvent(
-            new Event("change")
-        );
-
-
-        document
-            .getElementById("calcular")
-            .addEventListener(
-                "click",
-                () => {
-
-                    const s0 =
-                        Number(
-                            document
-                                .getElementById("s0")
-                                .value
-                        );
-
-
-                    const v0 =
-                        Number(
-                            document
-                                .getElementById("v0")
-                                .value
-                        );
-
-
-                    const t =
-                        Number(
-                            document
-                                .getElementById("tempo")
-                                .value
-                        );
-
-
-                    const a =
-                        Number(
-                            document
-                                .getElementById("aceleracao")
-                                .value
-                        );
-
-
-                    const resultado =
-                        document
-                            .getElementById(
-                                "resultado"
-                            );
-
-
-                    const carro =
-                        document
-                            .getElementById(
-                                "carro"
-                            );
-
-
-                    if (
-                        !Number.isFinite(s0) ||
-                        !Number.isFinite(v0) ||
-                        !Number.isFinite(t) ||
-                        t < 0
-                    ) {
-
-                        resultado.innerHTML =
-                            "⚠️ Digite valores válidos.";
-
-                        return;
-
-                    }
-
-
-                    let posicao;
-                    let velocidadeFinal;
-
-
-                    if (
-                        tipo.value === "mu"
-                    ) {
-
-                        posicao =
-                            s0 +
-                            v0 * t;
-
-                        velocidadeFinal =
-                            v0;
-
-
-                        resultado.innerHTML = `
-
-                            <strong>
-                                🚗 Movimento Uniforme
-                            </strong>
-
-                            <br><br>
-
-                            Posição final:
-                            <strong>
-                                ${posicao.toFixed(2)} m
-                            </strong>
-
-                            <br>
-
-                            Velocidade:
-                            <strong>
-                                ${velocidadeFinal.toFixed(2)} m/s
-                            </strong>
-
-                            <br>
-
-                            Aceleração:
-                            <strong>
-                                0 m/s²
-                            </strong>
-
-                            <br><br>
-
-                            Fórmula:
-                            S = S₀ + v · t
-
-                        `;
-
-                    } else {
-
-
-                        if (
-                            !Number.isFinite(a)
-                        ) {
-
-                            resultado.innerHTML =
-                                "⚠️ Digite uma aceleração válida.";
-
-                            return;
-
-                        }
-
-
-                        posicao =
-                            s0 +
-                            v0 * t +
-                            .5 *
-                            a *
-                            t *
-                            t;
-
-
-                        velocidadeFinal =
-                            v0 +
-                            a * t;
-
-
-                        resultado.innerHTML = `
-
-                            <strong>
-                                🏎️ Movimento Uniformemente Variado
-                            </strong>
-
-                            <br><br>
-
-                            Posição final:
-                            <strong>
-                                ${posicao.toFixed(2)} m
-                            </strong>
-
-                            <br>
-
-                            Velocidade final:
-                            <strong>
-                                ${velocidadeFinal.toFixed(2)} m/s
-                            </strong>
-
-                            <br>
-
-                            Aceleração:
-                            <strong>
-                                ${a.toFixed(2)} m/s²
-                            </strong>
-
-                            <br><br>
-
-                            Fórmula:
-                            S = S₀ + v₀t + ½at²
-
-                        `;
-
-                    }
-
-
-                    const posicaoVisual =
-                        Math.max(
-                            2,
-                            Math.min(
-                                92,
-                                2 +
-                                Math.abs(posicao) *
-                                2
-                            )
-                        );
-
-
-                    carro.style.left =
-                        posicaoVisual +
-                        "%";
-
-                }
-            );
-
-
-        /* =========================================
-           MAPA CONCEITUAL
-        ========================================== */
-
-        const conteudo =
-            document.getElementById(
-                "conteudo"
-            );
-
-
-        const textosMapa = {
-
-            mu: `
-
-                <h3>
-                    🚗 Movimento Uniforme
-                </h3>
-
-                <p>
-                    No MU, a velocidade permanece
-                    constante e a aceleração é zero.
-                </p>
-
-                <br>
-
-                <p>
-                    <strong>
-                        Fórmula:
-                    </strong>
-                </p>
-
-                <p>
-                    S = S₀ + v · t
-                </p>
-
-            `,
-
-
-            muv: `
-
-                <h3>
-                    🏎️ MUV
-                </h3>
-
-                <p>
-                    No MUV, a aceleração é constante
-                    e a velocidade muda com o tempo.
-                </p>
-
-                <br>
-
-                <p>
-                    v = v₀ + at
-                </p>
-
-                <p>
-                    S = S₀ + v₀t + ½at²
-                </p>
-
-            `,
-
-
-            dinamica: `
-
-                <h3>
-                    ⚙️ Dinâmica
-                </h3>
-
-                <p>
-                    Estuda as causas dos movimentos,
-                    principalmente as forças.
-                </p>
-
-                <br>
-
-                <p>
-                    <strong>
-                        2ª Lei de Newton:
-                    </strong>
-                </p>
-
-                <p>
-                    F = m · a
-                </p>
-
-            `,
-
-
-            optica: `
-
-                <h3>
-                    🔦 Óptica
-                </h3>
-
-                <p>
-                    Estuda a luz e seus fenômenos.
-                </p>
-
-                <br>
-
-                <p>
-                    Reflexão, refração, lentes,
-                    espelhos e formação de imagens.
-                </p>
-
-                <br>
-
-                <p>
-                    <strong>
-                        Lei da reflexão:
-                    </strong>
-                    i = r
-                </p>
-
-            `
-
+</section>
+
+<section id="sobre">
+    <h2 class="titulo">ℹ️ Sobre</h2>
+
+    <p class="desc">
+        O Física Interativa é um projeto educacional
+        criado para tornar o aprendizado de Física
+        mais visual, simples e divertido.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>⚛️ <strong>Física Interativa</strong></p>
+    <p>Projeto criado por <strong>José Maheus</strong></p>
+    <p>Aprender Física pode ser divertido! 🚀</p>
+</footer>
+
+<script>
+/* MENU */
+const menuBtn=document.getElementById("menuBtn");
+const nav=document.getElementById("nav");
+
+menuBtn.onclick=()=>{
+    nav.classList.toggle("ativo");
+};
+
+/* MODO ESCURO */
+document.getElementById("tema").onclick=()=>{
+    document.body.classList.toggle("dark");
+
+    document.getElementById("tema").textContent=
+        document.body.classList.contains("dark")?"☀️":"🌙";
+};
+
+/* SIMULADOR */
+const tipo=document.getElementById("tipo");
+const campoA=document.getElementById("campoA");
+
+tipo.onchange=()=>{
+    campoA.style.display=
+        tipo.value==="mu"?"none":"block";
+};
+
+tipo.onchange();
+
+document.getElementById("calcular").onclick=()=>{
+
+    const s0=Number(document.getElementById("s0").value);
+    const v0=Number(document.getElementById("v0").value);
+    const a=Number(document.getElementById("a").value);
+    const t=Number(document.getElementById("t").value);
+
+    let s,v;
+
+    if(tipo.value==="mu"){
+        s=s0+v0*t;
+        v=v0;
+
+        document.getElementById("resultado").innerHTML=`
+            🚗 <strong>Movimento Uniforme</strong><br><br>
+            Posição final: <strong>${s.toFixed(2)} m</strong><br>
+            Velocidade: <strong>${v.toFixed(2)} m/s</strong><br>
+            Aceleração: <strong>0 m/s²</strong>
+        `;
+    }else{
+        s=s0+v0*t+0.5*a*t*t;
+        v=v0+a*t;
+
+        document.getElementById("resultado").innerHTML=`
+            🏎️ <strong>Movimento Uniformemente Variado</strong><br><br>
+            Posição final: <strong>${s.toFixed(2)} m</strong><br>
+            Velocidade final: <strong>${v.toFixed(2)} m/s</strong><br>
+            Aceleração: <strong>${a.toFixed(2)} m/s²</strong>
+        `;
+    }
+};
+
+/* MAPA */
+const textos={
+    mu:"🚗 No MU, a velocidade é constante e a aceleração é zero. Fórmula: S = S₀ + v · t.",
+    muv:"🏎️ No MUV, a aceleração é constante e a velocidade varia com o tempo.",
+    dinamica:"⚙️ A Dinâmica estuda as forças responsáveis pelas mudanças no movimento. Fórmula: F = m · a.",
+    optica:"🔦 A Óptica estuda a luz, incluindo reflexão, refração, lentes e espelhos."
+};
+
+document.querySelectorAll(".mapa button").forEach(botao=>{
+    botao.onclick=()=>{
+        document.getElementById("resumo").textContent=
+            textos[botao.dataset.tema];
+    };
+});
+
+/* QUIZ */
+const perguntas=[
+    {
+        q:"Um carro anda a 20 m/s durante 5 s. Qual distância percorre?",
+        op:["25 m","50 m","100 m","200 m"],
+        c:2
+    },
+    {
+        q:"Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 s?",
+        op:["2 m/s","5 m/s","10 m/s","25 m/s"],
+        c:2
+    },
+    {
+        q:"Qual é a expressão da 2ª Lei de Newton?",
+        op:["F = m · a","F = m + a","F = m / a","F = a / m"],
+        c:0
+    },
+    {
+        q:"Na reflexão da luz, os ângulos de incidência e reflexão são:",
+        op:["Diferentes","Sempre zero","Iguais","Aleatórios"],
+        c:2
+    },
+    {
+        q:"Quando a luz muda de direção ao passar para outro meio ocorre:",
+        op:["Reflexão","Refração","Inércia","Combustão"],
+        c:1
+    }
+];
+
+let atual=0;
+let pontos=0;
+let resposta=null;
+
+const pergunta=document.getElementById("pergunta");
+const opcoes=document.getElementById("opcoes");
+const feedback=document.getElementById("feedback");
+const verificar=document.getElementById("verificar");
+const proxima=document.getElementById("proxima");
+
+function carregar(){
+
+    resposta=null;
+    feedback.textContent="";
+    proxima.hidden=true;
+    verificar.hidden=false;
+
+    const q=perguntas[atual];
+
+    pergunta.textContent=q.q;
+    opcoes.innerHTML="";
+
+    q.op.forEach((texto,i)=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="opcao";
+        btn.textContent=
+            `${String.fromCharCode(65+i)}. ${texto}`;
+
+        btn.onclick=()=>{
+            document.querySelectorAll(".opcao")
+                .forEach(x=>x.style.background="white");
+
+            btn.style.background="#dceeff";
+            resposta=i;
         };
 
-
-        document
-            .querySelectorAll(".caixa")
-            .forEach(caixa => {
-
-                caixa.addEventListener(
-                    "click",
-                    () => {
-
-                        const tema =
-                            caixa.dataset.tema;
-
-
-                        conteudo.innerHTML =
-                            textosMapa[tema];
-
-
-                        conteudo.scrollIntoView({
-                            behavior:
-                                "smooth",
-                            block:
-                                "center"
-                        });
-
-                    }
-                );
-
-            });
-
-
-        /* =========================================
-           QUIZ
-        ========================================== */
-
-        const perguntas = [
-
-            {
-
-                pergunta:
-                    "Um carro percorre uma estrada com velocidade constante de 20 m/s durante 5 segundos. Qual é a distância percorrida?",
-
-                opcoes: [
-                    "25 m",
-                    "50 m",
-                    "100 m",
-                    "200 m"
-                ],
-
-                correta: 2,
-
-                explicacao:
-                    "No MU, ΔS = v · t. Portanto, 20 · 5 = 100 m."
-
-            },
-
-
-            {
-
-                pergunta:
-                    "Um corpo parte do repouso com aceleração de 2 m/s². Qual será sua velocidade após 5 segundos?",
-
-                opcoes: [
-                    "2 m/s",
-                    "5 m/s",
-                    "10 m/s",
-                    "25 m/s"
-                ],
-
-                correta: 2,
-
-                explicacao:
-                    "Usando v = v₀ + at, temos v = 0 + 2 · 5 = 10 m/s."
-
-            },
-
-
-            {
-
-                pergunta:
-                    "Qual é a expressão correta da 2ª Lei de Newton?",
-
-                opcoes: [
-                    "F = m · a",
-                    "F = m + a",
-                    "F = m / a",
-                    "F = a / m"
-                ],
-
-                correta: 0,
-
-                explicacao:
-                    "A força resultante é o produto da massa pela aceleração."
-
-            },
-
-
-            {
-
-                pergunta:
-                    "Na reflexão da luz, qual relação existe entre o ângulo de incidência e o ângulo de reflexão?",
-
-                opcoes: [
-                    "O primeiro é sempre maior.",
-                    "O segundo é sempre maior.",
-                    "Eles são iguais.",
-                    "Eles são sempre zero."
-                ],
-
-                correta: 2,
-
-                explicacao:
-                    "Pela lei da reflexão, o ângulo de incidência é igual ao ângulo de reflexão."
-
-            },
-
-
-            {
-
-                pergunta:
-                    "Qual fenômeno ocorre quando a luz muda de direção ao passar de um meio para outro?",
-
-                opcoes: [
-                    "Reflexão",
-                    "Refração",
-                    "Combustão",
-                    "Inércia"
-                ],
-
-                correta: 1,
-
-                explicacao:
-                    "A mudança de direção e velocidade da luz ao passar entre meios diferentes é chamada refração."
-
-            }
-
-        ];
-
-
-        let questaoAtual = 0;
-
-        let pontos = 0;
-
-        let resposta =
-            null;
-
-
-        const pergunta =
-            document.getElementById(
-                "pergunta"
-            );
-
-        const opcoes =
-            document.getElementById(
-                "opcoes"
-            );
-
-        const feedback =
-            document.getElementById(
-                "feedback"
-            );
-
-        const verificar =
-            document.getElementById(
-                "verificar"
-            );
-
-        const proxima =
-            document.getElementById(
-                "proxima"
-            );
-
-        const questaoNumero =
-            document.getElementById(
-                "questaoNumero"
-            );
-
-        const pontuacao =
-            document.getElementById(
-                "pontuacao"
-            );
-
-
-        function carregarQuestao() {
-
-            resposta = null;
-
-            feedback.hidden = true;
-
-            verificar.hidden = false;
-
-            proxima.hidden = true;
-
-
-            const atual =
-                perguntas[questaoAtual];
-
-
-            questaoNumero.textContent =
-                `Questão ${questaoAtual + 1} de ${perguntas.length}`;
-
-
-            pontuacao.textContent =
-                `Pontos: ${pontos}`;
-
-
-            pergunta.textContent =
-                atual.pergunta;
-
-
-            opcoes.innerHTML =
-                "";
-
-
-            atual.opcoes.forEach(
-                (texto, indice) => {
-
-                    const botao =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    botao.type =
-                        "button";
-
-
-                    botao.className =
-                        "opcao";
-
-
-                    botao.textContent =
-                        `${String.fromCharCode(65 + indice)}. ${texto}`;
-
-
-                    botao.addEventListener(
-                        "click",
-                        () => {
-
-                            document
-                                .querySelectorAll(
-                                    ".opcao"
-                                )
-                                .forEach(
-                                    item => {
-
-                                        item.classList.remove(
-                                            "selecionada"
-                                        );
-
-                                    }
-                                );
-
-
-                            botao.classList.add(
-                                "selecionada"
-                            );
-
-
-                            resposta =
-                                indice;
-
-                        }
-                    );
-
-
-                    opcoes.appendChild(
-                        botao
-                    );
-
-                }
-            );
-
+        opcoes.appendChild(btn);
+    });
+}
+
+verificar.onclick=()=>{
+
+    if(resposta===null){
+        feedback.className="feedback erro";
+        feedback.textContent="⚠️ Escolha uma alternativa.";
+        return;
+    }
+
+    if(resposta===perguntas[atual].c){
+        pontos++;
+        feedback.className="feedback certo";
+        feedback.textContent="🎉 Correto!";
+    }else{
+        feedback.className="feedback erro";
+        feedback.textContent="❌ Incorreto.";
+    }
+
+    verificar.hidden=true;
+    proxima.hidden=false;
+};
+
+proxima.onclick=()=>{
+
+    atual++;
+
+    if(atual>=perguntas.length){
+
+        pergunta.textContent=
+            `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
+
+        opcoes.innerHTML="";
+        feedback.className="feedback certo";
+        feedback.textContent="Quiz concluído!";
+
+        proxima.textContent="🔄 Refazer";
+
+        if(proxima.dataset.fim){
+            atual=0;
+            pontos=0;
+            delete proxima.dataset.fim;
+            proxima.textContent="Próxima →";
+            carregar();
+        }else{
+            proxima.dataset.fim="1";
         }
 
+        return;
+    }
 
-        verificar.addEventListener(
-            "click",
-            () => {
+    carregar();
+};
 
-                if (
-                    resposta === null
-                ) {
-
-                    feedback.hidden =
-                        false;
-
-                    feedback.className =
-                        "feedback erro";
-
-                    feedback.textContent =
-                        "⚠️ Escolha uma alternativa.";
-
-                    return;
-
-                }
-
-
-                const atual =
-                    perguntas[questaoAtual];
-
-
-                if (
-                    resposta ===
-                    atual.correta
-                ) {
-
-                    pontos++;
-
-
-                    feedback.className =
-                        "feedback certo";
-
-
-                    feedback.innerHTML =
-                        `
-                        <strong>
-                            🎉 Correto!
-                        </strong>
-                        <br>
-                        ${atual.explicacao}
-                        `;
-
-                } else {
-
-                    feedback.className =
-                        "feedback erro";
-
-
-                    feedback.innerHTML =
-                        `
-                        <strong>
-                            ❌ Incorreto.
-                        </strong>
-                        <br>
-                        ${atual.explicacao}
-                        `;
-
-                }
-
-
-                feedback.hidden =
-                    false;
-
-
-                pontuacao.textContent =
-                    `Pontos: ${pontos}`;
-
-
-                verificar.hidden =
-                    true;
-
-
-                proxima.hidden =
-                    false;
-
-            }
-        );
-
-
-        proxima.addEventListener(
-            "click",
-            () => {
-
-                questaoAtual++;
-
-
-                if (
-                    questaoAtual >=
-                    perguntas.length
-                ) {
-
-                    pergunta.textContent =
-                        "🎉 Quiz concluído!";
-
-
-                    opcoes.innerHTML =
-                        "";
-
-
-                    feedback.hidden =
-                        false;
-
-
-                    feedback.className =
-                        "feedback certo";
-
-
-                    feedback.innerHTML =
-                        `
-                        Você acertou
-                        <strong>
-                            ${pontos}
-                        </strong>
-                        de
-                        <strong>
-                            ${perguntas.length}
-                        </strong>
-                        questões!
-                        `;
-
-
-                    verificar.hidden =
-                        true;
-
-
-                    proxima.hidden =
-                        false;
-
-
-                    proxima.textContent =
-                        "🔄 Refazer quiz";
-
-
-                    return;
-
-                }
-
-
-                proxima.textContent =
-                    "Próxima →";
-
-
-                carregarQuestao();
-
-            }
-        );
-
-
-        /* Refazer quiz */
-
-        proxima.addEventListener(
-            "click",
-            () => {
-
-                if (
-                    questaoAtual >=
-                    perguntas.length
-                ) {
-
-                    questaoAtual =
-                        0;
-
-                    pontos =
-                        0;
-
-                    proxima.textContent =
-                        "Próxima →";
-
-                    carregarQuestao();
-
-                }
-
-            }
-        );
-
-
-        carregarQuestao();
-
-
-        /* =========================================
-           BOTÃO VOLTAR AO TOPO
-        ========================================== */
-
-        const topo =
-            document.getElementById(
-                "topo"
-            );
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (
-                    window.scrollY >
-                    400
-                ) {
-
-                    topo.classList.add(
-                        "visivel"
-                    );
-
-                } else {
-
-                    topo.classList.remove(
-                        "visivel"
-                    );
-
-                }
-
-            }
-        );
-
-
-        topo.addEventListener(
-            "click",
-            () => {
-
-                window.scrollTo({
-
-                    top:
-                        0,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
-        );
-
-
-        /* =========================================
-           ESC PARA FECHAR MENU
-        ========================================== */
-
-        document.addEventListener(
-            "keydown",
-            evento => {
-
-                if (
-                    evento.key ===
-                    "Escape"
-                ) {
-
-                    menu.classList.remove(
-                        "ativo"
-                    );
-
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuBtn.textContent =
-                        "☰";
-
-                }
-
-            }
-        );
-
-
-        /* =========================================
-           FECHAR MENU AO CLICAR FORA
-        ========================================== */
-
-        document.addEventListener(
-            "click",
-            evento => {
-
-                if (
-                    !menu.contains(
-                        evento.target
-                    ) &&
-                    !menuBtn.contains(
-                        evento.target
-                    )
-                ) {
-
-                    menu.classList.remove(
-                        "ativo"
-                    );
-
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuBtn.textContent =
-                        "☰";
-
-                }
-
-            }
-        );
-
-
-    </script>
+carregar();
+</script>
 
 </body>
-
 </html>
