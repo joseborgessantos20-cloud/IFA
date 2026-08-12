@@ -1,1643 +1,3673 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Física Interativa</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --azul:#0757a0;
-    --azul2:#1976d2;
-    --fundo:#f5f7fa;
-    --branco:#fff;
-    --texto:#222;
-    --suave:#eaf4ff;
-    --verde:#2e7d32;
-    --vermelho:#c62828;
-    --sombra:0 6px 20px #0001;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Poppins,sans-serif;
-    background:var(--fundo);
-    color:var(--texto);
-    line-height:1.6;
-}
-
-button,
-input,
-select{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-/* MENU */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:var(--azul);
-    color:white;
-    min-height:70px;
-    padding:12px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:var(--sombra);
-}
-
-.logo{
-    font-size:21px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
-nav a{
-    padding:8px 4px;
-    font-weight:500;
-}
-
-nav a:hover{
-    color:#ffeb3b;
-}
-
-.menu-btn{
-    display:none;
-    border:0;
-    background:none;
-    color:white;
-    font-size:28px;
-}
-
-.tema-btn{
-    border:0;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    background:white;
-}
-
-/* HERO */
-
-.hero{
-    min-height:65vh;
-    display:grid;
-    place-items:center;
-    text-align:center;
-    padding:50px 20px;
-    color:white;
-    background:linear-gradient(135deg,#003b70,#1976d2,#42a5f5);
-}
-
-.hero-content{
-    max-width:750px;
-}
-
-.hero h1{
-    font-size:clamp(40px,8vw,70px);
-    line-height:1.1;
-    margin-bottom:15px;
-}
-
-.hero p{
-    font-size:18px;
-    margin:7px 0;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:22px;
-    padding:12px 25px;
-    border:0;
-    border-radius:30px;
-    background:white;
-    color:var(--azul);
-    font-weight:700;
-}
-
-/* SEÇÕES */
-
-section{
-    padding:60px 7%;
-}
-
-.titulo{
-    text-align:center;
-    color:var(--azul);
-    font-size:clamp(28px,5vw,40px);
-    margin-bottom:8px;
-}
-
-.descricao{
-    max-width:650px;
-    margin:0 auto 35px;
-    text-align:center;
-    color:#666;
-}
-
-/* CARDS */
-
-.cards{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:var(--branco);
-    padding:25px;
-    border-radius:18px;
-    box-shadow:var(--sombra);
-    border-top:4px solid var(--azul2);
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card h3{
-    color:var(--azul);
-    margin-bottom:10px;
-}
-
-.icone{
-    font-size:38px;
-}
-
-.formula{
-    margin-top:15px;
-    padding:10px;
-    text-align:center;
-    background:var(--suave);
-    color:var(--azul);
-    border-radius:9px;
-    font-weight:700;
-}
-
-/* ACESSIBILIDADE */
-
-.acessibilidade{
-    background:var(--suave);
-}
-
-.acessibilidade-box{
-    max-width:1000px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:var(--sombra);
-}
-
-.acessibilidade-box h3{
-    color:var(--azul);
-    margin-bottom:10px;
-}
-
-.botoes-acessibilidade{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:20px 0;
-}
-
-.botoes-acessibilidade button{
-    border:2px solid var(--azul);
-    background:white;
-    color:var(--azul);
-    padding:10px 15px;
-    border-radius:10px;
-    font-weight:600;
-}
-
-.botoes-acessibilidade button:hover,
-.botoes-acessibilidade button.ativo{
-    background:var(--azul);
-    color:white;
-}
-
-/* SIMULADOR DE VISÃO */
-
-.visao{
-    margin-top:25px;
-}
-
-.visao-area{
-    height:180px;
-    display:grid;
-    place-items:center;
-    border-radius:15px;
-    overflow:hidden;
-    background:linear-gradient(135deg,#1976d2,#42a5f5);
-    transition:.3s;
-}
-
-.visao-area .olho{
-    font-size:80px;
-}
-
-.explicacao{
-    margin-top:15px;
-    padding:15px;
-    background:var(--suave);
-    border-radius:10px;
-}
-
-/* LABORATÓRIO */
-
-.laboratorio{
-    background:#eaf5ff;
-}
-
-.simulador,
-.quiz{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:var(--sombra);
-}
-
-.controles{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-    gap:15px;
-}
-
-.campo label{
-    display:block;
-    color:var(--azul);
-    font-weight:600;
-    margin-bottom:5px;
-}
-
-.campo input,
-.campo select{
-    width:100%;
-    padding:10px;
-    border:2px solid #ddd;
-    border-radius:8px;
-}
-
-.btn-azul{
-    margin-top:20px;
-    padding:12px 22px;
-    border:0;
-    border-radius:25px;
-    background:var(--azul2);
-    color:white;
-    font-weight:700;
-}
-
-.resultado{
-    margin-top:20px;
-    padding:15px;
-    background:#f5f7fa;
-    border-left:4px solid var(--azul2);
-    border-radius:8px;
-}
-
-/* MAPA */
-
-.mapa-box{
-    max-width:850px;
-    margin:auto;
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:var(--sombra);
-}
-
-.mapa{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.mapa button{
-    border:0;
-    padding:20px;
-    background:#f5f7fa;
-    color:var(--azul);
-    border-radius:14px;
-    font-weight:600;
-}
-
-.mapa button:hover{
-    background:var(--suave);
-}
-
-#resumo{
-    margin-top:20px;
-    padding:18px;
-    background:var(--suave);
-    border-radius:12px;
-}
-
-/* QUIZ */
-
-.pergunta{
-    font-size:19px;
-    font-weight:600;
-    margin-bottom:20px;
-}
-
-.opcoes{
-    display:grid;
-    gap:10px;
-}
-
-.opcao{
-    padding:13px;
-    text-align:left;
-    border:2px solid #ddd;
-    border-radius:10px;
-    background:white;
-}
-
-.opcao:hover{
-    border-color:var(--azul2);
-    background:var(--suave);
-}
-
-.feedback{
-    margin-top:15px;
-    padding:15px;
-    border-radius:10px;
-}
-
-.certo{
-    background:#dff5e3;
-    color:#176525;
-}
-
-.erro{
-    background:#ffe1e1;
-    color:#9b1c1c;
-}
-
-/* RODAPÉ */
-
-footer{
-    padding:30px 20px;
-    background:var(--azul);
-    color:white;
-    text-align:center;
-}
-
-footer strong{
-    color:#ffeb3b;
-}
-
-/* MODO ESCURO */
-
-body.dark{
-    --fundo:#121212;
-    --texto:#eee;
-}
-
-body.dark .card,
-body.dark .acessibilidade-box,
-body.dark .simulador,
-body.dark .quiz,
-body.dark .mapa-box{
-    background:#222;
-    color:white;
-}
-
-body.dark .opcao,
-body.dark .campo input,
-body.dark .campo select{
-    background:#333;
-    color:white;
-    border-color:#555;
-}
-
-body.dark .resultado{
-    background:#333;
-}
-
-body.dark .descricao{
-    color:#ccc;
-}
-
-/* ALTO CONTRASTE */
-
-body.contraste{
-    background:#000;
-    color:#fff;
-}
-
-body.contraste .card,
-body.contraste .acessibilidade-box,
-body.contraste .simulador,
-body.contraste .quiz,
-body.contraste .mapa-box{
-    background:#000;
-    color:#fff;
-    border:2px solid white;
-}
-
-body.contraste .titulo,
-body.contraste h3{
-    color:#fff;
-}
-
-/* VISÃO */
-
-body.protanopia .visao-area{
-    filter:url("#protanopia");
-}
-
-body.deuteranopia .visao-area{
-    filter:sepia(.5) saturate(.7);
-}
-
-body.tritanopia .visao-area{
-    filter:hue-rotate(40deg);
-}
-
-/* FONTE */
-
-body.fonte-grande{
-    font-size:115%;
-}
-
-body.fonte-maior{
-    font-size:130%;
-}
-
-/* MOBILE */
-
-@media(max-width:800px){
-
-    nav{
-        display:none;
-        position:absolute;
-        top:70px;
-        right:15px;
-        width:230px;
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        background:var(--azul);
-        border-radius:0 0 14px 14px;
-        overflow:hidden;
-        box-shadow:var(--sombra);
-    }
-
-    nav.ativo{
-        display:flex;
-    }
-
-    nav a{
-        padding:14px 18px;
-        border-bottom:1px solid #ffffff22;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .mapa{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:500px){
-
-    header{
-        padding:12px 4%;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    section{
-        padding:45px 5%;
-    }
-
-    .mapa{
-        grid-template-columns:1fr;
-    }
-
-    .simulador,
-    .quiz,
-    .acessibilidade-box{
-        padding:20px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Física Interativa — aprenda Física de forma visual, acessível e interativa."
+    >
+
+    <title>Física Interativa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        :root {
+            --azul: #0757a0;
+            --azul-escuro: #003b70;
+            --azul2: #1976d2;
+            --azul-claro: #42a5f5;
+
+            --fundo: #f5f7fa;
+            --branco: #ffffff;
+            --texto: #222222;
+            --texto-suave: #64748b;
+
+            --suave: #eaf4ff;
+            --verde: #2e7d32;
+            --vermelho: #c62828;
+            --amarelo: #f59e0b;
+
+            --borda: #e2e8f0;
+
+            --sombra:
+                0 8px 25px rgba(0, 0, 0, 0.08);
+
+            --sombra-forte:
+                0 18px 45px rgba(7, 87, 160, 0.15);
+
+            --raio: 20px;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+            transition:
+                background .3s,
+                color .3s;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            min-height: 70px;
+            padding: 12px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            background: rgba(7, 87, 160, .97);
+            color: white;
+
+            box-shadow: var(--sombra);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        nav a {
+            position: relative;
+            padding: 8px 4px;
+            font-weight: 500;
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+
+            width: 0;
+            height: 2px;
+
+            background: #ffeb3b;
+            transition: width .2s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #ffeb3b;
+        }
+
+        .menu-btn {
+            display: none;
+
+            border: 0;
+            background: transparent;
+            color: white;
+
+            font-size: 28px;
+        }
+
+        .tema-btn {
+            flex-shrink: 0;
+
+            width: 42px;
+            height: 42px;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: white;
+
+            transition: transform .2s;
+        }
+
+        .tema-btn:hover {
+            transform: rotate(15deg) scale(1.05);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 72vh;
+
+            display: grid;
+            place-items: center;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255,255,255,.15),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(255,255,255,.12),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #003b70,
+                    #0757a0,
+                    #1976d2,
+                    #42a5f5
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.08);
+        }
+
+        .hero::before {
+            width: 350px;
+            height: 350px;
+            top: -150px;
+            right: -100px;
+        }
+
+        .hero::after {
+            width: 250px;
+            height: 250px;
+            bottom: -120px;
+            left: -80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 820px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 30px;
+
+            background: rgba(255,255,255,.12);
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 8px auto;
+            max-width: 700px;
+            color: rgba(255,255,255,.94);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 25px;
+
+            border: 0;
+            border-radius: 30px;
+
+            background: white;
+            color: var(--azul);
+
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,.18);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,.7);
+        }
+
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        section {
+            padding: 75px 7%;
+        }
+
+        .titulo {
+            text-align: center;
+
+            color: var(--azul);
+
+            font-size: clamp(28px, 5vw, 42px);
+
+            margin-bottom: 8px;
+        }
+
+        .descricao {
+            max-width: 700px;
+
+            margin: 0 auto 40px;
+
+            text-align: center;
+
+            color: var(--texto-suave);
+        }
+
+        .section-tag {
+            display: inline-block;
+
+            color: var(--azul2);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* =====================================================
+           CARDS DE CONTEÚDO
+        ===================================================== */
+
+        .cards {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+
+            background: var(--branco);
+
+            padding: 28px;
+
+            border-radius: var(--raio);
+
+            box-shadow: var(--sombra);
+
+            border: 1px solid var(--borda);
+
+            overflow: hidden;
+
+            transition: .25s;
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--azul),
+                    var(--azul-claro)
+                );
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .card h3 {
+            color: var(--azul);
+            margin: 12px 0 8px;
+        }
+
+        .card p {
+            color: var(--texto-suave);
+        }
+
+        .icone {
+            font-size: 40px;
+        }
+
+        .formula {
+            margin-top: 18px;
+
+            padding: 11px;
+
+            text-align: center;
+
+            background: var(--suave);
+
+            color: var(--azul);
+
+            border-radius: 10px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           VISÃO E ACESSIBILIDADE
+        ===================================================== */
+
+        .acessibilidade {
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf4ff,
+                    #f7fbff
+                );
+        }
+
+        .acessibilidade-box {
+            max-width: 1100px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow: var(--sombra-forte);
+
+            border: 1px solid #dcecff;
+        }
+
+        .acessibilidade-box h3 {
+            color: var(--azul);
+            margin-bottom: 8px;
+        }
+
+        .botoes-acessibilidade {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin: 20px 0 30px;
+        }
+
+        .botoes-acessibilidade button {
+            border: 2px solid var(--azul);
+
+            background: white;
+
+            color: var(--azul);
+
+            padding: 10px 15px;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .botoes-acessibilidade button:hover,
+        .botoes-acessibilidade button.ativo {
+            background: var(--azul);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           NOVA ÁREA DE VISÃO
+        ===================================================== */
+
+        .visao-interativa {
+            margin-top: 35px;
+        }
+
+        .visao-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.35fr .75fr;
+
+            gap: 25px;
+        }
+
+        .olho-card,
+        .controle-visao {
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            box-shadow: var(--sombra);
+
+            border: 1px solid var(--borda);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .card-top h3,
+        .controle-visao h3 {
+            color: var(--azul);
+            font-size: 22px;
+        }
+
+        .mini-label {
+            display: block;
+
+            color: var(--azul2);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 3px;
+        }
+
+        .status {
+            padding: 6px 11px;
+
+            border-radius: 20px;
+
+            background: #dcfce7;
+
+            color: #15803d;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           SIMULAÇÃO DO OLHO
+        ===================================================== */
+
+        .olho-simulacao {
+            height: 330px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #e0f2fe,
+                    #bfdbfe
+                );
+        }
+
+        .olho-simulacao::after {
+            content: "RAIOS DE LUZ";
+
+            position: absolute;
+
+            left: 18px;
+            top: 15px;
+
+            color: #0369a1;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+        .olho-real {
+            position: absolute;
+
+            width: 320px;
+            height: 215px;
+
+            right: 10%;
+            top: 57px;
+
+            background: white;
+
+            border: 8px solid #dbeafe;
+
+            border-radius:
+                65% 45% 45% 65%;
+
+            box-shadow:
+                inset -25px 0 35px rgba(30,64,175,.12),
+                0 15px 30px rgba(15,23,42,.15);
+
+            transition: .4s;
+        }
+
+        .iris {
+            position: absolute;
+
+            width: 86px;
+            height: 86px;
+
+            left: 35px;
+            top: 55px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #020617 0 18%,
+                    #2563eb 19% 43%,
+                    #0f3b78 44% 65%,
+                    #172554 66%
+                );
+
+            box-shadow:
+                0 0 0 7px #93c5fd;
+        }
+
+        .pupila {
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            background: #020617;
+
+            border-radius: 50%;
+        }
+
+        .cristalino {
+            position: absolute;
+
+            left: 116px;
+            top: 53px;
+
+            width: 48px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(125,211,252,.1),
+                    rgba(255,255,255,.9),
+                    rgba(125,211,252,.1)
+                );
+
+            border: 2px solid #38bdf8;
+
+            box-shadow:
+                0 0 15px rgba(14,165,233,.35);
+        }
+
+        .retina {
+            position: absolute;
+
+            right: 7px;
+            top: 32px;
+
+            width: 12px;
+            height: 145px;
+
+            border-radius: 50%;
+
+            background: #f43f5e;
+
+            box-shadow:
+                0 0 15px rgba(244,63,94,.4);
+        }
+
+        .raio {
+            position: absolute;
+
+            left: -30px;
+
+            width: 230px;
+            height: 3px;
+
+            z-index: 5;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #f59e0b,
+                    #fde047
+                );
+
+            transform-origin: left center;
+
+            animation:
+                luz 2.3s infinite linear;
+        }
+
+        .raio-1 {
+            top: 105px;
+            transform: rotate(-8deg);
+        }
+
+        .raio-2 {
+            top: 165px;
+            animation-delay: .35s;
+        }
+
+        .raio-3 {
+            top: 225px;
+            transform: rotate(8deg);
+            animation-delay: .7s;
+        }
+
+        @keyframes luz {
+            0% {
+                opacity: 0;
+                transform:
+                    translateX(-20px)
+                    scaleX(.5);
+            }
+
+            35% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform:
+                    translateX(150px)
+                    scaleX(1);
+            }
+        }
+
+
+        /* =====================================================
+           LABELS DO OLHO
+        ===================================================== */
+
+        .parte-olho {
+            position: absolute;
+
+            z-index: 20;
+
+            border: 0;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            background: var(--azul);
+
+            color: white;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .parte-olho:hover {
+            background: var(--azul2);
+            transform: scale(1.06);
+        }
+
+        .label-cornea {
+            right: 43%;
+            top: 30px;
+        }
+
+        .label-cristalino {
+            right: 27%;
+            top: 112px;
+        }
+
+        .label-retina {
+            right: 4%;
+            bottom: 32px;
+        }
+
+        .explicacao-olho {
+            margin-top: 17px;
+
+            padding: 16px;
+
+            background: var(--suave);
+
+            border-left: 4px solid var(--azul2);
+
+            border-radius: 12px;
+
+            color: var(--texto-suave);
+        }
+
+        .explicacao-olho strong {
+            color: var(--azul);
+        }
+
+        .explicacao-olho p {
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           CONTROLE DE VISÃO
+        ===================================================== */
+
+        .controle-visao > p {
+            color: var(--texto-suave);
+            margin: 10px 0 20px;
+        }
+
+        .condicoes {
+            display: grid;
+            gap: 10px;
+        }
+
+        .condicao {
+            width: 100%;
+
+            padding: 13px 15px;
+
+            text-align: left;
+
+            border: 2px solid var(--borda);
+
+            background: white;
+
+            border-radius: 12px;
+
+            color: #334155;
+
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .condicao:hover {
+            border-color: var(--azul2);
+        }
+
+        .condicao.ativo {
+            background: var(--azul);
+            border-color: var(--azul);
+            color: white;
+        }
+
+        .resultado-visao {
+            margin-top: 20px;
+
+            padding: 18px;
+
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+
+            border-radius: 15px;
+
+            background: #f1f5f9;
+        }
+
+        .resultado-icone {
+            font-size: 34px;
+            line-height: 1;
+        }
+
+        .resultado-visao strong {
+            color: var(--azul);
+        }
+
+        .resultado-visao p {
+            margin-top: 5px;
+            color: var(--texto-suave);
+        }
+
+
+        /* =====================================================
+           ANATOMIA
+        ===================================================== */
+
+        .anatomia {
+            margin-top: 45px;
+        }
+
+        .subtitulo-visao {
+            text-align: center;
+
+            color: var(--azul);
+
+            font-size: 28px;
+
+            margin-bottom: 25px;
+        }
+
+        .partes-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .parte-card {
+            padding: 24px;
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 18px;
+
+            transition: .25s;
+        }
+
+        .parte-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow: var(--sombra);
+        }
+
+        .parte-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .parte-card h4 {
+            color: var(--azul);
+            font-size: 18px;
+            margin-bottom: 7px;
+        }
+
+        .parte-card p {
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           CORES
+        ===================================================== */
+
+        .cores-visao {
+            margin-top: 55px;
+        }
+
+        .cores-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: var(--texto-suave);
+        }
+
+        .cores-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .cor-card {
+            padding: 25px;
+
+            border: 2px solid transparent;
+
+            border-radius: 18px;
+
+            background: white;
+
+            text-align: left;
+
+            transition: .25s;
+        }
+
+        .cor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cor-card span {
+            display: block;
+
+            font-size: 40px;
+
+            margin-bottom: 8px;
+        }
+
+        .cor-card strong {
+            display: block;
+
+            color: #0f172a;
+
+            font-size: 18px;
+        }
+
+        .cor-card small {
+            display: block;
+
+            color: var(--texto-suave);
+
+            margin-top: 7px;
+        }
+
+        .cor-card.vermelho:hover {
+            border-color: #ef4444;
+        }
+
+        .cor-card.verde:hover {
+            border-color: #22c55e;
+        }
+
+        .cor-card.azul:hover {
+            border-color: #3b82f6;
+        }
+
+        .cor-info {
+            margin-top: 18px;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: var(--suave);
+
+            color: var(--azul);
+
+            font-weight: 600;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           LABORATÓRIO
+        ===================================================== */
+
+        .laboratorio {
+            background: #eaf5ff;
+        }
+
+        .simulador,
+        .quiz {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: var(--sombra);
+
+            border: 1px solid var(--borda);
+        }
+
+        .controles {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(160px, 1fr));
+
+            gap: 15px;
+        }
+
+        .campo label {
+            display: block;
+
+            color: var(--azul);
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .campo input,
+        .campo select {
+            width: 100%;
+
+            padding: 11px;
+
+            border: 2px solid #ddd;
+
+            border-radius: 9px;
+
+            background: white;
+        }
+
+        .campo input:focus,
+        .campo select:focus {
+            outline: 3px solid rgba(25,118,210,.15);
+            border-color: var(--azul2);
+        }
+
+        .btn-azul {
+            margin-top: 20px;
+
+            padding: 12px 22px;
+
+            border: 0;
+
+            border-radius: 25px;
+
+            background: var(--azul2);
+
+            color: white;
+
+            font-weight: 700;
+
+            transition: .2s;
+        }
+
+        .btn-azul:hover {
+            background: var(--azul);
+            transform: translateY(-2px);
+        }
+
+        .resultado {
+            margin-top: 20px;
+
+            padding: 17px;
+
+            background: #f5f7fa;
+
+            border-left: 4px solid var(--azul2);
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           MAPA
+        ===================================================== */
+
+        .mapa-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: var(--sombra);
+
+            border: 1px solid var(--borda);
+        }
+
+        .mapa {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .mapa button {
+            border: 0;
+
+            padding: 20px;
+
+            background: #f5f7fa;
+
+            color: var(--azul);
+
+            border-radius: 14px;
+
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .mapa button:hover,
+        .mapa button.ativo {
+            background: var(--suave);
+            transform: translateY(-3px);
+        }
+
+        #resumo {
+            margin-top: 20px;
+
+            padding: 18px;
+
+            background: var(--suave);
+
+            border-radius: 12px;
+
+            color: #334155;
+        }
+
+
+        /* =====================================================
+           QUIZ
+        ===================================================== */
+
+        .pergunta {
+            font-size: 19px;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+        .opcoes {
+            display: grid;
+            gap: 10px;
+        }
+
+        .opcao {
+            padding: 13px;
+
+            text-align: left;
+
+            border: 2px solid #ddd;
+
+            border-radius: 10px;
+
+            background: white;
+
+            transition: .2s;
+        }
+
+        .opcao:hover {
+            border-color: var(--azul2);
+            background: var(--suave);
+        }
+
+        .opcao.selecionada {
+            border-color: var(--azul2);
+            background: #dceeff;
+        }
+
+        .feedback {
+            margin-top: 15px;
+
+            padding: 15px;
+
+            border-radius: 10px;
+        }
+
+        .certo {
+            background: #dff5e3;
+            color: #176525;
+        }
+
+        .erro {
+            background: #ffe1e1;
+            color: #9b1c1c;
+        }
+
+
+        /* =====================================================
+           SOBRE
+        ===================================================== */
+
+        .sobre-box {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 35px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 35px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #003b70,
+                    #0757a0
+                );
+
+            color: white;
+
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer strong {
+            color: #ffeb3b;
+        }
+
+
+        /* =====================================================
+           MODO ESCURO
+        ===================================================== */
+
+        body.dark {
+            --fundo: #0f172a;
+            --texto: #f1f5f9;
+            --suave: #172554;
+            --texto-suave: #cbd5e1;
+            --borda: #334155;
+        }
+
+        body.dark .acessibilidade {
+            background: #111c35;
+        }
+
+        body.dark .card,
+        body.dark .acessibilidade-box,
+        body.dark .olho-card,
+        body.dark .controle-visao,
+        body.dark .parte-card,
+        body.dark .cor-card,
+        body.dark .simulador,
+        body.dark .quiz,
+        body.dark .mapa-box,
+        body.dark .sobre-box {
+            background: #1e293b;
+            color: var(--texto);
+            border-color: #334155;
+        }
+
+        body.dark .campo input,
+        body.dark .campo select,
+        body.dark .opcao,
+        body.dark .condicao,
+        body.dark .botoes-acessibilidade button {
+            background: #0f172a;
+            color: white;
+            border-color: #475569;
+        }
+
+        body.dark .resultado,
+        body.dark .resultado-visao {
+            background: #0f172a;
+        }
+
+        body.dark .cor-card strong {
+            color: white;
+        }
+
+        body.dark .olho-simulacao {
+            background:
+                radial-gradient(
+                    circle,
+                    #172554,
+                    #0f172a
+                );
+        }
+
+        body.dark .status {
+            background: #14532d;
+            color: #bbf7d0;
+        }
+
+
+        /* =====================================================
+           ALTO CONTRASTE
+        ===================================================== */
+
+        body.contraste {
+            background: #000;
+            color: #fff;
+        }
+
+        body.contraste .card,
+        body.contraste .acessibilidade-box,
+        body.contraste .olho-card,
+        body.contraste .controle-visao,
+        body.contraste .parte-card,
+        body.contraste .cor-card,
+        body.contraste .simulador,
+        body.contraste .quiz,
+        body.contraste .mapa-box,
+        body.contraste .sobre-box {
+            background: #000;
+            color: white;
+
+            border: 2px solid white;
+        }
+
+        body.contraste .titulo,
+        body.contraste h3,
+        body.contraste h4 {
+            color: white;
+        }
+
+        body.contraste .descricao,
+        body.contraste .parte-card p,
+        body.contraste .cor-card small,
+        body.contraste .controle-visao > p {
+            color: white;
+        }
+
+
+        /* =====================================================
+           SIMULADOR DE PERCEPÇÃO DE CORES
+        ===================================================== */
+
+        body.protanopia .visao-area {
+            filter:
+                sepia(.55)
+                saturate(.65);
+        }
+
+        body.deuteranopia .visao-area {
+            filter:
+                sepia(.35)
+                hue-rotate(15deg)
+                saturate(.75);
+        }
+
+        body.tritanopia .visao-area {
+            filter:
+                hue-rotate(40deg)
+                saturate(.8);
+        }
+
+
+        /* =====================================================
+           FONTE
+        ===================================================== */
+
+        body.fonte-grande {
+            font-size: 115%;
+        }
+
+        body.fonte-maior {
+            font-size: 130%;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                right: 15px;
+
+                width: 240px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                background: var(--azul);
+
+                border-radius:
+                    0 0 15px 15px;
+
+                overflow: hidden;
+
+                box-shadow: var(--sombra);
+            }
+
+            nav.ativo {
+                display: flex;
+            }
+
+            nav a {
+                padding: 14px 18px;
+
+                border-bottom:
+                    1px solid #ffffff22;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .visao-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partes-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 12px 4%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .hero {
+                min-height: 65vh;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: min(280px, 100%);
+            }
+
+            .acessibilidade-box,
+            .olho-card,
+            .controle-visao,
+            .simulador,
+            .quiz {
+                padding: 20px;
+            }
+
+            .partes-grid,
+            .cores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mapa {
+                grid-template-columns: 1fr;
+            }
+
+            .olho-simulacao {
+                height: 280px;
+            }
+
+            .olho-real {
+                width: 270px;
+                transform: scale(.82);
+                transform-origin: center;
+                right: -5px;
+            }
+
+            .label-cornea {
+                right: 38%;
+            }
+
+            .label-cristalino {
+                right: 12%;
+            }
+
+            .label-retina {
+                right: 2%;
+                bottom: 20px;
+            }
+
+            .card-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<header>
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
 
-    <a href="#inicio" class="logo">
-        ⚛️ Física Interativa
-    </a>
+    <header>
 
-    <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Abrir menu"
-        aria-expanded="false">
-        ☰
-    </button>
-
-    <nav id="menu">
-
-        <a href="#inicio">Início</a>
-        <a href="#conteudos">Conteúdos</a>
-        <a href="#acessibilidade">Visão</a>
-        <a href="#laboratorio">Laboratório</a>
-        <a href="#mapa">Mapa</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#sobre">Sobre</a>
-
-    </nav>
-
-    <button
-        class="tema-btn"
-        id="temaBtn"
-        aria-label="Ativar modo escuro">
-        🌙
-    </button>
-
-</header>
-
-<main>
-
-<!-- INÍCIO -->
-
-<section class="hero" id="inicio">
-
-    <div class="hero-content">
-
-        <h1>Física Interativa</h1>
-
-        <p>
-            Aprenda Física de forma simples,
-            visual e acessível.
-        </p>
-
-        <p>
-            Explore movimentos, forças, luz
-            e também descubra como a visão
-            influencia nossa percepção do mundo.
-        </p>
-
-        <a href="#conteudos" class="btn">
-            Começar 🚀
+        <a href="#inicio" class="logo">
+            ⚛️ Física Interativa
         </a>
 
-    </div>
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Abrir menu"
+            aria-expanded="false">
+            ☰
+        </button>
 
-</section>
+        <nav id="menu">
 
-<!-- CONTEÚDOS -->
+            <a href="#inicio">Início</a>
+            <a href="#conteudos">Conteúdos</a>
+            <a href="#visao">👁️ Visão</a>
+            <a href="#laboratorio">Laboratório</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#sobre">Sobre</a>
 
-<section id="conteudos">
+        </nav>
 
-    <h2 class="titulo">📚 Conteúdos</h2>
+        <button
+            class="tema-btn"
+            id="temaBtn"
+            aria-label="Ativar modo escuro">
+            🌙
+        </button>
 
-    <p class="descricao">
-        Conheça os principais temas da Física.
-    </p>
+    </header>
 
-    <div class="cards">
 
-        <article class="card">
-            <span class="icone">🚗</span>
-            <h3>Movimento Uniforme</h3>
-            <p>
-                Velocidade constante e aceleração zero.
-            </p>
-            <div class="formula">
-                S = S₀ + v · t
-            </div>
-        </article>
+    <main>
 
-        <article class="card">
-            <span class="icone">🏎️</span>
-            <h3>MUV</h3>
-            <p>
-                Movimento com aceleração constante.
-            </p>
-            <div class="formula">
-                v = v₀ + a · t
-            </div>
-        </article>
+        <!-- =================================================
+             HERO
+        ================================================= -->
 
-        <article class="card">
-            <span class="icone">⚙️</span>
-            <h3>Dinâmica</h3>
-            <p>
-                Forças e Leis de Newton.
-            </p>
-            <div class="formula">
-                F = m · a
-            </div>
-        </article>
+        <section class="hero" id="inicio">
 
-        <article class="card">
-            <span class="icone">🔦</span>
-            <h3>Óptica</h3>
-            <p>
-                Luz, reflexão e refração.
-            </p>
-            <div class="formula">
-                i = r
-            </div>
-        </article>
+            <div class="hero-content">
 
-    </div>
-
-</section>
-
-<!-- VISÃO E ACESSIBILIDADE -->
-
-<section
-    class="acessibilidade"
-    id="acessibilidade">
-
-    <h2 class="titulo">
-        👁️ Visão e Acessibilidade
-    </h2>
-
-    <p class="descricao">
-        Nem todas as pessoas enxergam o mundo
-        da mesma maneira. Experimente algumas
-        ferramentas de acessibilidade.
-    </p>
-
-    <div class="acessibilidade-box">
-
-        <h3>🔎 Ajuste sua experiência</h3>
-
-        <p>
-            Use os botões abaixo para experimentar
-            diferentes formas de acessibilidade.
-        </p>
-
-        <div class="botoes-acessibilidade">
-
-            <button id="fonteMais">
-                A+ Aumentar fonte
-            </button>
-
-            <button id="fonteMenos">
-                A− Fonte normal
-            </button>
-
-            <button id="contraste">
-                ◐ Alto contraste
-            </button>
-
-            <button id="escuro">
-                🌙 Modo escuro
-            </button>
-
-        </div>
-
-        <h3>🎨 Simulador de visão</h3>
-
-        <p>
-            Escolha uma opção para perceber como
-            as cores podem ser diferentes.
-        </p>
-
-        <div class="botoes-acessibilidade">
-
-            <button data-visao="normal">
-                👁️ Visão normal
-            </button>
-
-            <button data-visao="protanopia">
-                🔴 Protanopia
-            </button>
-
-            <button data-visao="deuteranopia">
-                🟢 Deuteranopia
-            </button>
-
-            <button data-visao="tritanopia">
-                🔵 Tritanopia
-            </button>
-
-        </div>
-
-        <div class="visao">
-
-            <div
-                class="visao-area"
-                id="visaoArea">
-
-                <span class="olho">
-                    👁️
+                <span class="hero-badge">
+                    ⚡ APRENDIZADO INTERATIVO
                 </span>
 
+                <h1>
+                    Física Interativa
+                </h1>
+
+                <p>
+                    Aprenda Física de forma simples,
+                    visual e acessível.
+                </p>
+
+                <p>
+                    Explore movimentos, forças,
+                    luz, óptica e descubra como
+                    nossos olhos transformam luz
+                    em percepção.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#conteudos" class="btn">
+                        Começar 🚀
+                    </a>
+
+                    <a
+                        href="#visao"
+                        class="btn btn-outline">
+                        Explorar visão 👁️
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="explicacao" id="explicacaoVisao">
+        </section>
 
-                <strong>Visão normal:</strong>
 
-                Esta é uma representação simplificada
-                da percepção normal das cores.
+        <!-- =================================================
+             CONTEÚDOS
+        ================================================= -->
+
+        <section id="conteudos">
+
+            <span class="section-tag">
+                FUNDAMENTOS
+            </span>
+
+            <h2 class="titulo">
+                📚 Conteúdos
+            </h2>
+
+            <p class="descricao">
+                Conheça alguns dos principais
+                temas da Física.
+            </p>
+
+            <div class="cards">
+
+                <article class="card">
+
+                    <span class="icone">🚗</span>
+
+                    <h3>
+                        Movimento Uniforme
+                    </h3>
+
+                    <p>
+                        Movimento com velocidade
+                        constante e aceleração igual
+                        a zero.
+                    </p>
+
+                    <div class="formula">
+                        S = S₀ + v · t
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <span class="icone">🏎️</span>
+
+                    <h3>
+                        MUV
+                    </h3>
+
+                    <p>
+                        Movimento no qual a aceleração
+                        permanece constante.
+                    </p>
+
+                    <div class="formula">
+                        v = v₀ + a · t
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <span class="icone">⚙️</span>
+
+                    <h3>
+                        Dinâmica
+                    </h3>
+
+                    <p>
+                        Estudo das forças e de como
+                        elas alteram o movimento.
+                    </p>
+
+                    <div class="formula">
+                        F = m · a
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <span class="icone">🔦</span>
+
+                    <h3>
+                        Óptica
+                    </h3>
+
+                    <p>
+                        Estudo da luz, reflexão,
+                        refração, lentes e espelhos.
+                    </p>
+
+                    <div class="formula">
+                        i = r
+                    </div>
+
+                </article>
 
             </div>
 
-        </div>
+        </section>
 
-        <br>
 
-        <h3>💡 Por que isso é importante?</h3>
+        <!-- =================================================
+             VISÃO E ACESSIBILIDADE
+        ================================================= -->
+
+        <section
+            class="acessibilidade"
+            id="visao">
+
+            <span class="section-tag">
+                ÓPTICA + ACESSIBILIDADE
+            </span>
+
+            <h2 class="titulo">
+                👁️ Visão e Acessibilidade
+            </h2>
+
+            <p class="descricao">
+                Explore como o olho humano funciona,
+                como a luz forma imagens e como
+                diferentes condições visuais alteram
+                nossa percepção.
+            </p>
+
+
+            <div class="acessibilidade-box">
+
+                <!-- CONTROLES -->
+
+                <h3>
+                    🔎 Personalize sua experiência
+                </h3>
+
+                <p>
+                    Ajuste o site para tornar a
+                    experiência mais confortável.
+                </p>
+
+                <div class="botoes-acessibilidade">
+
+                    <button id="fonteMais">
+                        A+ Aumentar fonte
+                    </button>
+
+                    <button id="fonteMenos">
+                        A− Fonte normal
+                    </button>
+
+                    <button id="contraste">
+                        ◐ Alto contraste
+                    </button>
+
+                    <button id="escuro">
+                        🌙 Modo escuro
+                    </button>
+
+                </div>
+
+
+                <!-- SIMULADOR DE CORES -->
+
+                <h3>
+                    🎨 Percepção das cores
+                </h3>
+
+                <p>
+                    Experimente diferentes formas de
+                    percepção das cores.
+                </p>
+
+                <div class="botoes-acessibilidade">
+
+                    <button data-visao="normal">
+                        👁️ Visão normal
+                    </button>
+
+                    <button data-visao="protanopia">
+                        🔴 Protanopia
+                    </button>
+
+                    <button data-visao="deuteranopia">
+                        🟢 Deuteranopia
+                    </button>
+
+                    <button data-visao="tritanopia">
+                        🔵 Tritanopia
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     EXPERIÊNCIA DO OLHO
+                ================================================= -->
+
+                <div class="visao-interativa">
+
+                    <div class="visao-grid">
+
+                        <!-- OLHO -->
+
+                        <div class="olho-card">
+
+                            <div class="card-top">
+
+                                <div>
+
+                                    <span class="mini-label">
+                                        SIMULAÇÃO
+                                    </span>
+
+                                    <h3>
+                                        Como a luz entra no olho?
+                                    </h3>
+
+                                </div>
+
+                                <span class="status">
+                                    ● AO VIVO
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="olho-simulacao"
+                                id="visaoArea">
+
+                                <div class="raio raio-1"></div>
+                                <div class="raio raio-2"></div>
+                                <div class="raio raio-3"></div>
+
+
+                                <div class="olho-real">
+
+                                    <div class="iris">
+                                        <div class="pupila"></div>
+                                    </div>
+
+                                    <div class="cristalino"></div>
+
+                                    <div class="retina"></div>
+
+                                </div>
+
+
+                                <button
+                                    class="parte-olho label-cornea"
+                                    data-parte="cornea">
+                                    Córnea
+                                </button>
+
+                                <button
+                                    class="parte-olho label-cristalino"
+                                    data-parte="cristalino">
+                                    Cristalino
+                                </button>
+
+                                <button
+                                    class="parte-olho label-retina"
+                                    data-parte="retina">
+                                    Retina
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="explicacao-olho"
+                                id="explicacaoOlho">
+
+                                <strong>
+                                    🔎 Clique em uma parte do olho
+                                </strong>
+
+                                <p>
+                                    Descubra a função das principais
+                                    estruturas envolvidas na visão.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONDIÇÕES VISUAIS -->
+
+                        <div class="controle-visao">
+
+                            <span class="mini-label">
+                                EXPERIMENTE
+                            </span>
+
+                            <h3>
+                                🎯 Onde a imagem se forma?
+                            </h3>
+
+                            <p>
+                                Escolha uma condição visual
+                                e veja onde os raios de luz
+                                tendem a se concentrar.
+                            </p>
+
+
+                            <div class="condicoes">
+
+                                <button
+                                    class="condicao ativo"
+                                    data-condicao="normal">
+                                    👁️ Visão normal
+                                </button>
+
+                                <button
+                                    class="condicao"
+                                    data-condicao="miopia">
+                                    👓 Miopia
+                                </button>
+
+                                <button
+                                    class="condicao"
+                                    data-condicao="hipermetropia">
+                                    🔍 Hipermetropia
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                class="resultado-visao"
+                                id="resultadoVisao">
+
+                                <div class="resultado-icone">
+                                    👁️
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Visão normal
+                                    </strong>
+
+                                    <p>
+                                        Os raios de luz são focalizados
+                                        diretamente sobre a retina,
+                                        formando uma imagem nítida.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ANATOMIA -->
+
+                    <div class="anatomia">
+
+                        <h3 class="subtitulo-visao">
+                            🧠 Conheça o caminho da visão
+                        </h3>
+
+                        <div class="partes-grid">
+
+                            <article class="parte-card">
+
+                                <div class="parte-icon">
+                                    🔵
+                                </div>
+
+                                <h4>
+                                    Córnea
+                                </h4>
+
+                                <p>
+                                    Primeira estrutura transparente
+                                    que recebe a luz. Ela contribui
+                                    bastante para a refração dos
+                                    raios luminosos.
+                                </p>
+
+                            </article>
+
+
+                            <article class="parte-card">
+
+                                <div class="parte-icon">
+                                    🟣
+                                </div>
+
+                                <h4>
+                                    Cristalino
+                                </h4>
+
+                                <p>
+                                    Atua como uma lente natural.
+                                    Sua curvatura pode mudar para
+                                    ajudar o olho a focalizar
+                                    diferentes distâncias.
+                                </p>
+
+                            </article>
+
+
+                            <article class="parte-card">
+
+                                <div class="parte-icon">
+                                    🔴
+                                </div>
+
+                                <h4>
+                                    Retina
+                                </h4>
+
+                                <p>
+                                    Camada sensível à luz onde
+                                    ocorre a conversão da informação
+                                    luminosa em sinais nervosos.
+                                </p>
+
+                            </article>
+
+
+                            <article class="parte-card">
+
+                                <div class="parte-icon">
+                                    🧠
+                                </div>
+
+                                <h4>
+                                    Cérebro
+                                </h4>
+
+                                <p>
+                                    O cérebro interpreta os sinais
+                                    enviados pelo sistema visual
+                                    e produz nossa percepção
+                                    do ambiente.
+                                </p>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CORES -->
+
+                    <div class="cores-visao">
+
+                        <h3 class="subtitulo-visao">
+                            🌈 Como percebemos as cores?
+                        </h3>
+
+                        <p class="cores-intro">
+                            A retina possui células chamadas
+                            cones, que participam da percepção
+                            das cores. Clique para explorar.
+                        </p>
+
+
+                        <div class="cores-grid">
+
+                            <button
+                                class="cor-card vermelho"
+                                data-cor="vermelho">
+
+                                <span>
+                                    🔴
+                                </span>
+
+                                <strong>
+                                    Vermelho
+                                </strong>
+
+                                <small>
+                                    Associado a regiões de maior
+                                    comprimento de onda da luz visível.
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                class="cor-card verde"
+                                data-cor="verde">
+
+                                <span>
+                                    🟢
+                                </span>
+
+                                <strong>
+                                    Verde
+                                </strong>
+
+                                <small>
+                                    A percepção das cores resulta
+                                    da combinação das respostas
+                                    dos diferentes cones.
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                class="cor-card azul"
+                                data-cor="azul">
+
+                                <span>
+                                    🔵
+                                </span>
+
+                                <strong>
+                                    Azul
+                                </strong>
+
+                                <small>
+                                    Está associado a regiões de menor
+                                    comprimento de onda da luz visível.
+                                </small>
+
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="cor-info"
+                            id="corInfo">
+
+                            💡 Clique em uma cor para descobrir
+                            mais sobre a percepção visual.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <br>
+
+
+                <h3>
+                    💡 Por que acessibilidade é importante?
+                </h3>
+
+                <p>
+                    Um site acessível não deve depender apenas
+                    das cores para transmitir informações.
+                    Textos, símbolos, contrastes e descrições
+                    ajudam diferentes pessoas a utilizar o conteúdo.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LABORATÓRIO
+        ================================================= -->
+
+        <section
+            class="laboratorio"
+            id="laboratorio">
+
+            <span class="section-tag">
+                EXPERIMENTO
+            </span>
+
+            <h2 class="titulo">
+                🧪 Laboratório
+            </h2>
+
+            <p class="descricao">
+                Faça uma experiência de MU ou MUV.
+            </p>
+
+            <div class="simulador">
+
+                <div class="controles">
+
+                    <div class="campo">
+
+                        <label for="tipo">
+                            Movimento
+                        </label>
+
+                        <select id="tipo">
+
+                            <option value="mu">
+                                MU
+                            </option>
+
+                            <option value="muv">
+                                MUV
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="s0">
+                            Posição inicial
+                        </label>
+
+                        <input
+                            id="s0"
+                            type="number"
+                            value="0">
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="v0">
+                            Velocidade inicial
+                        </label>
+
+                        <input
+                            id="v0"
+                            type="number"
+                            value="10">
+
+                    </div>
+
+
+                    <div
+                        class="campo"
+                        id="campoA">
+
+                        <label for="a">
+                            Aceleração
+                        </label>
+
+                        <input
+                            id="a"
+                            type="number"
+                            value="2">
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="t">
+                            Tempo
+                        </label>
+
+                        <input
+                            id="t"
+                            type="number"
+                            value="5"
+                            min="0">
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn-azul"
+                    id="calcular">
+                    ▶ Calcular
+                </button>
+
+
+                <div
+                    class="resultado"
+                    id="resultado"
+                    aria-live="polite">
+
+                    Informe os valores e clique em calcular.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MAPA
+        ================================================= -->
+
+        <section id="mapa">
+
+            <span class="section-tag">
+                REVISÃO
+            </span>
+
+            <h2 class="titulo">
+                🗺️ Mapa Conceitual
+            </h2>
+
+            <p class="descricao">
+                Escolha um tema para descobrir mais.
+            </p>
+
+            <div class="mapa-box">
+
+                <div class="mapa">
+
+                    <button data-tema="mu">
+                        🚗
+                        <br>
+                        MU
+                    </button>
+
+                    <button data-tema="muv">
+                        🏎️
+                        <br>
+                        MUV
+                    </button>
+
+                    <button data-tema="dinamica">
+                        ⚙️
+                        <br>
+                        Dinâmica
+                    </button>
+
+                    <button data-tema="optica">
+                        🔦
+                        <br>
+                        Óptica
+                    </button>
+
+                </div>
+
+
+                <div id="resumo">
+
+                    <strong>
+                        Escolha um tema.
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUIZ
+        ================================================= -->
+
+        <section id="quiz">
+
+            <span class="section-tag">
+                DESAFIO
+            </span>
+
+            <h2 class="titulo">
+                🧠 Quiz
+            </h2>
+
+            <p class="descricao">
+                Teste seus conhecimentos de Física.
+            </p>
+
+            <div class="quiz">
+
+                <div
+                    id="pergunta"
+                    class="pergunta">
+                </div>
+
+
+                <div
+                    id="opcoes"
+                    class="opcoes">
+                </div>
+
+
+                <div
+                    id="feedback"
+                    class="feedback">
+                </div>
+
+
+                <button
+                    class="btn-azul"
+                    id="verificar">
+                    ✓ Verificar
+                </button>
+
+
+                <button
+                    class="btn-azul"
+                    id="proxima"
+                    hidden>
+                    Próxima →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOBRE
+        ================================================= -->
+
+        <section id="sobre">
+
+            <span class="section-tag">
+                O PROJETO
+            </span>
+
+            <h2 class="titulo">
+                ℹ️ Sobre
+            </h2>
+
+            <div class="sobre-box">
+
+                <p>
+                    O <strong>Física Interativa</strong>
+                    é um projeto educacional criado para
+                    tornar o aprendizado de Física mais
+                    simples, visual, acessível e interessante.
+                </p>
+
+                <br>
+
+                <p>
+                    Aqui você pode aprender sobre movimento,
+                    forças, óptica e visão por meio de
+                    simuladores, explicações e atividades
+                    interativas.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
 
         <p>
-            Um site acessível não deve depender somente
-            das cores para transmitir informações.
-            Textos, símbolos, contrastes e descrições
-            ajudam diferentes pessoas a utilizar
-            o conteúdo.
+            ⚛️
+            <strong>Física Interativa</strong>
         </p>
 
-    </div>
+        <p>
+            Projeto criado por
+            <strong>José Matheu</strong>
+        </p>
 
-</section>
+        <p>
+            Aprender Física pode ser divertido! 🚀
+        </p>
 
-<!-- LABORATÓRIO -->
+    </footer>
 
-<section
-    class="laboratorio"
-    id="laboratorio">
 
-    <h2 class="titulo">
-        🧪 Laboratório
-    </h2>
+    <script>
 
-    <p class="descricao">
-        Faça uma experiência de MU ou MUV.
-    </p>
+        /* =====================================================
+           MENU
+        ===================================================== */
 
-    <div class="simulador">
+        const menuBtn =
+            document.getElementById("menuBtn");
 
-        <div class="controles">
+        const menu =
+            document.getElementById("menu");
 
-            <div class="campo">
 
-                <label for="tipo">
-                    Movimento
-                </label>
+        menuBtn.addEventListener("click", () => {
 
-                <select id="tipo">
+            const aberto =
+                menu.classList.toggle("ativo");
 
-                    <option value="mu">
-                        MU
-                    </option>
+            menuBtn.setAttribute(
+                "aria-expanded",
+                aberto
+            );
 
-                    <option value="muv">
-                        MUV
-                    </option>
+            menuBtn.textContent =
+                aberto ? "✕" : "☰";
 
-                </select>
+        });
 
-            </div>
 
-            <div class="campo">
+        document
+            .querySelectorAll("#menu a")
+            .forEach(link => {
 
-                <label for="s0">
-                    Posição inicial
-                </label>
+                link.addEventListener("click", () => {
 
-                <input
-                    id="s0"
-                    type="number"
-                    value="0">
+                    menu.classList.remove("ativo");
 
-            </div>
+                    menuBtn.textContent = "☰";
 
-            <div class="campo">
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-                <label for="v0">
-                    Velocidade inicial
-                </label>
+                });
 
-                <input
-                    id="v0"
-                    type="number"
-                    value="10">
+            });
 
-            </div>
 
-            <div
-                class="campo"
-                id="campoA">
+        document.addEventListener("click", evento => {
 
-                <label for="a">
-                    Aceleração
-                </label>
+            if (
+                !menu.contains(evento.target) &&
+                !menuBtn.contains(evento.target)
+            ) {
 
-                <input
-                    id="a"
-                    type="number"
-                    value="2">
+                menu.classList.remove("ativo");
 
-            </div>
+                menuBtn.textContent = "☰";
 
-            <div class="campo">
+                menuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-                <label for="t">
-                    Tempo
-                </label>
+            }
 
-                <input
-                    id="t"
-                    type="number"
-                    value="5"
-                    min="0">
+        });
 
-            </div>
 
-        </div>
+        /* =====================================================
+           MODO ESCURO
+        ===================================================== */
 
-        <button
-            class="btn-azul"
-            id="calcular">
-            ▶ Calcular
-        </button>
+        const temaBtn =
+            document.getElementById("temaBtn");
 
-        <div
-            class="resultado"
-            id="resultado"
-            aria-live="polite">
+        const escuro =
+            document.getElementById("escuro");
 
-            Informe os valores e clique em calcular.
 
-        </div>
+        function alternarEscuro() {
 
-    </div>
+            document.body.classList.toggle("dark");
 
-</section>
+            const ativo =
+                document.body.classList.contains("dark");
 
-<!-- MAPA -->
-
-<section id="mapa">
-
-    <h2 class="titulo">
-        🗺️ Mapa Conceitual
-    </h2>
-
-    <p class="descricao">
-        Escolha um tema para descobrir mais.
-    </p>
-
-    <div class="mapa-box">
-
-        <div class="mapa">
-
-            <button data-tema="mu">
-                🚗<br>MU
-            </button>
-
-            <button data-tema="muv">
-                🏎️<br>MUV
-            </button>
-
-            <button data-tema="dinamica">
-                ⚙️<br>Dinâmica
-            </button>
-
-            <button data-tema="optica">
-                🔦<br>Óptica
-            </button>
-
-        </div>
-
-        <div id="resumo">
-
-            <strong>
-                Escolha um tema.
-            </strong>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- QUIZ -->
-
-<section id="quiz">
-
-    <h2 class="titulo">
-        🧠 Quiz
-    </h2>
-
-    <p class="descricao">
-        Teste seus conhecimentos.
-    </p>
-
-    <div class="quiz">
-
-        <div
-            id="pergunta"
-            class="pergunta">
-        </div>
-
-        <div
-            id="opcoes"
-            class="opcoes">
-        </div>
-
-        <div
-            id="feedback"
-            class="feedback">
-        </div>
-
-        <button
-            class="btn-azul"
-            id="verificar">
-            ✓ Verificar
-        </button>
-
-        <button
-            class="btn-azul"
-            id="proxima"
-            hidden>
-            Próxima →
-        </button>
-
-    </div>
-
-</section>
-
-<!-- SOBRE -->
-
-<section id="sobre">
-
-    <h2 class="titulo">
-        ℹ️ Sobre
-    </h2>
-
-    <p class="descricao">
-
-        O Física Interativa é um projeto
-        educacional criado para tornar o
-        aprendizado de Física mais simples,
-        visual e acessível.
-
-    </p>
-
-</section>
-
-</main>
-
-<footer>
-
-    <p>
-        ⚛️ <strong>Física Interativa</strong>
-    </p>
-
-    <p>
-        Projeto criado por
-        <strong>José Matheu</strong>
-    </p>
-
-    <p>
-        Aprender Física pode ser divertido! 🚀
-    </p>
-
-</footer>
-
-<script>
-
-/* =========================
-   MENU
-========================= */
-
-const menuBtn =
-    document.getElementById("menuBtn");
-
-const menu =
-    document.getElementById("menu");
-
-menuBtn.onclick = () => {
-
-    const aberto =
-        menu.classList.toggle("ativo");
-
-    menuBtn.setAttribute(
-        "aria-expanded",
-        aberto
-    );
-
-    menuBtn.textContent =
-        aberto ? "✕" : "☰";
-
-};
-
-document
-.querySelectorAll("#menu a")
-.forEach(link => {
-
-    link.onclick = () => {
-
-        menu.classList.remove("ativo");
-
-        menuBtn.textContent = "☰";
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    };
-
-});
-
-/* FECHAR MENU AO CLICAR FORA */
-
-document.addEventListener("click", evento => {
-
-    if(
-        !menu.contains(evento.target) &&
-        !menuBtn.contains(evento.target)
-    ){
-
-        menu.classList.remove("ativo");
-
-        menuBtn.textContent = "☰";
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
-
-/* =========================
-   MODO ESCURO
-========================= */
-
-const temaBtn =
-    document.getElementById("temaBtn");
-
-const escuro =
-    document.getElementById("escuro");
-
-function alternarEscuro(){
-
-    document.body.classList.toggle("dark");
-
-    const ativo =
-        document.body.classList.contains("dark");
-
-    temaBtn.textContent =
-        ativo ? "☀️" : "🌙";
-
-}
-
-temaBtn.onclick = alternarEscuro;
-escuro.onclick = alternarEscuro;
-
-/* =========================
-   FONTE
-========================= */
-
-document.getElementById("fonteMais").onclick = () => {
-
-    document.body.classList.remove("fonte-maior");
-
-    document.body.classList.add("fonte-grande");
-
-};
-
-document.getElementById("fonteMenos").onclick = () => {
-
-    document.body.classList.remove(
-        "fonte-grande",
-        "fonte-maior"
-    );
-
-};
-
-/* =========================
-   CONTRASTE
-========================= */
-
-document
-.getElementById("contraste")
-.onclick = () => {
-
-    document.body.classList.toggle(
-        "contraste"
-    );
-
-};
-
-/* =========================
-   SIMULADOR DE VISÃO
-========================= */
-
-const explicacao =
-    document.getElementById(
-        "explicacaoVisao"
-    );
-
-const explicacoes = {
-
-    normal: `
-        <strong>Visão normal:</strong>
-        representação simplificada da percepção
-        normal das cores.
-    `,
-
-    protanopia: `
-        <strong>Protanopia:</strong>
-        dificuldade principalmente na percepção
-        de tons relacionados ao vermelho.
-    `,
-
-    deuteranopia: `
-        <strong>Deuteranopia:</strong>
-        dificuldade principalmente na percepção
-        de tons relacionados ao verde.
-    `,
-
-    tritanopia: `
-        <strong>Tritanopia:</strong>
-        dificuldade principalmente na percepção
-        de tons relacionados ao azul e amarelo.
-    `
-
-};
-
-document
-.querySelectorAll("[data-visao]")
-.forEach(botao => {
-
-    botao.onclick = () => {
-
-        document.body.classList.remove(
-            "protanopia",
-            "deuteranopia",
-            "tritanopia"
-        );
-
-        const visao =
-            botao.dataset.visao;
-
-        if(visao !== "normal"){
-
-            document.body.classList.add(
-                visao
+            temaBtn.textContent =
+                ativo ? "☀️" : "🌙";
+
+            temaBtn.setAttribute(
+                "aria-label",
+                ativo
+                    ? "Desativar modo escuro"
+                    : "Ativar modo escuro"
             );
 
         }
 
-        explicacao.innerHTML =
-            explicacoes[visao];
 
-    };
-
-});
-
-/* =========================
-   SIMULADOR MU / MUV
-========================= */
-
-const tipo =
-    document.getElementById("tipo");
-
-const campoA =
-    document.getElementById("campoA");
-
-tipo.onchange = () => {
-
-    campoA.style.display =
-        tipo.value === "mu"
-        ? "none"
-        : "block";
-
-};
-
-tipo.onchange();
-
-document
-.getElementById("calcular")
-.onclick = () => {
-
-    const s0 =
-        Number(
-            document.getElementById("s0").value
+        temaBtn.addEventListener(
+            "click",
+            alternarEscuro
         );
 
-    const v0 =
-        Number(
-            document.getElementById("v0").value
+        escuro.addEventListener(
+            "click",
+            alternarEscuro
         );
 
-    const a =
-        Number(
-            document.getElementById("a").value
-        );
 
-    const t =
-        Number(
-            document.getElementById("t").value
-        );
+        /* =====================================================
+           TAMANHO DA FONTE
+        ===================================================== */
 
-    let s;
-    let v;
+        document
+            .getElementById("fonteMais")
+            .addEventListener("click", () => {
 
-    if(tipo.value === "mu"){
-
-        s = s0 + v0 * t;
-        v = v0;
-
-        document.getElementById(
-            "resultado"
-        ).innerHTML = `
-
-            🚗 <strong>Movimento Uniforme</strong>
-
-            <br><br>
-
-            Posição final:
-            <strong>${s.toFixed(2)} m</strong>
-
-            <br>
-
-            Velocidade:
-            <strong>${v.toFixed(2)} m/s</strong>
-
-            <br>
-
-            Aceleração:
-            <strong>0 m/s²</strong>
-
-        `;
-
-    }else{
-
-        s =
-            s0 +
-            v0 * t +
-            0.5 * a * t * t;
-
-        v =
-            v0 + a * t;
-
-        document.getElementById(
-            "resultado"
-        ).innerHTML = `
-
-            🏎️
-            <strong>
-                Movimento Uniformemente Variado
-            </strong>
-
-            <br><br>
-
-            Posição final:
-            <strong>${s.toFixed(2)} m</strong>
-
-            <br>
-
-            Velocidade final:
-            <strong>${v.toFixed(2)} m/s</strong>
-
-            <br>
-
-            Aceleração:
-            <strong>${a.toFixed(2)} m/s²</strong>
-
-        `;
-
-    }
-
-};
-
-/* =========================
-   MAPA
-========================= */
-
-const textos = {
-
-    mu:
-        "🚗 No MU, a velocidade é constante e a aceleração é zero. Fórmula: S = S₀ + v · t.",
-
-    muv:
-        "🏎️ No MUV, a aceleração é constante e a velocidade varia com o tempo.",
-
-    dinamica:
-        "⚙️ A Dinâmica estuda as forças responsáveis pelas mudanças no movimento. Fórmula: F = m · a.",
-
-    optica:
-        "🔦 A Óptica estuda a luz, incluindo reflexão, refração, lentes e espelhos."
-
-};
-
-document
-.querySelectorAll(".mapa button")
-.forEach(botao => {
-
-    botao.onclick = () => {
-
-        document.getElementById(
-            "resumo"
-        ).textContent =
-            textos[botao.dataset.tema];
-
-    };
-
-});
-
-/* =========================
-   QUIZ
-========================= */
-
-const perguntas = [
-
-    {
-        pergunta:
-            "Um carro anda a 20 m/s durante 5 segundos. Qual distância percorre?",
-
-        opcoes:
-            ["25 m","50 m","100 m","200 m"],
-
-        correta:2
-    },
-
-    {
-        pergunta:
-            "Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 segundos?",
-
-        opcoes:
-            ["2 m/s","5 m/s","10 m/s","25 m/s"],
-
-        correta:2
-    },
-
-    {
-        pergunta:
-            "Qual é a expressão da 2ª Lei de Newton?",
-
-        opcoes:
-            [
-                "F = m · a",
-                "F = m + a",
-                "F = m / a",
-                "F = a / m"
-            ],
-
-        correta:0
-    },
-
-    {
-        pergunta:
-            "Na reflexão da luz, os ângulos de incidência e reflexão são:",
-
-        opcoes:
-            [
-                "Diferentes",
-                "Sempre zero",
-                "Iguais",
-                "Aleatórios"
-            ],
-
-        correta:2
-    },
-
-    {
-        pergunta:
-            "Quando a luz muda de direção ao passar para outro meio ocorre:",
-
-        opcoes:
-            [
-                "Reflexão",
-                "Refração",
-                "Inércia",
-                "Combustão"
-            ],
-
-        correta:1
-    }
-
-];
-
-let questao = 0;
-let pontos = 0;
-let resposta = null;
-
-const pergunta =
-    document.getElementById("pergunta");
-
-const opcoes =
-    document.getElementById("opcoes");
-
-const feedback =
-    document.getElementById("feedback");
-
-const verificar =
-    document.getElementById("verificar");
-
-const proxima =
-    document.getElementById("proxima");
-
-function carregarQuestao(){
-
-    resposta = null;
-
-    feedback.textContent = "";
-
-    feedback.className =
-        "feedback";
-
-    verificar.hidden = false;
-
-    proxima.hidden = true;
-
-    const atual =
-        perguntas[questao];
-
-    pergunta.textContent =
-        atual.pergunta;
-
-    opcoes.innerHTML = "";
-
-    atual.opcoes.forEach(
-        (texto, indice) => {
-
-            const botao =
-                document.createElement(
-                    "button"
+                document.body.classList.remove(
+                    "fonte-maior"
                 );
 
-            botao.className =
-                "opcao";
-
-            botao.textContent =
-                `${String.fromCharCode(
-                    65 + indice
-                )}. ${texto}`;
-
-            botao.onclick = () => {
-
-                document
-                .querySelectorAll(".opcao")
-                .forEach(
-                    item =>
-                        item.style.background =
-                            "white"
+                document.body.classList.add(
+                    "fonte-grande"
                 );
 
-                botao.style.background =
-                    "#dceeff";
+            });
 
-                resposta = indice;
 
-            };
+        document
+            .getElementById("fonteMenos")
+            .addEventListener("click", () => {
 
-            opcoes.appendChild(botao);
+                document.body.classList.remove(
+                    "fonte-grande",
+                    "fonte-maior"
+                );
 
-        }
-    );
+            });
 
-}
 
-verificar.onclick = () => {
+        /* =====================================================
+           ALTO CONTRASTE
+        ===================================================== */
 
-    if(resposta === null){
+        document
+            .getElementById("contraste")
+            .addEventListener("click", () => {
 
-        feedback.className =
-            "feedback erro";
+                document.body.classList.toggle(
+                    "contraste"
+                );
 
-        feedback.textContent =
-            "⚠️ Escolha uma alternativa.";
+            });
 
-        return;
 
-    }
+        /* =====================================================
+           SIMULADOR DE PERCEPÇÃO DE CORES
+        ===================================================== */
 
-    if(
-        resposta ===
-        perguntas[questao].correta
-    ){
+        const explicacaoVisao =
+            document.getElementById(
+                "explicacaoOlho"
+            );
 
-        pontos++;
 
-        feedback.className =
-            "feedback certo";
+        const explicacoesVisao = {
 
-        feedback.textContent =
-            "🎉 Correto!";
+            normal: `
+                <strong>👁️ Visão normal</strong>
 
-    }else{
+                <p>
+                    Esta é uma representação simplificada
+                    da percepção normal das cores.
+                </p>
+            `,
 
-        feedback.className =
-            "feedback erro";
+            protanopia: `
+                <strong>🔴 Protanopia</strong>
 
-        feedback.textContent =
-            "❌ Incorreto.";
+                <p>
+                    A protanopia é uma alteração na percepção
+                    das cores associada principalmente à ausência
+                    ou funcionamento reduzido dos cones relacionados
+                    à faixa do vermelho.
+                </p>
+            `,
 
-    }
+            deuteranopia: `
+                <strong>🟢 Deuteranopia</strong>
 
-    verificar.hidden = true;
-    proxima.hidden = false;
+                <p>
+                    A deuteranopia está relacionada à ausência
+                    ou funcionamento reduzido dos cones associados
+                    principalmente à percepção do verde.
+                </p>
+            `,
 
-};
+            tritanopia: `
+                <strong>🔵 Tritanopia</strong>
 
-proxima.onclick = () => {
-
-    questao++;
-
-    if(
-        questao >= perguntas.length
-    ){
-
-        pergunta.textContent =
-            `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
-
-        opcoes.innerHTML = "";
-
-        feedback.className =
-            "feedback certo";
-
-        feedback.textContent =
-            "Quiz concluído!";
-
-        proxima.textContent =
-            "🔄 Refazer";
-
-        proxima.onclick = () => {
-
-            questao = 0;
-            pontos = 0;
-
-            proxima.textContent =
-                "Próxima →";
-
-            carregarQuestao();
+                <p>
+                    A tritanopia está relacionada à percepção
+                    alterada das regiões azul e amarelo do
+                    espectro de cores.
+                </p>
+            `
 
         };
 
-        return;
 
-    }
+        document
+            .querySelectorAll("[data-visao]")
+            .forEach(botao => {
 
-    carregarQuestao();
+                botao.addEventListener(
+                    "click",
+                    () => {
 
-};
+                        document.body.classList.remove(
+                            "protanopia",
+                            "deuteranopia",
+                            "tritanopia"
+                        );
 
-carregarQuestao();
 
-</script>
+                        const visao =
+                            botao.dataset.visao;
+
+
+                        if (visao !== "normal") {
+
+                            document.body.classList.add(
+                                visao
+                            );
+
+                        }
+
+
+                        document
+                            .querySelectorAll(
+                                "[data-visao]"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "ativo"
+                                );
+
+                            });
+
+
+                        botao.classList.add(
+                            "ativo"
+                        );
+
+
+                        explicacaoVisao.innerHTML =
+                            explicacoesVisao[visao];
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           PARTES DO OLHO
+        ===================================================== */
+
+        const explicacoesOlho = {
+
+            cornea: `
+                <strong>🔵 Córnea</strong>
+
+                <p>
+                    A córnea é a superfície transparente
+                    na parte frontal do olho. Ela recebe
+                    a luz e provoca uma importante mudança
+                    na direção dos raios luminosos.
+                </p>
+            `,
+
+            cristalino: `
+                <strong>🟣 Cristalino</strong>
+
+                <p>
+                    O cristalino funciona como uma lente
+                    natural. Ele altera sua curvatura para
+                    ajudar a focalizar objetos próximos
+                    e distantes.
+                </p>
+            `,
+
+            retina: `
+                <strong>🔴 Retina</strong>
+
+                <p>
+                    A retina contém células sensíveis à luz.
+                    Ela transforma a informação luminosa
+                    em sinais que serão transmitidos
+                    ao sistema nervoso.
+                </p>
+            `
+
+        };
+
+
+        document
+            .querySelectorAll(".parte-olho")
+            .forEach(botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        const parte =
+                            botao.dataset.parte;
+
+                        explicacaoVisao.innerHTML =
+                            explicacoesOlho[parte];
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           CONDIÇÕES VISUAIS
+        ===================================================== */
+
+        const condicoes = {
+
+            normal: {
+
+                titulo:
+                    "Visão normal",
+
+                texto:
+                    "Os raios de luz são focalizados diretamente sobre a retina, permitindo a formação de uma imagem nítida.",
+
+                icone:
+                    "👁️"
+
+            },
+
+
+            miopia: {
+
+                titulo:
+                    "Miopia",
+
+                texto:
+                    "Na miopia, o foco da luz tende a ocorrer antes da retina. Por isso, objetos distantes podem parecer desfocados. Lentes divergentes podem corrigir essa condição.",
+
+                icone:
+                    "👓"
+
+            },
+
+
+            hipermetropia: {
+
+                titulo:
+                    "Hipermetropia",
+
+                texto:
+                    "Na hipermetropia, o foco tende a ocorrer depois da retina. Lentes convergentes podem ajudar a levar o foco para a posição adequada.",
+
+                icone:
+                    "🔍"
+
+            }
+
+        };
+
+
+        const resultadoVisao =
+            document.getElementById(
+                "resultadoVisao"
+            );
+
+
+        document
+            .querySelectorAll(".condicao")
+            .forEach(botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(
+                                ".condicao"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "ativo"
+                                );
+
+                            });
+
+
+                        botao.classList.add(
+                            "ativo"
+                        );
+
+
+                        const condicao =
+                            condicoes[
+                                botao.dataset.condicao
+                            ];
+
+
+                        resultadoVisao.innerHTML = `
+
+                            <div class="resultado-icone">
+                                ${condicao.icone}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    ${condicao.titulo}
+                                </strong>
+
+                                <p>
+                                    ${condicao.texto}
+                                </p>
+
+                            </div>
+
+                        `;
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           CORES
+        ===================================================== */
+
+        const informacoesCores = {
+
+            vermelho:
+                "🔴 O vermelho está associado a comprimentos de onda maiores da luz visível. A percepção das cores depende da combinação dos sinais produzidos pelos diferentes tipos de cones.",
+
+            verde:
+                "🟢 O verde ocupa uma região intermediária do espectro visível. O cérebro combina os sinais dos cones para construir nossa percepção das cores.",
+
+            azul:
+                "🔵 O azul está associado a comprimentos de onda menores da luz visível. A resposta dos cones sensíveis a essa região participa da percepção dessa cor."
+
+        };
+
+
+        const corInfo =
+            document.getElementById(
+                "corInfo"
+            );
+
+
+        document
+            .querySelectorAll(".cor-card")
+            .forEach(botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        corInfo.textContent =
+                            informacoesCores[
+                                botao.dataset.cor
+                            ];
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           SIMULADOR MU / MUV
+        ===================================================== */
+
+        const tipo =
+            document.getElementById("tipo");
+
+        const campoA =
+            document.getElementById("campoA");
+
+
+        function atualizarTipoMovimento() {
+
+            campoA.style.display =
+                tipo.value === "mu"
+                    ? "none"
+                    : "block";
+
+        }
+
+
+        tipo.addEventListener(
+            "change",
+            atualizarTipoMovimento
+        );
+
+        atualizarTipoMovimento();
+
+
+        document
+            .getElementById("calcular")
+            .addEventListener(
+                "click",
+                () => {
+
+                    const s0 =
+                        Number(
+                            document.getElementById(
+                                "s0"
+                            ).value
+                        );
+
+                    const v0 =
+                        Number(
+                            document.getElementById(
+                                "v0"
+                            ).value
+                        );
+
+                    const a =
+                        Number(
+                            document.getElementById(
+                                "a"
+                            ).value
+                        );
+
+                    const t =
+                        Number(
+                            document.getElementById(
+                                "t"
+                            ).value
+                        );
+
+
+                    if (t < 0) {
+
+                        document.getElementById(
+                            "resultado"
+                        ).innerHTML = `
+                            ❌ O tempo não pode ser negativo.
+                        `;
+
+                        return;
+
+                    }
+
+
+                    let s;
+                    let v;
+
+
+                    if (tipo.value === "mu") {
+
+                        s =
+                            s0 +
+                            v0 * t;
+
+                        v = v0;
+
+
+                        document.getElementById(
+                            "resultado"
+                        ).innerHTML = `
+
+                            🚗
+                            <strong>
+                                Movimento Uniforme
+                            </strong>
+
+                            <br><br>
+
+                            Posição final:
+                            <strong>
+                                ${s.toFixed(2)} m
+                            </strong>
+
+                            <br>
+
+                            Velocidade:
+                            <strong>
+                                ${v.toFixed(2)} m/s
+                            </strong>
+
+                            <br>
+
+                            Aceleração:
+                            <strong>
+                                0 m/s²
+                            </strong>
+
+                        `;
+
+                    } else {
+
+                        s =
+                            s0 +
+                            v0 * t +
+                            0.5 * a * t * t;
+
+                        v =
+                            v0 +
+                            a * t;
+
+
+                        document.getElementById(
+                            "resultado"
+                        ).innerHTML = `
+
+                            🏎️
+                            <strong>
+                                Movimento Uniformemente Variado
+                            </strong>
+
+                            <br><br>
+
+                            Posição final:
+                            <strong>
+                                ${s.toFixed(2)} m
+                            </strong>
+
+                            <br>
+
+                            Velocidade final:
+                            <strong>
+                                ${v.toFixed(2)} m/s
+                            </strong>
+
+                            <br>
+
+                            Aceleração:
+                            <strong>
+                                ${a.toFixed(2)} m/s²
+                            </strong>
+
+                        `;
+
+                    }
+
+                }
+            );
+
+
+        /* =====================================================
+           MAPA CONCEITUAL
+        ===================================================== */
+
+        const textos = {
+
+            mu:
+                "🚗 No MU, a velocidade permanece constante e a aceleração é zero. Fórmula: S = S₀ + v · t.",
+
+            muv:
+                "🏎️ No MUV, a aceleração é constante e a velocidade varia com o tempo. Fórmulas importantes: v = v₀ + a · t e S = S₀ + v₀t + ½at².",
+
+            dinamica:
+                "⚙️ A Dinâmica estuda as causas dos movimentos. A 2ª Lei de Newton relaciona força, massa e aceleração: F = m · a.",
+
+            optica:
+                "🔦 A Óptica estuda a luz e seus fenômenos, como reflexão, refração, formação de imagens, lentes e espelhos."
+
+        };
+
+
+        document
+            .querySelectorAll(".mapa button")
+            .forEach(botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        document
+                            .querySelectorAll(
+                                ".mapa button"
+                            )
+                            .forEach(item => {
+
+                                item.classList.remove(
+                                    "ativo"
+                                );
+
+                            });
+
+
+                        botao.classList.add(
+                            "ativo"
+                        );
+
+
+                        document.getElementById(
+                            "resumo"
+                        ).textContent =
+                            textos[
+                                botao.dataset.tema
+                            ];
+
+                    }
+                );
+
+            });
+
+
+        /* =====================================================
+           QUIZ
+        ===================================================== */
+
+        const perguntas = [
+
+            {
+                pergunta:
+                    "Um carro anda a 20 m/s durante 5 segundos. Qual distância percorre?",
+
+                opcoes:
+                    [
+                        "25 m",
+                        "50 m",
+                        "100 m",
+                        "200 m"
+                    ],
+
+                correta: 2
+            },
+
+
+            {
+                pergunta:
+                    "Um corpo parte do repouso com aceleração de 2 m/s². Qual sua velocidade após 5 segundos?",
+
+                opcoes:
+                    [
+                        "2 m/s",
+                        "5 m/s",
+                        "10 m/s",
+                        "25 m/s"
+                    ],
+
+                correta: 2
+            },
+
+
+            {
+                pergunta:
+                    "Qual é a expressão da 2ª Lei de Newton?",
+
+                opcoes:
+                    [
+                        "F = m · a",
+                        "F = m + a",
+                        "F = m / a",
+                        "F = a / m"
+                    ],
+
+                correta: 0
+            },
+
+
+            {
+                pergunta:
+                    "Na reflexão da luz, os ângulos de incidência e reflexão são:",
+
+                opcoes:
+                    [
+                        "Diferentes",
+                        "Sempre zero",
+                        "Iguais",
+                        "Aleatórios"
+                    ],
+
+                correta: 2
+            },
+
+
+            {
+                pergunta:
+                    "Quando a luz muda de direção ao passar para outro meio ocorre:",
+
+                opcoes:
+                    [
+                        "Reflexão",
+                        "Refração",
+                        "Inércia",
+                        "Combustão"
+                    ],
+
+                correta: 1
+            },
+
+
+            {
+                pergunta:
+                    "Em uma visão normal, onde os raios de luz são focalizados?",
+
+                opcoes:
+                    [
+                        "Antes da retina",
+                        "Depois da retina",
+                        "Diretamente sobre a retina",
+                        "Na córnea"
+                    ],
+
+                correta: 2
+            }
+
+        ];
+
+
+        let questao = 0;
+        let pontos = 0;
+        let resposta = null;
+
+
+        const pergunta =
+            document.getElementById(
+                "pergunta"
+            );
+
+        const opcoes =
+            document.getElementById(
+                "opcoes"
+            );
+
+        const feedback =
+            document.getElementById(
+                "feedback"
+            );
+
+        const verificar =
+            document.getElementById(
+                "verificar"
+            );
+
+        const proxima =
+            document.getElementById(
+                "proxima"
+            );
+
+
+        function carregarQuestao() {
+
+            resposta = null;
+
+            feedback.textContent = "";
+
+            feedback.className =
+                "feedback";
+
+            verificar.hidden = false;
+
+            proxima.hidden = true;
+
+            const atual =
+                perguntas[questao];
+
+
+            pergunta.textContent =
+                atual.pergunta;
+
+
+            opcoes.innerHTML = "";
+
+
+            atual.opcoes.forEach(
+                (texto, indice) => {
+
+                    const botao =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    botao.className =
+                        "opcao";
+
+
+                    botao.textContent =
+                        `${String.fromCharCode(
+                            65 + indice
+                        )}. ${texto}`;
+
+
+                    botao.addEventListener(
+                        "click",
+                        () => {
+
+                            document
+                                .querySelectorAll(
+                                    ".opcao"
+                                )
+                                .forEach(item => {
+
+                                    item.classList.remove(
+                                        "selecionada"
+                                    );
+
+                                });
+
+
+                            botao.classList.add(
+                                "selecionada"
+                            );
+
+
+                            resposta =
+                                indice;
+
+                        }
+                    );
+
+
+                    opcoes.appendChild(
+                        botao
+                    );
+
+                }
+            );
+
+        }
+
+
+        verificar.addEventListener(
+            "click",
+            () => {
+
+                if (resposta === null) {
+
+                    feedback.className =
+                        "feedback erro";
+
+                    feedback.textContent =
+                        "⚠️ Escolha uma alternativa.";
+
+                    return;
+
+                }
+
+
+                if (
+                    resposta ===
+                    perguntas[questao].correta
+                ) {
+
+                    pontos++;
+
+                    feedback.className =
+                        "feedback certo";
+
+                    feedback.textContent =
+                        "🎉 Correto!";
+
+                } else {
+
+                    feedback.className =
+                        "feedback erro";
+
+                    feedback.textContent =
+                        "❌ Incorreto.";
+
+                }
+
+
+                verificar.hidden = true;
+
+                proxima.hidden = false;
+
+            }
+        );
+
+
+        proxima.addEventListener(
+            "click",
+            () => {
+
+                questao++;
+
+
+                if (
+                    questao >= perguntas.length
+                ) {
+
+                    pergunta.textContent =
+                        `🎉 Você acertou ${pontos} de ${perguntas.length}!`;
+
+                    opcoes.innerHTML = "";
+
+
+                    feedback.className =
+                        "feedback certo";
+
+                    feedback.textContent =
+                        "Quiz concluído!";
+
+
+                    proxima.textContent =
+                        "🔄 Refazer";
+
+
+                    return;
+
+                }
+
+
+                carregarQuestao();
+
+            }
+        );
+
+
+        proxima.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    questao >= perguntas.length
+                ) {
+
+                    questao = 0;
+                    pontos = 0;
+
+                    proxima.textContent =
+                        "Próxima →";
+
+                    carregarQuestao();
+
+                }
+
+            }
+        );
+
+
+        carregarQuestao();
+
+    </script>
 
 </body>
+
 </html>
+```
